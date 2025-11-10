@@ -11,4 +11,4 @@ jobs:
       image-name: web-multiselect-showcase
       image-tag: prod
       deployment-host: web-03.km8.vm
-      deployment-dir: web-multiselect-showcase-uat
+      deployment-dir: web-multiselect-showcase
