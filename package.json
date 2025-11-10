@@ -24,7 +24,7 @@
 	},
 	"dependencies": {
 		"@keenmate/svelte-docs": "^1.0.0-rc06",
-		"@keenmate/web-multiselect": "^1.0.0-rc04",
+		"@keenmate/web-multiselect": "^1.0.0-rc05",
 		"bootstrap": "^5.3.8"
 	}
 }
