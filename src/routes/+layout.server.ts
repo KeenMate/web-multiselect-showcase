@@ -36,6 +36,7 @@ const config: PartialDocsConfig = {
 					{ label: 'Async Search', href: '/examples/async-search' },
 					{ label: 'Custom Styling', href: '/examples/custom-styling' },
 					{ label: 'Display Modes', href: '/examples/display-modes' },
+					{ label: 'RTL Support', href: '/examples/rtl' },
 					{ label: 'Advanced Features', href: '/examples/advanced-features' }
 				]
 			},

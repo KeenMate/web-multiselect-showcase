@@ -4,6 +4,8 @@
 
 	let pillsSelect: any;
 	let countSelect: any;
+	let countOnlySelect: any;
+	let badgeOnlySelect: any;
 	let compactSelect: any;
 	let pillsTopSelect: any;
 	let pillsLeftSelect: any;
@@ -24,6 +26,8 @@
 
 		if (pillsSelect) pillsSelect.options = options;
 		if (countSelect) countSelect.options = options;
+		if (countOnlySelect) countOnlySelect.options = options;
+		if (badgeOnlySelect) badgeOnlySelect.options = options;
 		if (compactSelect) compactSelect.options = options;
 		if (pillsTopSelect) pillsTopSelect.options = options;
 		if (pillsLeftSelect) pillsLeftSelect.options = options;
@@ -77,8 +81,8 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Count Mode"
-			subtitleText="Show count of selected items with badge"
+			titleText="Count Mode + Badge"
+			subtitleText="Count pill and badge (both options enabled)"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
 			descriptionColumnTitle="Mode">
@@ -95,26 +99,111 @@
 						search-placeholder="Select technologies..."
 					></multi-select>
 					<p class="text-muted small mt-2">
-						Compact display showing only count
+						Shows count pill (clickable) + count badge next to toggle icon
 					</p>
 				</div>
 			{/snippet}
 
 			{#snippet controlsContent()}
 				<div class="prose small">
-					<p>Select items to see count update.</p>
-					<p>Saves space when many items selected.</p>
-					<p>Badge shows count next to dropdown toggle.</p>
+					<p>This example shows <strong>both</strong> count features enabled:</p>
+					<ul>
+						<li><strong>Count pill:</strong> Clickable "X selected" in input area</li>
+						<li><strong>Count badge:</strong> [X] next to dropdown toggle</li>
+					</ul>
+					<p>You can use both together or separately (see examples below).</p>
 				</div>
 			{/snippet}
 
 			{#snippet descriptionContent()}
 				<div class="prose small">
-					<h5>Count Mode</h5>
+					<h5>Combined Count Display</h5>
 					<p><code>pills-display-mode="count"</code></p>
-					<p>Use <code>getCountPillCallback</code> for i18n/pluralization</p>
-					<p><code>show-count-badge="true"</code> - Show badge</p>
-					<p>Best for limited space.</p>
+					<p><code>show-count-badge="true"</code></p>
+					<p>Both options work independently and can be combined for maximum visibility.</p>
+				</div>
+			{/snippet}
+		</ShowcaseSection>
+
+		<ShowcaseSection
+			titleText="Count Mode Only"
+			subtitleText="Count pill without badge"
+			demoColumnTitle="Live Demo"
+			controlsColumnTitle="Try It"
+			descriptionColumnTitle="Mode">
+
+			{#snippet demoContent()}
+				<div class="multiselect-demo">
+					<multi-select
+						bind:this={countOnlySelect}
+						value-member="value"
+						display-value-member="label"
+						icon-member="icon"
+						pills-display-mode="count"
+						search-placeholder="Select technologies..."
+					></multi-select>
+					<p class="text-muted small mt-2">
+						Shows only the count pill (no badge)
+					</p>
+				</div>
+			{/snippet}
+
+			{#snippet controlsContent()}
+				<div class="prose small">
+					<p>Only the count pill is shown in the input area.</p>
+					<p>Click the count text to see selected items in a popover.</p>
+					<p>Use <code>getCountPillCallback</code> for i18n/pluralization.</p>
+				</div>
+			{/snippet}
+
+			{#snippet descriptionContent()}
+				<div class="prose small">
+					<h5>Count Pill Only</h5>
+					<p><code>pills-display-mode="count"</code></p>
+					<p><code>show-count-badge="false"</code> (default)</p>
+					<p>Compact display best for limited space.</p>
+				</div>
+			{/snippet}
+		</ShowcaseSection>
+
+		<ShowcaseSection
+			titleText="Badge Only (Pills Mode)"
+			subtitleText="Pills with count badge"
+			demoColumnTitle="Live Demo"
+			controlsColumnTitle="Try It"
+			descriptionColumnTitle="Mode">
+
+			{#snippet demoContent()}
+				<div class="multiselect-demo">
+					<multi-select
+						bind:this={badgeOnlySelect}
+						value-member="value"
+						display-value-member="label"
+						icon-member="icon"
+						pills-display-mode="pills"
+						show-count-badge="true"
+						search-placeholder="Select technologies..."
+					></multi-select>
+					<p class="text-muted small mt-2">
+						Shows pills + count badge next to toggle
+					</p>
+				</div>
+			{/snippet}
+
+			{#snippet controlsContent()}
+				<div class="prose small">
+					<p>Pills are shown normally, but with count badge added.</p>
+					<p>Badge provides quick visual feedback of total count.</p>
+					<p>Useful when pills might scroll out of view.</p>
+				</div>
+			{/snippet}
+
+			{#snippet descriptionContent()}
+				<div class="prose small">
+					<h5>Pills + Badge</h5>
+					<p><code>pills-display-mode="pills"</code></p>
+					<p><code>show-count-badge="true"</code></p>
+					<p>Badge works with any display mode.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
