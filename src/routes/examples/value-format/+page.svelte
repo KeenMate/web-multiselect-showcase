@@ -77,13 +77,13 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={jsonSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Select languages..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -131,13 +131,13 @@ const json = JSON.stringify(values);
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={csvSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Select languages..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -184,13 +184,13 @@ const csv = values.join(',');
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={arraySelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Select languages..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -244,13 +244,13 @@ values.forEach(lang => console.log(lang));`}</code></pre>
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={customSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Select languages..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -270,7 +270,7 @@ values.forEach(lang => console.log(lang));`}</code></pre>
 				<div class="prose small">
 					<h5>Custom Callback</h5>
 					<p>Set the <code>getValueFormatCallback</code> property:</p>
-					<pre><code>{`const select = document.querySelector('multi-select');
+					<pre><code>{`const select = document.querySelector('web-multiselect');
 
 select.getValueFormatCallback = (values) => {
   // Custom format: "CUSTOM:val1|val2|val3"

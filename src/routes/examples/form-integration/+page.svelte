@@ -127,12 +127,12 @@
 			<h3 class="h5 mb-3">⚙️ Setup for Form Integration</h3>
 			<p>To integrate the multiselect with HTML forms, you need to set the <code>name</code> attribute:</p>
 			<pre><code>{`<form action="/submit" method="POST">
-  <multi-select
+  <web-multiselect
     name="languages"         <!-- Required: form field name -->
     value-format="json"      <!-- Optional: json (default), csv, or array -->
     value-member="value"
     display-value-member="label">
-  </multi-select>
+  </web-multiselect>
   <button type="submit">Submit</button>
 </form>`}</code></pre>
 			<p class="mt-3 mb-0"><strong>What happens:</strong> Hidden input(s) are automatically created and updated as you select/deselect items. The hidden inputs are submitted with your form using the specified <code>name</code>.</p>
@@ -148,7 +148,7 @@
 			{#snippet demoContent()}
 				<div class="form-demo">
 					<form id="json-form" onsubmit={(e) => handleSubmit(e, 'json')}>
-						<multi-select
+						<web-multiselect
 							bind:this={jsonFormatSelect}
 							name="languages"
 							value-format="json"
@@ -156,7 +156,7 @@
 							display-value-member="label"
 							icon-member="icon"
 							search-placeholder="Select languages..."
-						></multi-select>
+						></web-multiselect>
 						<button type="submit" class="btn btn-primary mt-3">Submit Form</button>
 					</form>
 
@@ -204,7 +204,7 @@
 			{#snippet demoContent()}
 				<div class="form-demo">
 					<form id="csv-form" onsubmit={(e) => handleSubmit(e, 'csv')}>
-						<multi-select
+						<web-multiselect
 							bind:this={csvFormatSelect}
 							name="technologies"
 							value-format="csv"
@@ -212,7 +212,7 @@
 							display-value-member="label"
 							icon-member="icon"
 							search-placeholder="Select technologies..."
-						></multi-select>
+						></web-multiselect>
 						<button type="submit" class="btn btn-primary mt-3">Submit Form</button>
 					</form>
 
@@ -260,7 +260,7 @@ $array = explode(',', $techs);
 			{#snippet demoContent()}
 				<div class="form-demo">
 					<form id="array-form" onsubmit={(e) => handleSubmit(e, 'array')}>
-						<multi-select
+						<web-multiselect
 							bind:this={arrayFormatSelect}
 							name="skills"
 							value-format="array"
@@ -268,7 +268,7 @@ $array = explode(',', $techs);
 							display-value-member="label"
 							icon-member="icon"
 							search-placeholder="Select skills..."
-						></multi-select>
+						></web-multiselect>
 						<button type="submit" class="btn btn-primary mt-3">Submit Form</button>
 					</form>
 

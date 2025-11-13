@@ -7,6 +7,7 @@
 	let countOnlySelect: any;
 	let badgeOnlySelect: any;
 	let compactSelect: any;
+	let noneSelect: any;
 	let pillsTopSelect: any;
 	let pillsLeftSelect: any;
 	let thresholdSelect: any;
@@ -29,6 +30,7 @@
 		if (countOnlySelect) countOnlySelect.options = options;
 		if (badgeOnlySelect) badgeOnlySelect.options = options;
 		if (compactSelect) compactSelect.options = options;
+		if (noneSelect) noneSelect.options = options;
 		if (pillsTopSelect) pillsTopSelect.options = options;
 		if (pillsLeftSelect) pillsLeftSelect.options = options;
 		if (thresholdSelect) thresholdSelect.options = options;
@@ -49,14 +51,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={pillsSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						pills-display-mode="pills"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Pills show below the search input by default
 					</p>
@@ -89,7 +91,7 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={countSelect}
 						value-member="value"
 						display-value-member="label"
@@ -97,7 +99,7 @@
 						pills-display-mode="count"
 							show-count-badge="true"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Shows count pill (clickable) + count badge next to toggle icon
 					</p>
@@ -134,14 +136,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={countOnlySelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						pills-display-mode="count"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Shows only the count pill (no badge)
 					</p>
@@ -167,15 +169,15 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Badge Only (Pills Mode)"
-			subtitleText="Pills with count badge"
+			titleText="Count Badge Feature"
+			subtitleText="Add [X] badge to any display mode"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
-			descriptionColumnTitle="Mode">
+			descriptionColumnTitle="Badge Info">
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={badgeOnlySelect}
 						value-member="value"
 						display-value-member="label"
@@ -183,58 +185,61 @@
 						pills-display-mode="pills"
 						show-count-badge="true"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
-						Shows pills + count badge next to toggle
+						Pills mode with [X] badge added next to toggle icon
 					</p>
 				</div>
 			{/snippet}
 
 			{#snippet controlsContent()}
 				<div class="prose small">
-					<p>Pills are shown normally, but with count badge added.</p>
-					<p>Badge provides quick visual feedback of total count.</p>
-					<p>Useful when pills might scroll out of view.</p>
+					<p><strong>Important:</strong> The count badge <code>[X]</code> is a <em>supplementary</em> feature, not a standalone display mode.</p>
+					<p>It can be added to any display mode (pills, count, or compact).</p>
+					<p>Badge provides quick visual feedback of total count, especially useful when pills scroll out of view.</p>
 				</div>
 			{/snippet}
 
 			{#snippet descriptionContent()}
 				<div class="prose small">
-					<h5>Pills + Badge</h5>
-					<p><code>pills-display-mode="pills"</code></p>
+					<h5>Count Badge</h5>
 					<p><code>show-count-badge="true"</code></p>
-					<p>Badge works with any display mode.</p>
+					<p>Works with any <code>pills-display-mode</code></p>
+					<p><strong>Note:</strong> Cannot be used alone - must be combined with pills, count, or compact mode.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
 
 		<ShowcaseSection
 			titleText="Compact Mode"
-			subtitleText="Minimal display showing first item + count"
+			subtitleText="First item + count in a single removable pill"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
 			descriptionColumnTitle="Mode">
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={compactSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						pills-display-mode="compact"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
-						Shows first item and count of others
+						Shows first item with count in a single pill
 					</p>
 				</div>
 			{/snippet}
 
 			{#snippet controlsContent()}
 				<div class="prose small">
-					<p>First selected item shown with count of remaining items.</p>
-					<p>Good balance between detail and space.</p>
+					<p>First selected item shown with count of remaining items in a single removable pill.</p>
+					<p>Example: <code>[JavaScript (+2 more) | x]</code></p>
+					<p>Remove button clears ALL selections.</p>
+					<p>Click pill text to see all selected items in popover.</p>
+					<p>Automatically shows next item when selections change.</p>
 				</div>
 			{/snippet}
 
@@ -242,8 +247,54 @@
 				<div class="prose small">
 					<h5>Compact Mode</h5>
 					<p><code>pills-display-mode="compact"</code></p>
-					<p>Shows: "First Item (+2 more)"</p>
-					<p>Compromise between pills and count.</p>
+					<p>Shows: <code>JavaScript (+2 more)</code></p>
+					<p>Good balance between detail and space.</p>
+					<p>Uses <code>getPillDisplayCallback</code> for first item and <code>getCountPillCallback</code> for count text.</p>
+				</div>
+			{/snippet}
+		</ShowcaseSection>
+
+		<ShowcaseSection
+			titleText="None Mode (Minimal Display)"
+			subtitleText="No display in pills area - use with count badge"
+			demoColumnTitle="Live Demo"
+			controlsColumnTitle="Try It"
+			descriptionColumnTitle="Mode">
+
+			{#snippet demoContent()}
+				<div class="multiselect-demo">
+					<web-multiselect
+						bind:this={noneSelect}
+						value-member="value"
+						display-value-member="label"
+						icon-member="icon"
+						pills-display-mode="none"
+						show-count-badge="true"
+						search-placeholder="Select technologies..."
+					></web-multiselect>
+					<p class="text-muted small mt-2">
+						Nothing shown in pills area - only [X] badge visible
+					</p>
+				</div>
+			{/snippet}
+
+			{#snippet controlsContent()}
+				<div class="prose small">
+					<p>Most compact display possible - no pills or count text shown.</p>
+					<p>Typically combined with <code>show-count-badge="true"</code> to show <code>[X]</code> indicator.</p>
+					<p>Click the count badge to see all selected items in popover.</p>
+					<p>Or open the dropdown to see selections.</p>
+				</div>
+			{/snippet}
+
+			{#snippet descriptionContent()}
+				<div class="prose small">
+					<h5>None Mode</h5>
+					<p><code>pills-display-mode="none"</code></p>
+					<p><code>show-count-badge="true"</code></p>
+					<p>Perfect for extremely space-constrained layouts.</p>
+					<p>Pills container is empty and hidden via CSS.</p>
+					<p><strong>Note:</strong> No callbacks are invoked in this mode (no display to render).</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
@@ -257,14 +308,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={pillsTopSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						pills-position="top"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Pills appear above the input
 					</p>
@@ -297,14 +348,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={pillsLeftSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						pills-position="left"
 						search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Pills appear inline to the left
 					</p>
@@ -337,14 +388,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={thresholdSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						pills-threshold="3"
 							search-placeholder="Select technologies..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Switches to count mode after 3 selections
 					</p>
@@ -368,6 +419,161 @@
 			{/snippet}
 		</ShowcaseSection>
 
+		<!-- Callback Behavior Documentation -->
+		<div class="mt-5 p-4 bg-warning bg-opacity-10 border border-warning rounded">
+			<h2 class="h4 mb-3">🔧 Callback Behavior by Display Mode</h2>
+			<p class="mb-4">Understanding when your callbacks are invoked is critical for proper implementation.</p>
+
+			<h3 class="h5 mb-3">getPillDisplayCallback(item)</h3>
+			<p class="small">Controls the text shown for individual selected items.</p>
+			<div class="table-responsive mb-4">
+				<table class="table table-sm table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Display Mode</th>
+							<th>When Called</th>
+							<th>Example</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>pills</code></td>
+							<td>✅ For EACH selected item</td>
+							<td>Called 5 times for 5 selections</td>
+						</tr>
+						<tr>
+							<td><code>partial</code></td>
+							<td>✅ For EACH visible pill only</td>
+							<td>Called 3 times (shows "Item1", "Item2", "Item3" + "+2 more")</td>
+						</tr>
+						<tr>
+							<td><code>compact</code></td>
+							<td>✅ For ONLY the first item</td>
+							<td>Called 1 time (shows "Item1 (+4 more)")</td>
+						</tr>
+						<tr>
+							<td><code>count</code></td>
+							<td>❌ NOT called</td>
+							<td>No individual items shown</td>
+						</tr>
+						<tr>
+							<td><code>none</code></td>
+							<td>❌ NOT called</td>
+							<td>No display</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="small text-muted mb-4">💡 <strong>Tip:</strong> Use this callback to show different text in pills vs dropdown (e.g., "John Doe" in pill, full details in dropdown)</p>
+
+			<h3 class="h5 mb-3">getCountPillCallback(count, moreCount?)</h3>
+			<p class="small">Controls count text display. Signature: <code>(count: number, moreCount?: number) =&gt; string</code></p>
+			<div class="table-responsive mb-4">
+				<table class="table table-sm table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Display Mode</th>
+							<th>When Called</th>
+							<th>Parameters</th>
+							<th>Example Output</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>pills</code></td>
+							<td>❌ NOT called</td>
+							<td>-</td>
+							<td>No count text</td>
+						</tr>
+						<tr>
+							<td><code>partial</code></td>
+							<td>✅ For "+X more" badge</td>
+							<td><code>count=5, moreCount=2</code></td>
+							<td>"+2 more"</td>
+						</tr>
+						<tr>
+							<td><code>compact</code></td>
+							<td>✅ For "(+X more)" text</td>
+							<td><code>count=5, moreCount=4</code></td>
+							<td>"(+4 more)"</td>
+						</tr>
+						<tr>
+							<td><code>count</code></td>
+							<td>✅ For main count text</td>
+							<td><code>count=5, moreCount=undefined</code></td>
+							<td>"5 selected"</td>
+						</tr>
+						<tr>
+							<td><code>none</code></td>
+							<td>❌ NOT called</td>
+							<td>-</td>
+							<td>No display</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="small text-muted mb-4">💡 <strong>Tip:</strong> Check if <code>moreCount</code> is defined to handle both use cases:</p>
+			<pre class="bg-light p-3 rounded"><code>{`getCountPillCallback: (count, moreCount) => {
+  if (moreCount !== undefined) {
+    return \`+\${moreCount} more\`; // Partial/Compact mode
+  }
+  return \`\${count} selected\`; // Count mode
+}`}</code></pre>
+
+			<h3 class="h5 mb-3">Count Badge [X] (Independent Feature)</h3>
+			<ul class="small mb-4">
+				<li><strong>Always shows:</strong> Just the number in brackets <code>[5]</code></li>
+				<li><strong>NOT affected by any callbacks</strong></li>
+				<li><strong>Works with ALL display modes</strong> (including 'none')</li>
+				<li><strong>Controlled by:</strong> <code>show-count-badge="true"</code> attribute</li>
+			</ul>
+
+			<h3 class="h5 mb-3">Quick Reference: What's Displayed</h3>
+			<div class="table-responsive">
+				<table class="table table-sm table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Mode</th>
+							<th>Pills Area Shows</th>
+							<th>Callbacks Used</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>pills</code></td>
+							<td>Individual pills for all items</td>
+							<td><code>getPillDisplayCallback</code> (each item)</td>
+						</tr>
+						<tr>
+							<td><code>partial</code></td>
+							<td>First N pills + "+X more" badge</td>
+							<td><code>getPillDisplayCallback</code> (visible items), <code>getCountPillCallback</code> (badge)</td>
+						</tr>
+						<tr>
+							<td><code>compact</code></td>
+							<td>Single pill: "FirstItem (+X more)"</td>
+							<td><code>getPillDisplayCallback</code> (1st item), <code>getCountPillCallback</code> (count)</td>
+						</tr>
+						<tr>
+							<td><code>count</code></td>
+							<td>"X selected" text + clear button</td>
+							<td><code>getCountPillCallback</code> (text)</td>
+						</tr>
+						<tr>
+							<td><code>none</code></td>
+							<td>Nothing (empty)</td>
+							<td>None</td>
+						</tr>
+						<tr class="table-info">
+							<td><code>badge [X]</code></td>
+							<td>Always shows <code>[count]</code> next to toggle</td>
+							<td>None (just shows number)</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
 		<!-- Configuration Table -->
 		<div class="mt-5">
 			<h2 class="mb-4">Display Mode Configuration</h2>
@@ -384,9 +590,9 @@
 					<tbody>
 						<tr>
 							<td><code>display-mode</code></td>
-							<td><code>pills</code> | <code>count</code> | <code>compact</code></td>
+							<td><code>pills</code> | <code>count</code> | <code>compact</code> | <code>partial</code> | <code>none</code></td>
 							<td><code>pills</code></td>
-							<td>How to display selected items</td>
+							<td>How to display selected items. <code>compact</code>: first item + count in single pill. <code>none</code>: no display (use with count badge).</td>
 						</tr>
 						<tr>
 							<td><code>pills-position</code></td>

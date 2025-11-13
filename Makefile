@@ -84,23 +84,10 @@ package: build ## Package for deployment
 	@echo "Build completed - ready for deployment"
 	@echo "Build output is in: ./$(BUILD_DIR)/"
 
-deploy-vercel: build ## Deploy to Vercel
-	@echo "To deploy to Vercel:"
-	@echo "1. Install Vercel CLI: npm i -g vercel"
-	@echo "2. Run: vercel --prod"
-
-deploy-netlify: build ## Deploy to Netlify
-	@echo "To deploy to Netlify:"
-	@echo "1. Install Netlify CLI: npm i -g netlify-cli"
-	@echo "2. Run: netlify deploy --prod --dir=$(BUILD_DIR)"
-
-deploy-github: build ## Deploy to GitHub Pages
-	@echo "To deploy to GitHub Pages:"
-	@echo "1. Push $(BUILD_DIR)/ directory to gh-pages branch"
-	@echo "2. Enable GitHub Pages in repository settings"
-
 # Development workflows
-setup: install ## Complete project setup
+setup: ## Complete project setup
+	npm install
+	npm ls --depth=0
 	@echo "Project setup complete!"
 	@echo "Run 'make dev' to start development server"
 

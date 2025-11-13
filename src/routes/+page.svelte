@@ -81,6 +81,14 @@
 					variantType="secondary"
 				/>
 			</div>
+			<div class="col-md-6 col-lg-4">
+				<FeatureCard
+					iconEmoji="⚡"
+					titleText="Virtual Scrolling"
+					descriptionText="Handle 15,000+ options instantly - 25× faster opening, 99.8% memory reduction with smooth mouse wheel and keyboard navigation"
+					variantType="primary"
+				/>
+			</div>
 		</div>
 
 		<!-- Quick Install -->
@@ -203,8 +211,8 @@ import '@keenmate/web-multiselect/dist/style.css';`}
 				<p class="text-muted">Framework Agnostic</p>
 			</div>
 			<div class="col-md-3">
-				<h3 class="display-6 fw-bold text-primary">📝</h3>
-				<p class="text-muted">Form Ready</p>
+				<h3 class="display-6 fw-bold text-primary">⚡</h3>
+				<p class="text-muted">Virtual Scrolling</p>
 			</div>
 			<div class="col-md-3">
 				<h3 class="display-6 fw-bold text-primary">🔍</h3>

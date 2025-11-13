@@ -36,12 +36,13 @@
 				{ data: { id: 'usr_3', info: { name: 'Product C', price: 29.99, category: 'Books' }}},
 				{ data: { id: 'usr_4', info: { name: 'Product D', price: 79.99, category: 'Books' }}}
 			];
-			
+
 			callbacksSelect.options = complexData;
 			callbacksSelect.getValueCallback = (item: any) => item.data.id;
 			callbacksSelect.getDisplayValueCallback = (item: any) => item.data.info.name;
 			callbacksSelect.getSubtitleCallback = (item: any) => `$${item.data.info.price} - ${item.data.info.category}`;
 			callbacksSelect.getIconCallback = (item: any) => item.data.info.category === 'Electronics' ? '🔌' : '📚';
+			callbacksSelect.getPillDisplayCallback = (item: any) => `${item.data.info.name} ($${item.data.info.price})`;
 		}
 	});
 </script>
@@ -61,13 +62,13 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={customObjectsSelect}
 						value-member="userId"
 						display-value-member="fullName"
 						subtitle-member="email"
 						search-placeholder="Search users..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -104,10 +105,10 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={tuplesSelect}
 						search-placeholder="Search options..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -146,10 +147,10 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={callbacksSelect}
 						search-placeholder="Search products..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -167,7 +168,7 @@
   }
 }`}</code></pre>
 					<p class="mt-3"><strong>How to use callbacks:</strong></p>
-					<pre><code>{`const select = document.querySelector('multi-select');
+					<pre><code>{`const select = document.querySelector('web-multiselect');
 select.options = complexData;
 
 select.getValueCallback = (item) => {
@@ -184,6 +185,10 @@ select.getSubtitleCallback = (item) => {
 
 select.getIconCallback = (item) => {
   return item.data.info.category === 'Electronics' ? '🔌' : '📚';
+};
+
+select.getPillDisplayCallback = (item) => {
+  return \`\${item.data.info.name} ($\${item.data.info.price})\`;
 };`}</code></pre>
 				</div>
 			{/snippet}
@@ -192,10 +197,12 @@ select.getIconCallback = (item) => {
 				<div class="prose small">
 					<h5>Callback Properties</h5>
 					<p><code>getValueCallback</code> - Extract unique value from item</p>
-					<p><code>getDisplayValueCallback</code> - Extract display text</p>
+					<p><code>getDisplayValueCallback</code> - Extract display text for dropdown</p>
+					<p><code>getPillDisplayCallback</code> - Extract display text for pills (optional)</p>
 					<p><code>getSubtitleCallback</code> - Extract subtitle text</p>
 					<p><code>getIconCallback</code> - Extract or generate icon</p>
 					<p class="mt-2">Callbacks receive the full item object and can return any computed value. Use callbacks when you need complex logic or deeply nested property access.</p>
+					<p class="mt-2"><strong>Note:</strong> In this example, pills show "Product A ($99.99)" while dropdown shows full details with category.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>

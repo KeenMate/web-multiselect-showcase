@@ -118,7 +118,7 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={githubSelect}
 						value-member="value"
 						display-value-member="label"
@@ -126,7 +126,7 @@
 						icon-member="icon"
 						search-placeholder="Search GitHub users..."
 						loading-message="Searching GitHub..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Try searching for: "octocat", "torvalds", "gaearon"
 					</p>
@@ -161,7 +161,7 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={productSelect}
 						value-member="value"
 						display-value-member="label"
@@ -169,7 +169,7 @@
 						icon-member="icon"
 						search-placeholder="Search products..."
 						loading-message="Loading products..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Try searching for: "laptop", "mouse", "chair"
 					</p>
@@ -202,14 +202,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={countrySelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Search countries..."
 						loading-message="Searching..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Try searching for: "united", "germany", "japan"
 					</p>

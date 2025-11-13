@@ -34,6 +34,7 @@ const config: PartialDocsConfig = {
 					{ label: 'Value Format', href: '/examples/value-format' },
 					{ label: 'Form Integration', href: '/examples/form-integration' },
 					{ label: 'Async Search', href: '/examples/async-search' },
+					{ label: 'Virtual Scrolling', href: '/examples/virtual-scrolling' },
 					{ label: 'Custom Styling', href: '/examples/custom-styling' },
 					{ label: 'Display Modes', href: '/examples/display-modes' },
 					{ label: 'RTL Support', href: '/examples/rtl' },

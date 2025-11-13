@@ -23,31 +23,48 @@
 
 <style>
 	/* Primary themed multiselect */
-	:global(.primary-theme) {
-		--ml-input-border-color: var(--bs-primary);
-		--ml-input-focus-border-color: var(--bs-primary);
+	:global(web-multiselect.primary-theme) {
+		--ml-input-border-color: #0d6efd;
+		--ml-input-focus-border-color: #0d6efd;
 		--ml-input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-		--ml-option-hover-bg: var(--bs-primary-bg-subtle);
-		--ml-option-selected-bg: var(--bs-primary);
-		--ml-option-selected-color: white;
-		--ml-pill-bg: var(--bs-primary);
+		--ml-option-bg-hover: #e7f1ff;
+		--ml-option-bg-focused: #cfe2ff;
+		--ml-option-bg-selected: #0d6efd;
+		--ml-option-bg-selected-hover: #0b5ed7;
+		--ml-option-title-color-selected: white;
+		--ml-option-outline-focused: 2px solid #0d6efd;
+		--ml-pill-bg: #0d6efd;
 		--ml-pill-color: white;
+		--ml-toggle-color: #0d6efd;
+		--ml-count-badge-bg: #0d6efd;
+		--ml-count-badge-color: white;
 	}
 
 	/* Custom dark theme */
-	:global(.custom-dark) {
+	:global(web-multiselect.custom-dark) {
 		--ml-input-bg: #2b2b2b;
-		--ml-input-color: #e0e0e0;
+		--ml-input-text: #e0e0e0;
 		--ml-input-border-color: #444;
+		--ml-input-placeholder-color: #999;
 		--ml-input-focus-border-color: #6c5ce7;
 		--ml-dropdown-bg: #2b2b2b;
+		--ml-dropdown-color: #e0e0e0;
 		--ml-dropdown-border-color: #444;
-		--ml-option-hover-bg: #3a3a3a;
-		--ml-option-selected-bg: #6c5ce7;
-		--ml-option-selected-color: white;
+		--ml-option-bg-hover: #3a3a3a;
+		--ml-option-bg-selected: #6c5ce7;
+		--ml-option-title-color: #e0e0e0;
+		--ml-option-title-color-selected: white;
 		--ml-pill-bg: #6c5ce7;
 		--ml-pill-color: white;
-		--ml-pill-remove-hover-bg: #5f50d9;
+		--ml-pill-bg-hover: #5f50d9;
+		--ml-toggle-color: #e0e0e0;
+		--ml-actions-bg: #2b2b2b;
+		--ml-action-btn-bg: #3a3a3a;
+		--ml-action-btn-color: #e0e0e0;
+		--ml-action-btn-border-color: #555;
+		--ml-action-btn-bg-hover: #4a4a4a;
+		--ml-action-btn-border-color-hover: #6c5ce7;
+		--ml-empty-color: #999;
 	}
 </style>
 
@@ -65,13 +82,13 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={defaultSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Default theme..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -100,14 +117,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						class="primary-theme"
 						bind:this={primarySelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Primary theme..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -138,14 +155,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						class="custom-dark"
 						bind:this={customSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="Dark theme..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
