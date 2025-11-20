@@ -207,10 +207,10 @@
 							<td>Allow adding new options not in the list</td>
 						</tr>
 						<tr>
-							<td><code>show-count-badge</code></td>
+							<td><code>show-counter</code></td>
 							<td>boolean</td>
 							<td>false</td>
-							<td>Show count badge next to toggle icon</td>
+							<td>Show counter next to toggle icon</td>
 						</tr>
 						<tr>
 							<td><code>enable-pill-tooltips</code></td>
@@ -273,7 +273,7 @@
 				</table>
 			</div>
 			<p class="small text-muted mt-2">
-				Note: For count text formatting with i18n/pluralization, use the <code>getCountPillCallback</code> property (JavaScript callback: <code>(count: number, moreCount?: number) => string</code>). When <code>moreCount</code> is provided, it's for the "+X more" badge in partial mode.
+				Note: For count text formatting with i18n/pluralization, use the <code>getCountBadgeCallback</code> property (JavaScript callback: <code>(count: number, moreCount?: number) => string</code>). When <code>moreCount</code> is provided, it's for the "+X more" badge in partial mode.
 			</p>
 		</section>
 
@@ -315,7 +315,7 @@
 							<td><code>pills-threshold-mode</code></td>
 							<td>'count' | 'partial'</td>
 							<td>'count'</td>
-							<td>Behavior when threshold exceeded: 'count' shows count badge, 'partial' shows limited pills + more badge. See <a href="/examples/advanced-features">Advanced Features</a></td>
+							<td>Behavior when threshold exceeded: 'count' shows counter, 'partial' shows limited pills + more badge. See <a href="/examples/advanced-features">Advanced Features</a></td>
 						</tr>
 						<tr>
 							<td><code>pills-max-visible</code></td>

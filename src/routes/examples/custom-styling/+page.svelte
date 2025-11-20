@@ -33,11 +33,11 @@
 		--ml-option-bg-selected-hover: #0b5ed7;
 		--ml-option-title-color-selected: white;
 		--ml-option-outline-focused: 2px solid #0d6efd;
-		--ml-pill-bg: #0d6efd;
-		--ml-pill-color: white;
+		--ml-badge-bg: #0d6efd;
+		--ml-badge-color: white;
 		--ml-toggle-color: #0d6efd;
-		--ml-count-badge-bg: #0d6efd;
-		--ml-count-badge-color: white;
+		--ml-counter-bg: #0d6efd;
+		--ml-counter-color: white;
 	}
 
 	/* Custom dark theme */
@@ -48,15 +48,15 @@
 		--ml-input-placeholder-color: #999;
 		--ml-input-focus-border-color: #6c5ce7;
 		--ml-dropdown-bg: #2b2b2b;
-		--ml-dropdown-color: #e0e0e0;
+		--ml-option-color: #e0e0e0;
 		--ml-dropdown-border-color: #444;
 		--ml-option-bg-hover: #3a3a3a;
 		--ml-option-bg-selected: #6c5ce7;
 		--ml-option-title-color: #e0e0e0;
 		--ml-option-title-color-selected: white;
-		--ml-pill-bg: #6c5ce7;
-		--ml-pill-color: white;
-		--ml-pill-bg-hover: #5f50d9;
+		--ml-badge-bg: #6c5ce7;
+		--ml-badge-color: white;
+		--ml-badge-bg-hover: #5f50d9;
 		--ml-toggle-color: #e0e0e0;
 		--ml-actions-bg: #2b2b2b;
 		--ml-action-btn-bg: #3a3a3a;
@@ -140,7 +140,7 @@
 					<h5>CSS Variables</h5>
 					<p><code>--ml-input-border-color</code></p>
 					<p><code>--ml-option-selected-bg</code></p>
-					<p><code>--ml-pill-bg</code></p>
+					<p><code>--ml-badge-bg</code></p>
 					<p>Customized to Bootstrap primary color.</p>
 				</div>
 			{/snippet}
@@ -211,7 +211,7 @@
   --ml-dropdown-bg: #fff;
   --ml-dropdown-border-color: #dee2e6;
   --ml-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --ml-dropdown-max-height: 20rem;
+  --ml-options-max-height: 20rem;
 }`}
 						languageType="css"
 						titleText="Input & Dropdown"
@@ -228,11 +228,11 @@
   --ml-option-selected-color: #fff;
 
   /* Pills */
-  --ml-pill-bg: #e9ecef;
-  --ml-pill-color: #212529;
-  --ml-pill-border-radius: 0.25rem;
-  --ml-pill-padding: 0.25rem 0.5rem;
-  --ml-pill-remove-hover-bg: #dc3545;
+  --ml-badge-bg: #e9ecef;
+  --ml-badge-color: #212529;
+  --ml-badge-border-radius: 0.25rem;
+  --ml-badge-padding: 0.25rem 0.5rem;
+  --ml-badge-remove-hover-bg: #dc3545;
 
   /* Groups */
   --ml-group-header-bg: #f8f9fa;
@@ -255,8 +255,8 @@
   --ml-input-border-color: #198754;
   --ml-input-focus-border-color: #198754;
   --ml-option-selected-bg: #198754;
-  --ml-pill-bg: #198754;
-  --ml-pill-color: white;
+  --ml-badge-bg: #198754;
+  --ml-badge-color: white;
 }`}
 						languageType="css"
 						titleText="Success Theme"
@@ -269,7 +269,7 @@
   --ml-input-border-bottom: 2px solid #dee2e6;
   --ml-input-border-radius: 0;
   --ml-dropdown-border-radius: 0;
-  --ml-pill-border-radius: 0;
+  --ml-badge-border-radius: 0;
 }`}
 						languageType="css"
 						titleText="Minimal Theme"

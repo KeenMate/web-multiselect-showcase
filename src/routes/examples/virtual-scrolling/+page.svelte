@@ -108,14 +108,14 @@
 					enable-virtual-scroll="true"
 					virtual-scroll-threshold="100"
 					option-height="50"
-					pill-height="36"
+					badge-height="36"
 					virtual-scroll-buffer="10"
 					pills-threshold="4"
 					pills-threshold-mode="count"
-					show-count-badge="true">
+					show-counter="true">
 				</web-multiselect>
 				<div class="form-text">
-					<strong>Try it:</strong> Type to search • Select 4+ items to see count badge • Click badge to see popover with virtual scrolling
+					<strong>Try it:</strong> Type to search • Select 4+ items to see counter • Click badge to see popover with virtual scrolling
 				</div>
 			</div>
 		{/snippet}
@@ -126,13 +126,13 @@
   enable-virtual-scroll="true"
   virtual-scroll-threshold="100"
   option-height="50"
-  pill-height="36"
+  badge-height="36"
   virtual-scroll-buffer="10"
   search-mode="filter"
   max-height="400px"
   pills-threshold="4"
   pills-threshold-mode="count"
-  show-count-badge="true">
+  show-counter="true">
 </web-multiselect>
 
 <script>
@@ -185,10 +185,10 @@ select.options = options;
 
 				<h5>Popover Virtual Scroll (Selected Items)</h5>
 				<ul>
-					<li><code>pills-threshold="4"</code>: Shows count badge at 4+ selections</li>
+					<li><code>pills-threshold="4"</code>: Shows counter at 4+ selections</li>
 					<li><code>pills-threshold-mode="count"</code>: Uses count mode (required)</li>
-					<li><code>show-count-badge="true"</code>: Enables clickable badge</li>
-					<li><code>pill-height="36"</code>: Height per pill in px (default: 36)</li>
+					<li><code>show-counter="true"</code>: Enables clickable badge</li>
+					<li><code>badge-height="36"</code>: Height per pill in px (default: 36)</li>
 					<li>Popover activates virtual scroll automatically at 100+ selections</li>
 				</ul>
 

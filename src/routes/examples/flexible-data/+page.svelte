@@ -42,7 +42,7 @@
 			callbacksSelect.getDisplayValueCallback = (item: any) => item.data.info.name;
 			callbacksSelect.getSubtitleCallback = (item: any) => `$${item.data.info.price} - ${item.data.info.category}`;
 			callbacksSelect.getIconCallback = (item: any) => item.data.info.category === 'Electronics' ? '🔌' : '📚';
-			callbacksSelect.getPillDisplayCallback = (item: any) => `${item.data.info.name} ($${item.data.info.price})`;
+			callbacksSelect.getBadgeDisplayCallback = (item: any) => `${item.data.info.name} ($${item.data.info.price})`;
 		}
 	});
 </script>
@@ -187,7 +187,7 @@ select.getIconCallback = (item) => {
   return item.data.info.category === 'Electronics' ? '🔌' : '📚';
 };
 
-select.getPillDisplayCallback = (item) => {
+select.getBadgeDisplayCallback = (item) => {
   return \`\${item.data.info.name} ($\${item.data.info.price})\`;
 };`}</code></pre>
 				</div>
@@ -198,7 +198,7 @@ select.getPillDisplayCallback = (item) => {
 					<h5>Callback Properties</h5>
 					<p><code>getValueCallback</code> - Extract unique value from item</p>
 					<p><code>getDisplayValueCallback</code> - Extract display text for dropdown</p>
-					<p><code>getPillDisplayCallback</code> - Extract display text for pills (optional)</p>
+					<p><code>getBadgeDisplayCallback</code> - Extract display text for pills (optional)</p>
 					<p><code>getSubtitleCallback</code> - Extract subtitle text</p>
 					<p><code>getIconCallback</code> - Extract or generate icon</p>
 					<p class="mt-2">Callbacks receive the full item object and can return any computed value. Use callbacks when you need complex logic or deeply nested property access.</p>

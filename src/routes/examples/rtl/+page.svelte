@@ -89,7 +89,7 @@
 			countRTL.options = techOptions;
 			countRTL.setSelected(['js', 'ts', 'python', 'java']);
 			// Custom RTL count callback (Arabic style)
-			countRTL.getCountPillCallback = (count: number) => {
+			countRTL.getCountBadgeCallback = (count: number) => {
 				return `${count} محدد`; // "selected" in Arabic
 			};
 		}
@@ -346,7 +346,7 @@
 						display-value-member="label"
 						icon-member="icon"
 						pills-display-mode="count"
-						show-count-badge="true"
+						show-counter="true"
 						search-placeholder="...بحث"
 					></multi-select>
 					<p class="text-muted small mt-2">
@@ -370,7 +370,7 @@
 				<div class="prose small">
 					<h5>Count Display RTL</h5>
 					<p>Badge and count text properly positioned for RTL.</p>
-					<p>Use <code>getCountPillCallback</code> for RTL text.</p>
+					<p>Use <code>getCountBadgeCallback</code> for RTL text.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
@@ -537,7 +537,7 @@
 							<td>-</td>
 						</tr>
 						<tr>
-							<td>Count Badge</td>
+							<td>Counter</td>
 							<td>Right side</td>
 							<td>Left side</td>
 							<td>✅</td>

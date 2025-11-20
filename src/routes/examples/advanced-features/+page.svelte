@@ -110,13 +110,13 @@
 			<h3 class="h5 mb-3">🎯 New in Latest Version</h3>
 			<p class="mb-2">Two powerful features for better user experience:</p>
 			<ul class="mb-0">
-				<li><strong>Partial Pills Mode:</strong> Show a limited number of pills with a "+X more" badge when selections exceed a threshold</li>
+				<li><strong>Partial Badges Mode:</strong> Show a limited number of pills with a "+X more" badge when selections exceed a threshold</li>
 				<li><strong>Pill Tooltips:</strong> Display helpful information when hovering over pills, perfect for truncated text or additional context</li>
 			</ul>
 		</div>
 
 		<!-- PARTIAL PILLS MODE -->
-		<h2 class="h4 mb-4">Partial Pills Mode</h2>
+		<h2 class="h4 mb-4">Partial Badges Mode</h2>
 
 		<ShowcaseSection
 			titleText="Partial Pills with Threshold"
@@ -448,7 +448,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 			<h3 class="h5 mb-3">📚 Summary</h3>
 			<div class="row">
 				<div class="col-md-6">
-					<h4 class="h6">Partial Pills Mode</h4>
+					<h4 class="h6">Partial Badges Mode</h4>
 					<ul class="small mb-3">
 						<li>Better than count mode for moderate selections</li>
 						<li>Provides visual context while saving space</li>

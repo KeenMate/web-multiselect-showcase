@@ -29,8 +29,8 @@
 						codeContent={`/* Apply to specific instance */
 .my-select {
   --ml-input-border-color: #0d6efd;
-  --ml-pill-bg: #0d6efd;
-  --ml-pill-color: white;
+  --ml-badge-bg: #0d6efd;
+  --ml-badge-color: white;
 }
 
 /* Apply globally */
@@ -86,7 +86,7 @@
 						<tr>
 							<td><code>$ml-color-accent-lightest</code></td>
 							<td><code>#eff6ff</code></td>
-							<td>Lightest accent shade - pill backgrounds</td>
+							<td>Lightest accent shade - badge backgrounds</td>
 						</tr>
 						<tr>
 							<td><code>$ml-color-accent-lighter</code></td>
@@ -337,7 +337,7 @@
 							<td>Box shadow</td>
 						</tr>
 						<tr>
-							<td><code>--ml-dropdown-max-height</code></td>
+							<td><code>--ml-options-max-height</code></td>
 							<td><code>20rem</code></td>
 							<td>Maximum height</td>
 						</tr>
@@ -507,37 +507,37 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>--ml-pill-bg</code></td>
+							<td><code>--ml-badge-bg</code></td>
 							<td><code>#e9ecef</code></td>
 							<td>Background color</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-color</code></td>
+							<td><code>--ml-badge-color</code></td>
 							<td><code>#212529</code></td>
 							<td>Text color</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-border-radius</code></td>
+							<td><code>--ml-badge-border-radius</code></td>
 							<td><code>0.25rem</code></td>
 							<td>Border radius</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-padding</code></td>
+							<td><code>--ml-badge-padding</code></td>
 							<td><code>0.25rem 0.5rem</code></td>
 							<td>Padding</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-font-size</code></td>
+							<td><code>--ml-badge-font-size</code></td>
 							<td><code>0.875rem</code></td>
 							<td>Font size</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-gap</code></td>
+							<td><code>--ml-badge-gap</code></td>
 							<td><code>0.5rem</code></td>
 							<td>Gap between pills</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-margin</code></td>
+							<td><code>--ml-badge-margin</code></td>
 							<td><code>0.25rem 0</code></td>
 							<td>Margin around pill container</td>
 						</tr>
@@ -557,27 +557,27 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>--ml-pill-remove-color</code></td>
+							<td><code>--ml-badge-remove-color</code></td>
 							<td><code>#212529</code></td>
 							<td>Remove button color</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-remove-hover-bg</code></td>
+							<td><code>--ml-badge-remove-hover-bg</code></td>
 							<td><code>#dc3545</code></td>
 							<td>Background on hover</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-remove-hover-color</code></td>
+							<td><code>--ml-badge-remove-hover-color</code></td>
 							<td><code>#fff</code></td>
 							<td>Color on hover</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-remove-size</code></td>
+							<td><code>--ml-badge-remove-size</code></td>
 							<td><code>1rem</code></td>
 							<td>Button size</td>
 						</tr>
 						<tr>
-							<td><code>--ml-pill-remove-margin</code></td>
+							<td><code>--ml-badge-remove-margin</code></td>
 							<td><code>0 0 0 0.25rem</code></td>
 							<td>Button margin</td>
 						</tr>
@@ -741,10 +741,10 @@
 			</div>
 		</section>
 
-		<!-- Count Badge -->
+		<!-- Counter -->
 		<section class="mb-5">
-			<h2 class="mb-4">Count Badge</h2>
-			<p>Variables for the selection count badge:</p>
+			<h2 class="mb-4">Counter</h2>
+			<p>Variables for the selection counter:</p>
 
 			<div class="table-responsive">
 				<table class="table table-bordered">
@@ -757,27 +757,27 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>--ml-count-badge-bg</code></td>
+							<td><code>--ml-counter-bg</code></td>
 							<td><code>#0d6efd</code></td>
 							<td>Background color</td>
 						</tr>
 						<tr>
-							<td><code>--ml-count-badge-color</code></td>
+							<td><code>--ml-counter-color</code></td>
 							<td><code>#fff</code></td>
 							<td>Text color</td>
 						</tr>
 						<tr>
-							<td><code>--ml-count-badge-font-size</code></td>
+							<td><code>--ml-counter-font-size</code></td>
 							<td><code>0.75rem</code></td>
 							<td>Font size</td>
 						</tr>
 						<tr>
-							<td><code>--ml-count-badge-padding</code></td>
+							<td><code>--ml-counter-padding</code></td>
 							<td><code>0.25rem 0.5rem</code></td>
 							<td>Padding</td>
 						</tr>
 						<tr>
-							<td><code>--ml-count-badge-border-radius</code></td>
+							<td><code>--ml-counter-border-radius</code></td>
 							<td><code>0.25rem</code></td>
 							<td>Border radius</td>
 						</tr>
@@ -926,8 +926,8 @@
   --ml-option-hover-bg: #d1e7dd;
   --ml-option-selected-bg: #198754;
   --ml-option-selected-color: white;
-  --ml-pill-bg: #198754;
-  --ml-pill-color: white;
+  --ml-badge-bg: #198754;
+  --ml-badge-color: white;
   --ml-action-btn-color: #198754;
   --ml-action-btn-hover-color: #146c43;
 }`}
@@ -950,8 +950,8 @@
   --ml-option-color: #e0e0e0;
   --ml-option-hover-bg: #3a3a3a;
   --ml-option-selected-bg: #6c5ce7;
-  --ml-pill-bg: #6c5ce7;
-  --ml-pill-color: white;
+  --ml-badge-bg: #6c5ce7;
+  --ml-badge-color: white;
   --ml-group-header-bg: #1a1a1a;
   --ml-group-header-color: #888;
 }`}
@@ -970,7 +970,7 @@
   --ml-input-padding: 0.5rem 0;
   --ml-dropdown-border-radius: 0;
   --ml-dropdown-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --ml-pill-border-radius: 0;
+  --ml-badge-border-radius: 0;
   --ml-option-padding: 0.75rem 1rem;
   --ml-group-header-text-transform: none;
 }`}
@@ -985,12 +985,12 @@
 						codeContent={`.compact-theme {
   --ml-input-padding: 0.25rem 0.5rem;
   --ml-input-font-size: 0.875rem;
-  --ml-dropdown-max-height: 15rem;
+  --ml-options-max-height: 15rem;
   --ml-option-padding: 0.375rem 0.5rem;
   --ml-option-font-size: 0.875rem;
-  --ml-pill-padding: 0.125rem 0.375rem;
-  --ml-pill-font-size: 0.75rem;
-  --ml-pill-gap: 0.25rem;
+  --ml-badge-padding: 0.125rem 0.375rem;
+  --ml-badge-font-size: 0.75rem;
+  --ml-badge-gap: 0.25rem;
   --ml-actions-padding: 0.375rem 0.5rem;
   --ml-action-btn-font-size: 0.75rem;
 }`}
@@ -1027,7 +1027,7 @@
 // Override after import
 .my-custom-select {
   --ml-input-border-color: #0d6efd;
-  --ml-pill-bg: #e9ecef;
+  --ml-badge-bg: #e9ecef;
 }`}
 				languageType="scss"
 				titleText="SCSS Configuration"
