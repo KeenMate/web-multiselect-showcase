@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 
 	let virtualScrollSelect: any;
+	let richVirtualSelect: any;
 	let performanceMetrics = {
 		initTime: 0,
 		renderTime: 0,
@@ -58,6 +59,148 @@
 						performanceMetrics.searchTime = Math.round(endSearch - startSearch);
 					});
 				}, 50);
+			});
+		}
+
+		// Rich rendering example with callbacks
+		if (richVirtualSelect) {
+			const productData = [
+				{ cat: 'Electronics', names: ['Wireless Mouse', 'Mechanical Keyboard', 'USB-C Hub', '4K Monitor', 'Webcam'], icon: '💻' },
+				{ cat: 'Accessories', names: ['Phone Case', 'Screen Protector', 'Charging Cable', 'Laptop Stand', 'Desk Mat'], icon: '📱' },
+				{ cat: 'Office', names: ['Ergonomic Chair', 'Standing Desk', 'Desk Lamp', 'Organizer Set', 'Whiteboard'], icon: '🏢' },
+				{ cat: 'Gaming', names: ['Gaming Headset', 'RGB Mousepad', 'Controller', 'Gaming Chair', 'LED Strips'], icon: '🎮' },
+				{ cat: 'Audio', names: ['Bluetooth Speaker', 'Studio Headphones', 'Microphone', 'Audio Interface', 'Sound Bar'], icon: '🎧' }
+			];
+			const priorities = ['urgent', 'important', 'normal', 'low'];
+			const descriptions = [
+				'Premium quality with 2-year warranty',
+				'Best seller - Limited stock available',
+				'New arrival - Special launch price',
+				'Customer favorite - 5000+ reviews',
+				'Professional grade equipment',
+				'Ergonomic design for comfort',
+				'High-performance technology',
+				'Eco-friendly materials used'
+			];
+			const products = [];
+
+			for (let i = 1; i <= 150; i++) {
+				const catData = productData[Math.floor(Math.random() * productData.length)];
+				const productName = catData.names[Math.floor(Math.random() * catData.names.length)];
+				const priority = priorities[Math.floor(Math.random() * priorities.length)];
+				const price = (Math.random() * 200 + 10).toFixed(2);
+				const stock = Math.floor(Math.random() * 100);
+				const description = descriptions[Math.floor(Math.random() * descriptions.length)];
+
+				products.push({
+					id: i,
+					name: `${productName} ${catData.icon}`,
+					category: catData.cat,
+					icon: catData.icon,
+					priority,
+					price: parseFloat(price),
+					stock,
+					rating: (Math.random() * 2 + 3).toFixed(1),
+					description
+				});
+			}
+
+			richVirtualSelect.options = products;
+			richVirtualSelect.getValueCallback = (item: any) => item.id;
+			richVirtualSelect.getDisplayValueCallback = (item: any) => item.name;
+
+			// Rich rendering for dropdown options
+			richVirtualSelect.renderOptionContentCallback = (item: any) => {
+				const stars = '★'.repeat(Math.floor(item.rating));
+				const emptyStars = '☆'.repeat(5 - Math.floor(item.rating));
+				const stockStatus = item.stock === 0 ? 'Out of stock' : `${item.stock} in stock`;
+				const stockColor = item.stock === 0 ? '#ef4444' : item.stock < 20 ? '#f59e0b' : '#10b981';
+				const stockBg = item.stock === 0 ? '#fef2f2' : item.stock < 20 ? '#fffbeb' : '#f0fdf4';
+
+				return `
+					<div style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.5rem 0;">
+						<div style="width: 48px; height: 48px; border-radius: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.25rem; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);">
+							${item.icon}
+						</div>
+						<div style="flex: 1; min-width: 0;">
+							<div style="font-weight: 600; font-size: 0.9375rem; color: #1f2937; margin-bottom: 0.25rem;">${item.name}</div>
+							<div style="font-size: 0.8125rem; color: #6b7280; margin-bottom: 0.375rem; line-height: 1.3;">${item.description}</div>
+							<div style="display: flex; align-items: center; gap: 0.75rem; font-size: 0.75rem; flex-wrap: wrap;">
+								<span style="background: #f3f4f6; padding: 0.125rem 0.5rem; border-radius: 4px; color: #4b5563; font-weight: 500;">${item.category}</span>
+								<span style="color: #059669; font-weight: 700; font-size: 0.875rem;">$${item.price}</span>
+								<span style="color: #f59e0b; letter-spacing: -1px;">${stars}${emptyStars}</span>
+								<span style="font-weight: 500; color: #6b7280;">${item.rating}</span>
+								<span style="background: ${stockBg}; color: ${stockColor}; padding: 0.125rem 0.5rem; border-radius: 4px; font-weight: 500;">${stockStatus}</span>
+							</div>
+						</div>
+					</div>
+				`;
+			};
+
+			// Compact rendering for main badges with price
+			richVirtualSelect.renderBadgeContentCallback = (item: any) => {
+				return `
+					<span style="font-weight: 500;">${item.name}</span>
+					<span style="color: #059669; font-weight: 600; margin-left: 0.25rem;">$${item.price}</span>
+				`;
+			};
+
+			// Rich rendering for selected items popover
+			richVirtualSelect.renderSelectionBadgeContentCallback = (item: any) => {
+				const priorityIcons: any = { urgent: '🚨', important: '⚠️', normal: '📋', low: '📝' };
+				const stars = '★'.repeat(Math.floor(item.rating));
+				const emptyStars = '☆'.repeat(5 - Math.floor(item.rating));
+
+				return `
+					<div style="display: flex; align-items: flex-start; gap: 0.625rem; width: 100%; padding: 0.125rem 0;">
+						<div style="font-size: 1.25rem; flex-shrink: 0; line-height: 1;">${priorityIcons[item.priority]}</div>
+						<div style="flex: 1; min-width: 0;">
+							<div style="font-weight: 600; font-size: 0.875rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #1f2937; margin-bottom: 0.125rem;">${item.name}</div>
+							<div style="font-size: 0.6875rem; color: #6b7280; margin-bottom: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${item.description}</div>
+							<div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.6875rem;">
+								<span style="color: #059669; font-weight: 700;">$${item.price}</span>
+								<span style="color: #f59e0b; letter-spacing: -1px;">${stars}${emptyStars}</span>
+								<span style="color: #6b7280; font-weight: 500;">${item.rating}</span>
+							</div>
+						</div>
+					</div>
+				`;
+			};
+
+			// Priority-based CSS classes
+			richVirtualSelect.getSelectionBadgeClassCallback = (item: any) => {
+				return `product-${item.priority}`;
+			};
+
+			// Custom CSS for priority styling
+			richVirtualSelect.customStylesCallback = () => `
+				.product-urgent {
+					--ml-badge-text-bg: #fee2e2;
+					--ml-badge-text-color: #dc2626;
+					--ml-badge-remove-bg: #dc2626;
+				}
+				.product-important {
+					--ml-badge-text-bg: #fef3c7;
+					--ml-badge-text-color: #d97706;
+					--ml-badge-remove-bg: #d97706;
+				}
+				.product-normal {
+					--ml-badge-text-bg: #dbeafe;
+					--ml-badge-text-color: #2563eb;
+					--ml-badge-remove-bg: #2563eb;
+				}
+				.product-low {
+					--ml-badge-text-bg: #d1fae5;
+					--ml-badge-text-color: #059669;
+					--ml-badge-remove-bg: #059669;
+				}
+			`;
+
+			richVirtualSelect.addEventListener('change', (e: any) => {
+				console.log('[Rich Virtual] Selected:', e.detail.selectedOptions.length, 'items');
+				if (e.detail.selectedOptions.length >= 100) {
+					console.log('✅ Virtual scroll enabled in popover!');
+				}
 			});
 		}
 	});
@@ -203,6 +346,74 @@ select.options = options;
 		{/snippet}
 	</ShowcaseSection>
 
+	<!-- Rich Rendering with Callbacks -->
+	<ShowcaseSection
+		titleText="Rich Rendering with Custom Callbacks"
+		subtitleText="Virtual scroll works with complex custom rendering"
+		demoColumnTitle="Live Demo"
+		controlsColumnTitle="Instructions"
+		descriptionColumnTitle="Implementation">
+
+		{#snippet demoContent()}
+			<div class="mb-3">
+				<label class="form-label">Select Products (150 items)</label>
+				<web-multiselect
+					bind:this={richVirtualSelect}
+					placeholder="Select products..."
+					option-height="90"
+					badge-height="65"
+					pills-threshold="3"
+					pills-threshold-mode="count"
+					show-counter="true"
+					enable-virtual-scroll="true"
+					virtual-scroll-threshold="100">
+				</web-multiselect>
+				<div class="form-text">
+					<strong>Try it:</strong> Select 100+ items to see virtual scroll in the popover with custom rendering.
+					Uses callbacks for rich badge styling and content.
+				</div>
+			</div>
+		{/snippet}
+
+		{#snippet controlsContent()}
+			<div class="prose small">
+				<h5>What's happening:</h5>
+				<ol>
+					<li><strong>Dropdown options:</strong> Custom rendering with product details, ratings, and stock info</li>
+					<li><strong>Main badges:</strong> Simple text display (compact)</li>
+					<li><strong>Popover badges:</strong> Rich rendering with priority icons and ratings</li>
+					<li><strong>Priority styling:</strong> Color-coded badges based on priority level</li>
+				</ol>
+				<p class="mt-3"><strong>When to use:</strong></p>
+				<ul class="small">
+					<li>Complex data structures</li>
+					<li>Need different rendering in dropdown vs badges</li>
+					<li>Dynamic styling based on item properties</li>
+					<li>Large datasets requiring virtual scroll</li>
+				</ul>
+			</div>
+		{/snippet}
+
+		{#snippet descriptionContent()}
+			<div class="prose small">
+				<h5>Key Callbacks Used</h5>
+				<p><code>renderOptionContentCallback</code> - Custom HTML for dropdown options</p>
+				<p><code>renderBadgeContentCallback</code> - Simple text for main badges</p>
+				<p><code>renderSelectionBadgeContentCallback</code> - Rich HTML for popover badges</p>
+				<p><code>getSelectionBadgeClassCallback</code> - CSS classes for priority styling</p>
+				<p><code>customStylesCallback</code> - Inject custom CSS variables</p>
+
+				<h5 class="mt-3">Configuration</h5>
+				<ul class="small">
+					<li><code>option-height="90"</code> - Taller options for rich content with description</li>
+					<li><code>badge-height="65"</code> - Taller badges in popover for multi-line content</li>
+					<li><code>pills-threshold="3"</code> - Show counter at 3+ items</li>
+					<li><code>virtual-scroll-threshold="100"</code> - Virtual scroll at 100+ items</li>
+				</ul>
+			</div>
+		{/snippet}
+	</ShowcaseSection>
+
 	<!-- How It Works -->
 	<ShowcaseSection
 		titleText="How Virtual Scrolling Works"
@@ -332,6 +543,181 @@ select.searchCallback = async (term) => {
 };
 </script>`}
 				languageType="html"
+			/>
+		{/snippet}
+	</ShowcaseSection>
+
+	<!-- Rich Rendering Code Example -->
+	<ShowcaseSection
+		titleText="Rich Rendering with Callbacks - Code Example"
+		subtitleText="Complete implementation">
+
+		{#snippet demoContent()}
+			<h4 class="mb-3">Setup & Configuration</h4>
+			<CodeBlock
+				codeContent={`<web-multiselect
+  id="rich-virtual"
+  placeholder="Select products..."
+  option-height="90"
+  badge-height="65"
+  pills-threshold="3"
+  pills-threshold-mode="count"
+  show-counter="true"
+  enable-virtual-scroll="true"
+  virtual-scroll-threshold="100">
+</web-multiselect>
+
+<script>
+const select = document.getElementById('rich-virtual');
+
+// Generate products data with descriptions
+const products = [];
+for (let i = 1; i <= 150; i++) {
+  products.push({
+    id: i,
+    name: \`Wireless Mouse 💻\`,
+    category: 'Electronics',
+    icon: '💻',
+    priority: 'normal',
+    price: 99.99,
+    stock: 50,
+    rating: 4.5,
+    description: 'Premium quality with 2-year warranty'
+  });
+}
+
+select.options = products;
+select.getValueCallback = (item) => item.id;
+select.getDisplayValueCallback = (item) => item.name;
+</script>`}
+				languageType="html"
+			/>
+		{/snippet}
+
+		{#snippet controlsContent()}
+			<h4 class="mb-3">Rendering Callbacks</h4>
+			<CodeBlock
+				codeContent={`// Rich dropdown options with description
+select.renderOptionContentCallback = (item) => {
+  const stars = '★'.repeat(Math.floor(item.rating));
+  const emptyStars = '☆'.repeat(5 - Math.floor(item.rating));
+  const stockStatus = item.stock === 0 ? 'Out of stock' : \`\${item.stock} in stock\`;
+  const stockColor = item.stock === 0 ? '#ef4444' : item.stock < 20 ? '#f59e0b' : '#10b981';
+  const stockBg = item.stock === 0 ? '#fef2f2' : item.stock < 20 ? '#fffbeb' : '#f0fdf4';
+
+  return \`
+    <div style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.5rem 0;">
+      <div style="width: 48px; height: 48px; border-radius: 8px;
+                  background: linear-gradient(135deg, #667eea, #764ba2);
+                  display: flex; align-items: center; justify-content: center;
+                  font-size: 1.25rem; box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);">
+        \${item.icon}
+      </div>
+      <div style="flex: 1;">
+        <div style="font-weight: 600; font-size: 0.9375rem; margin-bottom: 0.25rem;">
+          \${item.name}
+        </div>
+        <div style="font-size: 0.8125rem; color: #6b7280; margin-bottom: 0.375rem;">
+          \${item.description}
+        </div>
+        <div style="display: flex; gap: 0.75rem; font-size: 0.75rem; flex-wrap: wrap;">
+          <span style="background: #f3f4f6; padding: 0.125rem 0.5rem; border-radius: 4px;">
+            \${item.category}
+          </span>
+          <span style="color: #059669; font-weight: 700; font-size: 0.875rem;">
+            $\${item.price}
+          </span>
+          <span style="color: #f59e0b;">\${stars}\${emptyStars}</span>
+          <span style="color: #6b7280;">\${item.rating}</span>
+          <span style="background: \${stockBg}; color: \${stockColor};
+                       padding: 0.125rem 0.5rem; border-radius: 4px;">
+            \${stockStatus}
+          </span>
+        </div>
+      </div>
+    </div>
+  \`;
+};
+
+// Main badges with price
+select.renderBadgeContentCallback = (item) => {
+  return \`
+    <span style="font-weight: 500;">\${item.name}</span>
+    <span style="color: #059669; font-weight: 600; margin-left: 0.25rem;">
+      $\${item.price}
+    </span>
+  \`;
+};`}
+				languageType="javascript"
+			/>
+		{/snippet}
+
+		{#snippet descriptionContent()}
+			<h4 class="mb-3">Popover Rendering & Styling</h4>
+			<CodeBlock
+				codeContent={`// Rich rendering for popover badges with description
+select.renderSelectionBadgeContentCallback = (item) => {
+  const icons = { urgent: '🚨', important: '⚠️', normal: '📋', low: '📝' };
+  const stars = '★'.repeat(Math.floor(item.rating));
+  const emptyStars = '☆'.repeat(5 - Math.floor(item.rating));
+
+  return \`
+    <div style="display: flex; align-items: flex-start; gap: 0.625rem;
+                width: 100%; padding: 0.125rem 0;">
+      <div style="font-size: 1.25rem; flex-shrink: 0; line-height: 1;">
+        \${icons[item.priority]}
+      </div>
+      <div style="flex: 1; min-width: 0;">
+        <div style="font-weight: 600; font-size: 0.875rem;
+                    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+                    margin-bottom: 0.125rem;">
+          \${item.name}
+        </div>
+        <div style="font-size: 0.6875rem; color: #6b7280; margin-bottom: 0.25rem;
+                    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+          \${item.description}
+        </div>
+        <div style="display: flex; gap: 0.5rem; font-size: 0.6875rem;">
+          <span style="color: #059669; font-weight: 700;">$\${item.price}</span>
+          <span style="color: #f59e0b; letter-spacing: -1px;">
+            \${stars}\${emptyStars}
+          </span>
+          <span style="color: #6b7280;">\${item.rating}</span>
+        </div>
+      </div>
+    </div>
+  \`;
+};
+
+// Dynamic CSS classes based on priority
+select.getSelectionBadgeClassCallback = (item) => {
+  return \`product-\${item.priority}\`;
+};
+
+// Inject custom CSS variables for priority styling
+select.customStylesCallback = () => \`
+  .product-urgent {
+    --ml-badge-text-bg: #fee2e2;
+    --ml-badge-text-color: #dc2626;
+    --ml-badge-remove-bg: #dc2626;
+  }
+  .product-important {
+    --ml-badge-text-bg: #fef3c7;
+    --ml-badge-text-color: #d97706;
+    --ml-badge-remove-bg: #d97706;
+  }
+  .product-normal {
+    --ml-badge-text-bg: #dbeafe;
+    --ml-badge-text-color: #2563eb;
+    --ml-badge-remove-bg: #2563eb;
+  }
+  .product-low {
+    --ml-badge-text-bg: #d1fae5;
+    --ml-badge-text-color: #059669;
+    --ml-badge-remove-bg: #059669;
+  }
+\`;`}
+				languageType="javascript"
 			/>
 		{/snippet}
 	</ShowcaseSection>

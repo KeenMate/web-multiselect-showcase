@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 
 	let partialPillsSelect: any;
+	let partialComparePartialSelect: any;
 	let partialCompareCountSelect: any;
 	let tooltipsBasicSelect: any;
 	let tooltipsCustomSelect: any;
@@ -49,6 +50,7 @@
 
 		// Setup partial pills mode
 		if (partialPillsSelect) partialPillsSelect.options = technologies;
+		if (partialComparePartialSelect) partialComparePartialSelect.options = technologies;
 		if (partialCompareCountSelect) partialCompareCountSelect.options = technologies;
 
 		// Setup basic tooltips
@@ -62,7 +64,7 @@
 			tooltipsCustomSelect.options = users;
 
 			// Custom tooltip with detailed user info
-			tooltipsCustomSelect.getPillTooltipCallback = (user) => {
+			tooltipsCustomSelect.getBadgeTooltipCallback = (user) => {
 				return `${user.name}\n${user.email}\n${user.role} - ${user.department}`;
 			};
 		}
@@ -79,7 +81,7 @@
 			combinedSelect.getSubtitleCallback = (user) => user.department;
 			combinedSelect.options = users;
 
-			combinedSelect.getPillTooltipCallback = (user) => {
+			combinedSelect.getBadgeTooltipCallback = (user) => {
 				return `${user.name}\n${user.email}\n${user.role} - ${user.department}`;
 			};
 		}
@@ -89,7 +91,7 @@
 <svelte:head>
 	<style>
 		/* Custom tooltip styling example */
-		multi-select#styled-tooltips {
+		web-multiselect#styled-tooltips {
 			--ml-tooltip-bg: #667eea;
 			--ml-tooltip-color: white;
 			--ml-tooltip-padding: 0.75rem 1rem;
@@ -102,7 +104,7 @@
 
 <DocLayout
 	titleText="Advanced Features"
-	descriptionText="Partial pills mode and tooltip system for enhanced UX">
+	descriptionText="Partial badges mode and tooltip system for enhanced UX">
 
 	<div class="py-4">
 		<!-- Intro Section -->
@@ -110,8 +112,8 @@
 			<h3 class="h5 mb-3">🎯 New in Latest Version</h3>
 			<p class="mb-2">Two powerful features for better user experience:</p>
 			<ul class="mb-0">
-				<li><strong>Partial Badges Mode:</strong> Show a limited number of pills with a "+X more" badge when selections exceed a threshold</li>
-				<li><strong>Pill Tooltips:</strong> Display helpful information when hovering over pills, perfect for truncated text or additional context</li>
+				<li><strong>Partial Badges Mode:</strong> Show a limited number of badges with a "+X more" badge when selections exceed a threshold</li>
+				<li><strong>Badge Tooltips:</strong> Display helpful information when hovering over badges, perfect for truncated text or additional context</li>
 			</ul>
 		</div>
 
@@ -119,24 +121,24 @@
 		<h2 class="h4 mb-4">Partial Badges Mode</h2>
 
 		<ShowcaseSection
-			titleText="Partial Pills with Threshold"
-			subtitleText="Show limited pills + '+X more' badge when threshold exceeded"
+			titleText="Partial Badges with Threshold"
+			subtitleText="Show limited badges + '+X more' badge when threshold exceeded"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Instructions"
 			descriptionColumnTitle="Configuration">
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={partialPillsSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-threshold="5"
-						pills-threshold-mode="partial"
-						pills-max-visible="3"
+						badges-threshold="5"
+						badges-threshold-mode="partial"
+						badges-max-visible="3"
 						search-placeholder="Select technologies (try selecting 6+)..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Select more than 5 items to see partial mode in action
 					</p>
@@ -147,8 +149,8 @@
 				<div class="prose small">
 					<p><strong>Try this:</strong></p>
 					<ol>
-						<li>Select 1-5 items: All pills shown normally</li>
-						<li>Select 6+ items: Shows 3 pills + "+X more" badge</li>
+						<li>Select 1-5 items: All badges shown normally</li>
+						<li>Select 6+ items: Shows 3 badges + "+X more" badge</li>
 						<li>Click "+X more": Opens popover with all items</li>
 						<li>Click remove on "+X more": Removes all hidden items</li>
 					</ol>
@@ -158,14 +160,14 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Configuration</h5>
-					<pre><code>&lt;multi-select
-  pills-threshold="5"
-  pills-threshold-mode="partial"
-  pills-max-visible="3"
-&gt;&lt;/multi-select&gt;</code></pre>
-					<p><strong>pills-threshold:</strong> Trigger after N selections</p>
-					<p><strong>pills-threshold-mode:</strong> 'partial' or 'count'</p>
-					<p><strong>pills-max-visible:</strong> How many pills to show</p>
+					<pre><code>&lt;web-multiselect
+  badges-threshold="5"
+  badges-threshold-mode="partial"
+  badges-max-visible="3"
+&gt;&lt;/web-multiselect&gt;</code></pre>
+					<p><strong>badges-threshold:</strong> Trigger after N selections</p>
+					<p><strong>badges-threshold-mode:</strong> 'partial' or 'count'</p>
+					<p><strong>badges-max-visible:</strong> How many badges to show</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
@@ -173,39 +175,39 @@
 		<ShowcaseSection
 			titleText="Compare: Partial vs Count Mode"
 			subtitleText="See the difference between partial and count modes"
-			demoColumnTitle="Partial Mode (pills-threshold-mode='partial')"
-			controlsColumnTitle="Count Mode (pills-threshold-mode='count')"
+			demoColumnTitle="Partial Mode (badges-threshold-mode='partial')"
+			controlsColumnTitle="Count Mode (badges-threshold-mode='count')"
 			descriptionColumnTitle="Comparison">
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
-						bind:this={partialPillsSelect}
+					<web-multiselect
+						bind:this={partialComparePartialSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-threshold="4"
-						pills-threshold-mode="partial"
-						pills-max-visible="2"
+						badges-threshold="2"
+						badges-threshold-mode="partial"
+						badges-max-visible="1"
 						search-placeholder="Partial mode..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
-						Shows 2 pills + "+X more" badge
+						Shows 1 badge + "+X more" badge
 					</p>
 				</div>
 			{/snippet}
 
 			{#snippet controlsContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={partialCompareCountSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-threshold="4"
-						pills-threshold-mode="count"
+						badges-threshold="2"
+						badges-threshold-mode="count"
 						search-placeholder="Count mode..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Shows "X selected" badge only
 					</p>
@@ -232,7 +234,7 @@
 		</ShowcaseSection>
 
 		<!-- TOOLTIP SYSTEM -->
-		<h2 class="h4 mb-4 mt-5">Pill Tooltips</h2>
+		<h2 class="h4 mb-4 mt-5">Badge Tooltips</h2>
 
 		<ShowcaseSection
 			titleText="Basic Tooltips"
@@ -243,17 +245,17 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={tooltipsBasicSelect}
 						value-member="value"
 						display-value-member="label"
 						subtitle-member="subtitle"
-						enable-pill-tooltips="true"
-						pill-tooltip-placement="top"
-						search-placeholder="Select laptops (hover pills for tooltips)..."
-					></multi-select>
+						enable-badge-tooltips="true"
+						badge-tooltip-placement="top"
+						search-placeholder="Select laptops (hover badges for tooltips)..."
+					></web-multiselect>
 					<p class="text-muted small mt-2">
-						Hover over pills to see full specifications
+						Hover over badges to see full specifications
 					</p>
 				</div>
 			{/snippet}
@@ -262,7 +264,7 @@
 				<div class="prose small">
 					<p><strong>Tooltip features:</strong></p>
 					<ul>
-						<li>Hover over pill: Shows display value + subtitle</li>
+						<li>Hover over badge: Shows display value + subtitle</li>
 						<li>Hover over remove button: Shows "Remove [name]"</li>
 						<li>500ms delay before showing (configurable)</li>
 						<li>Positioned with Floating UI (auto-flip)</li>
@@ -273,11 +275,11 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Basic Setup</h5>
-					<pre><code>&lt;multi-select
-  enable-pill-tooltips="true"
-  pill-tooltip-placement="top"
+					<pre><code>&lt;web-multiselect
+  enable-badge-tooltips="true"
+  badge-tooltip-placement="top"
   subtitle-member="subtitle"
-&gt;&lt;/multi-select&gt;</code></pre>
+&gt;&lt;/web-multiselect&gt;</code></pre>
 					<p>Default content: display value + subtitle</p>
 					<p>Placement options: top, bottom, left, right</p>
 				</div>
@@ -286,19 +288,19 @@
 
 		<ShowcaseSection
 			titleText="Custom Tooltip Content"
-			subtitleText="Use getPillTooltipCallback for custom content"
+			subtitleText="Use getBadgeTooltipCallback for custom content"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Callback Code"
 			descriptionColumnTitle="Details">
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={tooltipsCustomSelect}
-						enable-pill-tooltips="true"
-						pill-tooltip-placement="top"
+						enable-badge-tooltips="true"
+						badge-tooltip-placement="top"
 						search-placeholder="Select users (custom tooltips)..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Tooltips show name, email, role, and department
 					</p>
@@ -308,7 +310,7 @@
 			{#snippet controlsContent()}
 				<div class="prose small">
 					<p><strong>Custom callback:</strong></p>
-					<pre><code>select.getPillTooltipCallback = (user) => &#123;
+					<pre><code>select.getBadgeTooltipCallback = (user) => &#123;
   return `$&#123;user.name&#125;
 $&#123;user.email&#125;
 $&#123;user.role&#125; - $&#123;user.department&#125;`;
@@ -325,7 +327,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 						<li><strong>String:</strong> Simple text (supports \n)</li>
 						<li><strong>HTMLElement:</strong> Rich HTML content</li>
 					</ul>
-					<p>Perfect for showing additional data not visible in the pill.</p>
+					<p>Perfect for showing additional data not visible in the badge.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
@@ -339,15 +341,15 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						id="styled-tooltips"
 						bind:this={tooltipsStyledSelect}
 						value-member="value"
 						display-value-member="label"
 						subtitle-member="subtitle"
-						enable-pill-tooltips="true"
+						enable-badge-tooltips="true"
 						search-placeholder="Styled tooltips..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Purple tooltips with custom styling
 					</p>
@@ -357,7 +359,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 			{#snippet controlsContent()}
 				<div class="prose small">
 					<p><strong>CSS Variables:</strong></p>
-					<pre><code>multi-select &#123;
+					<pre><code>web-multiselect &#123;
   &#45;&#45;ml-tooltip-bg: #667eea;
   &#45;&#45;ml-tooltip-color: white;
   &#45;&#45;ml-tooltip-padding: 0.75rem 1rem;
@@ -389,7 +391,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 		<h2 class="h4 mb-4 mt-5">Combined Features</h2>
 
 		<ShowcaseSection
-			titleText="Partial Pills + Tooltips"
+			titleText="Partial Badges + Tooltips"
 			subtitleText="Both features working together"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -397,17 +399,17 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={combinedSelect}
-						enable-pill-tooltips="true"
-						pill-tooltip-placement="top"
-						pills-threshold="4"
-						pills-threshold-mode="partial"
-						pills-max-visible="2"
+						enable-badge-tooltips="true"
+						badge-tooltip-placement="top"
+						badges-threshold="4"
+						badges-threshold-mode="partial"
+						badges-max-visible="2"
 						search-placeholder="Select team members..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
-						Partial mode with tooltips on visible pills
+						Partial mode with tooltips on visible badges
 					</p>
 				</div>
 			{/snippet}
@@ -417,7 +419,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 					<p><strong>Combined setup:</strong></p>
 					<ol>
 						<li>Enable both features in attributes</li>
-						<li>Tooltips work on visible pills only</li>
+						<li>Tooltips work on visible badges only</li>
 						<li>"+X more" badge has tooltip on remove button</li>
 						<li>Popover items don't have tooltips (full info shown)</li>
 					</ol>
@@ -427,15 +429,15 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Best Practices</h5>
-					<p><strong>Use partial pills when:</strong></p>
+					<p><strong>Use partial badges when:</strong></p>
 					<ul class="small">
 						<li>Users select 5-20 items typically</li>
 						<li>Visual context is helpful</li>
-						<li>Space allows 2-4 pills</li>
+						<li>Space allows 2-4 badges</li>
 					</ul>
 					<p><strong>Use tooltips when:</strong></p>
 					<ul class="small">
-						<li>Pills have truncated text</li>
+						<li>Badges have truncated text</li>
 						<li>Additional info is valuable</li>
 						<li>Keyboard users need context</li>
 					</ul>
@@ -457,7 +459,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 					</ul>
 				</div>
 				<div class="col-md-6">
-					<h4 class="h6">Pill Tooltips</h4>
+					<h4 class="h6">Badge Tooltips</h4>
 					<ul class="small mb-0">
 						<li>Shows full info on hover (500ms delay)</li>
 						<li>Default: display value + subtitle</li>

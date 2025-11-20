@@ -56,14 +56,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={basicSelect}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						show-checkboxes="true"
 						search-placeholder="Search languages..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -99,7 +99,7 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={singleSelect}
 						value-member="value"
 						display-value-member="label"
@@ -107,7 +107,7 @@
 						multiple="false"
 						close-on-select="true"
 						search-placeholder="Select your primary language..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -145,7 +145,7 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={groupedSelect}
 						value-member="value"
 						display-value-member="label"
@@ -153,7 +153,7 @@
 						icon-member="icon"
 						allow-groups="true"
 						search-placeholder="Search stack..."
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 

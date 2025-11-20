@@ -56,7 +56,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="pills"
+						badges-display-mode="badges"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
 					<p class="text-muted small mt-2">
@@ -96,7 +96,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="count"
+						badges-display-mode="count"
 							show-counter="true"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
@@ -120,7 +120,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Combined Count Display</h5>
-					<p><code>pills-display-mode="count"</code></p>
+					<p><code>badges-display-mode="count"</code></p>
 					<p><code>show-counter="true"</code></p>
 					<p>Both options work independently and can be combined for maximum visibility.</p>
 				</div>
@@ -141,7 +141,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="count"
+						badges-display-mode="count"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
 					<p class="text-muted small mt-2">
@@ -161,7 +161,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Count Pill Only</h5>
-					<p><code>pills-display-mode="count"</code></p>
+					<p><code>badges-display-mode="count"</code></p>
 					<p><code>show-counter="false"</code> (default)</p>
 					<p>Compact display best for limited space.</p>
 				</div>
@@ -182,7 +182,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="pills"
+						badges-display-mode="badges"
 						show-counter="true"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
@@ -224,7 +224,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="compact"
+						badges-display-mode="compact"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
 					<p class="text-muted small mt-2">
@@ -246,7 +246,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Compact Mode</h5>
-					<p><code>pills-display-mode="compact"</code></p>
+					<p><code>badges-display-mode="compact"</code></p>
 					<p>Shows: <code>JavaScript (+2 more)</code></p>
 					<p>Good balance between detail and space.</p>
 					<p>Uses <code>getBadgeDisplayCallback</code> for first item and <code>getCountBadgeCallback</code> for count text.</p>
@@ -268,7 +268,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="none"
+						badges-display-mode="none"
 						show-counter="true"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
@@ -290,7 +290,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>None Mode</h5>
-					<p><code>pills-display-mode="none"</code></p>
+					<p><code>badges-display-mode="none"</code></p>
 					<p><code>show-counter="true"</code></p>
 					<p>Perfect for extremely space-constrained layouts.</p>
 					<p>Pills container is empty and hidden via CSS.</p>
@@ -313,7 +313,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-position="top"
+						badges-position="top"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
 					<p class="text-muted small mt-2">
@@ -332,7 +332,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Pills Position</h5>
-					<p><code>pills-position="top"</code></p>
+					<p><code>badges-position="top"</code></p>
 					<p>Other options: bottom, left, right</p>
 					<p>Default: bottom</p>
 				</div>
@@ -353,7 +353,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-position="left"
+						badges-position="left"
 						search-placeholder="Select technologies..."
 					></web-multiselect>
 					<p class="text-muted small mt-2">
@@ -372,7 +372,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Inline Position</h5>
-					<p><code>pills-position="left"</code></p>
+					<p><code>badges-position="left"</code></p>
 					<p>Pills flow horizontally with input.</p>
 					<p>Requires sufficient width.</p>
 				</div>
@@ -393,7 +393,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-threshold="3"
+						badges-threshold="3"
 							search-placeholder="Select technologies..."
 					></web-multiselect>
 					<p class="text-muted small mt-2">
@@ -412,7 +412,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Smart Threshold</h5>
-					<p><code>pills-threshold="3"</code></p>
+					<p><code>badges-threshold="3"</code></p>
 					<p>Shows pills up to threshold, then switches to count.</p>
 					<p>Optimal UX for varying selection sizes.</p>
 				</div>
@@ -589,19 +589,19 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>display-mode</code></td>
-							<td><code>pills</code> | <code>count</code> | <code>compact</code> | <code>partial</code> | <code>none</code></td>
-							<td><code>pills</code></td>
+							<td><code>badges-display-mode</code></td>
+							<td><code>badges</code> | <code>count</code> | <code>compact</code> | <code>partial</code> | <code>none</code></td>
+							<td><code>badges</code></td>
 							<td>How to display selected items. <code>compact</code>: first item + count in single pill. <code>none</code>: no display (use with counter).</td>
 						</tr>
 						<tr>
-							<td><code>pills-position</code></td>
+							<td><code>badges-position</code></td>
 							<td><code>top</code> | <code>bottom</code> | <code>left</code> | <code>right</code></td>
 							<td><code>bottom</code></td>
 							<td>Where to place pills relative to input</td>
 						</tr>
 						<tr>
-							<td><code>pills-threshold</code></td>
+							<td><code>badges-threshold</code></td>
 							<td>number</td>
 							<td><code>null</code></td>
 							<td>Auto-switch to count after N selections</td>

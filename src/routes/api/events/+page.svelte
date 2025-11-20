@@ -250,7 +250,7 @@ select.changeCallback = (selectedOptions) => {
     };
   }, []);
 
-  return <multi-select ref={selectRef} />;
+  return <web-multiselect ref={selectRef} />;
 }`}
 					languageType="jsx"
 				/>
@@ -260,7 +260,7 @@ select.changeCallback = (selectedOptions) => {
 				<h3 class="h5">Vue 3</h3>
 				<CodeBlock
 					codeContent={`<template>
-  <multi-select ref="select" @change="handleChange" />
+  <web-multiselect ref="select" @change="handleChange" />
 </template>
 
 <script setup>
@@ -304,7 +304,7 @@ onMounted(() => {
   });
 </script>
 
-<multi-select bind:this={selectElement} on:change={handleChange} />`}
+<web-multiselect bind:this={selectElement} on:change={handleChange} />`}
 					languageType="svelte"
 				/>
 			</div>

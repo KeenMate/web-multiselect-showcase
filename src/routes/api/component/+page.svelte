@@ -11,7 +11,7 @@
 		<section class="mb-5">
 			<h2 class="mb-3">Overview</h2>
 			<p class="lead">
-				The <code>&lt;multi-select&gt;</code> web component provides a rich, accessible multiselect interface with extensive customization options.
+				The <code>&lt;web-multiselect&gt;</code> web component provides a rich, accessible multiselect interface with extensive customization options.
 			</p>
 		</section>
 
@@ -49,7 +49,7 @@
 			</div>
 
 			<CodeBlock
-				codeContent={`const select = document.querySelector('multi-select');
+				codeContent={`const select = document.querySelector('web-multiselect');
 
 // Set options
 select.options = [
@@ -77,7 +77,7 @@ console.log(select.selectedItem);  // { id: 1, name: 'Option 1' }`}
 					<li><strong>Behavior:</strong> Mode-dependent. Returns single value in single-select mode, array in multi-select mode</li>
 				</ul>
 				<CodeBlock
-					codeContent={`const select = document.querySelector('multi-select');
+					codeContent={`const select = document.querySelector('web-multiselect');
 const value = select.getValue();
 console.log(value); // [1, 2, 3] or 1`}
 					languageType="javascript"
@@ -92,7 +92,7 @@ console.log(value); // [1, 2, 3] or 1`}
 					<li><strong>Behavior:</strong> Always returns an array of full item objects</li>
 				</ul>
 				<CodeBlock
-					codeContent={`const select = document.querySelector('multi-select');
+					codeContent={`const select = document.querySelector('web-multiselect');
 const items = select.getSelected();
 console.log(items); // [{ id: 1, name: 'Option 1' }, ...]`}
 					languageType="javascript"
@@ -107,7 +107,7 @@ console.log(items); // [{ id: 1, name: 'Option 1' }, ...]`}
 					<li><strong>Returns:</strong> <code>void</code></li>
 				</ul>
 				<CodeBlock
-					codeContent={`const select = document.querySelector('multi-select');
+					codeContent={`const select = document.querySelector('web-multiselect');
 select.setSelected([1, 2, 3]); // Select items with values 1, 2, 3`}
 					languageType="javascript"
 				/>
@@ -120,7 +120,7 @@ select.setSelected([1, 2, 3]); // Select items with values 1, 2, 3`}
 					<li><strong>Returns:</strong> <code>void</code></li>
 				</ul>
 				<CodeBlock
-					codeContent={`const select = document.querySelector('multi-select');
+					codeContent={`const select = document.querySelector('web-multiselect');
 select.destroy(); // Cleanup when removing from DOM`}
 					languageType="javascript"
 				/>
@@ -212,7 +212,7 @@ select.destroy(); // Cleanup when removing from DOM`}
 			</div>
 
 			<CodeBlock
-				codeContent={`const select = document.querySelector('multi-select');
+				codeContent={`const select = document.querySelector('web-multiselect');
 
 // Set callbacks
 select.getValueCallback = (item) => item.userId;
@@ -267,7 +267,7 @@ select.changeCallback = (selectedItems) => {
 			</div>
 
 			<CodeBlock
-				codeContent={`const select = document.querySelector('multi-select');
+				codeContent={`const select = document.querySelector('web-multiselect');
 
 select.addEventListener('select', (event) => {
   console.log('Selected:', event.detail.option);
@@ -297,7 +297,7 @@ interface User {
   email: string;
 }
 
-const select = document.querySelector<MultiSelectElement<User>>('multi-select');
+const select = document.querySelector<MultiSelectElement<User>>('web-multiselect');
 
 if (select) {
   select.options = [
@@ -404,7 +404,7 @@ window.keenmate.multiselect.register();
 
 // Useful for dynamic imports or lazy loading
 import('@keenmate/web-multiselect').then(() => {
-  if (!customElements.get('multi-select')) {
+  if (!customElements.get('web-multiselect')) {
     window.keenmate.multiselect.register();
   }
 });`}

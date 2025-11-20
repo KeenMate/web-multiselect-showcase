@@ -78,12 +78,12 @@
   <link rel="stylesheet" href="@keenmate/web-multiselect/dist/style.css">
 </head>
 <body>
-  <multi-select
+  <web-multiselect
     id="my-select"
     value-member="id"
     display-value-member="label"
     search-placeholder="Search..."
-  ></multi-select>
+  ></web-multiselect>
 
   <script type="module">
     import '@keenmate/web-multiselect';
@@ -152,7 +152,7 @@ select.setSelected([1, 3]);`}
   }
 </script>
 
-<multi-select
+<web-multiselect
   bind:this={selectElement}
   value-member="id"
   display-value-member="label"
@@ -180,7 +180,7 @@ function MyComponent() {
   }, []);
   
   return (
-    <multi-select
+    <web-multiselect
       ref={selectRef}
       value-member="id"
       display-value-member="label"
@@ -195,7 +195,7 @@ function MyComponent() {
 					<CodeBlock
 						codeContent={`<!-- Vue 3 -->
 <template>
-  <multi-select
+  <web-multiselect
     ref="selectRef"
     value-member="id"
     display-value-member="label"
@@ -228,11 +228,11 @@ import '@keenmate/web-multiselect';
 @Component({
   selector: 'app-my-component',
   template: \`
-    <multi-select
+    <web-multiselect
       #select
       value-member="id"
       display-value-member="label"
-    ></multi-select>
+    ></web-multiselect>
   \`
 })
 export class MyComponent {

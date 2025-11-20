@@ -125,14 +125,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={basicRTLSelect}
 						dir="rtl"
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="...بحث"
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Toggle icon on left, text right-aligned
 					</p>
@@ -169,14 +169,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={arabicSelect}
 						dir="rtl"
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="البحث عن التقنيات..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Arabic technology terms
 					</p>
@@ -213,14 +213,14 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={hebrewSelect}
 						dir="rtl"
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="...חפש טכנולוגיות"
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Hebrew technology terms
 					</p>
@@ -258,7 +258,7 @@
 			{#snippet demoContent()}
 				<div class="multiselect-demo mb-4">
 					<label class="small mb-2">Pills Top (stays top)</label>
-					<multi-select
+					<web-multiselect
 						bind:this={pillsTopRTL}
 						dir="rtl"
 						value-member="value"
@@ -266,12 +266,12 @@
 						icon-member="icon"
 						pills-position="top"
 						search-placeholder="...بحث"
-					></multi-select>
+					></web-multiselect>
 				</div>
 
 				<div class="multiselect-demo mb-4">
 					<label class="small mb-2">Pills Bottom (stays bottom)</label>
-					<multi-select
+					<web-multiselect
 						bind:this={pillsBottomRTL}
 						dir="rtl"
 						value-member="value"
@@ -279,12 +279,12 @@
 						icon-member="icon"
 						pills-position="bottom"
 						search-placeholder="...בחיפוש"
-					></multi-select>
+					></web-multiselect>
 				</div>
 
 				<div class="multiselect-demo mb-4">
 					<label class="small mb-2">Pills Left (becomes right in RTL)</label>
-					<multi-select
+					<web-multiselect
 						bind:this={pillsLeftRTL}
 						dir="rtl"
 						value-member="value"
@@ -292,12 +292,12 @@
 						icon-member="icon"
 						pills-position="left"
 						search-placeholder="...بحث"
-					></multi-select>
+					></web-multiselect>
 				</div>
 
 				<div class="multiselect-demo">
 					<label class="small mb-2">Pills Right (becomes left in RTL)</label>
-					<multi-select
+					<web-multiselect
 						bind:this={pillsRightRTL}
 						dir="rtl"
 						value-member="value"
@@ -305,7 +305,7 @@
 						icon-member="icon"
 						pills-position="right"
 						search-placeholder="...בחיפוש"
-					></multi-select>
+					></web-multiselect>
 				</div>
 			{/snippet}
 
@@ -339,7 +339,7 @@
 
 			{#snippet demoContent()}
 				<div class="multiselect-demo">
-					<multi-select
+					<web-multiselect
 						bind:this={countRTL}
 						dir="rtl"
 						value-member="value"
@@ -348,7 +348,7 @@
 						pills-display-mode="count"
 						show-counter="true"
 						search-placeholder="...بحث"
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Count text in Arabic with badge on left
 					</p>
@@ -386,24 +386,24 @@
 				<div class="row">
 					<div class="col-md-6 mb-3">
 						<label class="small mb-2">LTR (Left-to-Right)</label>
-						<multi-select
+						<web-multiselect
 							bind:this={comparisonLTR}
 							value-member="value"
 							display-value-member="label"
 							icon-member="icon"
 							search-placeholder="Search..."
-						></multi-select>
+						></web-multiselect>
 					</div>
 					<div class="col-md-6 mb-3">
 						<label class="small mb-2">RTL (Right-to-Left)</label>
-						<multi-select
+						<web-multiselect
 							bind:this={comparisonRTL}
 							dir="rtl"
 							value-member="value"
 							display-value-member="label"
 							icon-member="icon"
 							search-placeholder="...بحث"
-						></multi-select>
+						></web-multiselect>
 					</div>
 				</div>
 			{/snippet}
@@ -439,13 +439,13 @@
 			{#snippet demoContent()}
 				<div dir="rtl" class="p-3 border rounded bg-light">
 					<p class="small mb-2">This container has dir="rtl"</p>
-					<multi-select
+					<web-multiselect
 						bind:this={nestedRTL}
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
 						search-placeholder="البحث عن التقنيات..."
-					></multi-select>
+					></web-multiselect>
 					<p class="text-muted small mt-2">
 						Component inherits RTL from parent
 					</p>

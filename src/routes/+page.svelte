@@ -155,12 +155,12 @@ import '@keenmate/web-multiselect/dist/style.css';`}
 				<div class="col-lg-6">
 					<CodeBlock
 						codeContent={`<!-- HTML Usage -->
-<multi-select
+<web-multiselect
   value-member="id"
   display-value-member="name"
   icon-member="icon"
   search-placeholder="Search items..."
-></multi-select>
+></web-multiselect>
 
 <script>
   const select = document.querySelector('multi-select');
@@ -178,7 +178,7 @@ import '@keenmate/web-multiselect/dist/style.css';`}
 					<CodeBlock
 						codeContent={`<!-- Advanced with Form Integration -->
 <form>
-  <multi-select
+  <web-multiselect
     name="technologies"
     form-value-format="json"
     value-member="id"
@@ -186,7 +186,7 @@ import '@keenmate/web-multiselect/dist/style.css';`}
     search-placeholder="Search..."
     allow-select-all="true"
     allow-clear-all="true"
-  ></multi-select>
+  ></web-multiselect>
   <button type="submit">Submit</button>
 </form>
 
