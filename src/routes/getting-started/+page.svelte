@@ -11,9 +11,9 @@
 		<ShowcaseSection
 			titleText="Installation"
 			subtitleText="Add the package to your project"
-			demoColumnTitle="Package Manager"
-			controlsColumnTitle="CDN"
-			descriptionColumnTitle="Build Tools">
+			col1Title="Package Manager"
+			col2Title="CDN"
+			col3Title="Build Tools">
 
 			{#snippet demoContent()}
 				<CodeBlock
@@ -66,9 +66,9 @@
 		<ShowcaseSection
 			titleText="Basic Usage"
 			subtitleText="Your first multiselect component"
-			demoColumnTitle="HTML"
-			controlsColumnTitle="JavaScript"
-			descriptionColumnTitle="Explanation">
+			col1Title="HTML"
+			col2Title="JavaScript"
+			col3Title="Explanation">
 
 			{#snippet demoContent()}
 				<CodeBlock
