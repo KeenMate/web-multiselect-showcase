@@ -30,6 +30,7 @@ const config: PartialDocsConfig = {
 				icon: '🎨',
 				children: [
 					{ label: 'Basic', href: '/examples/basic' },
+					{ label: 'Groups', href: '/examples/groups' },
 					{ label: 'Flexible Data', href: '/examples/flexible-data' },
 					{ label: 'Value Format', href: '/examples/value-format' },
 					{ label: 'Form Integration', href: '/examples/form-integration' },
@@ -57,7 +58,10 @@ const config: PartialDocsConfig = {
 	features: {
 		search: true,
 		breadcrumbs: true,
-		tableOfContents: true
+		tableOfContents: true,
+		analyticsScripts: [
+		'<script defer data-domain="web-multiselect.keenmate.dev" src="https://stats.keenmate.services/js/plausible.js"></script>'
+	]	
 	}
 };
 
