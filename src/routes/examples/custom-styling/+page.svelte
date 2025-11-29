@@ -5,6 +5,11 @@
 	let defaultSelect: any;
 	let primarySelect: any;
 	let customSelect: any;
+	let sizeXsSelect: any;
+	let sizeSmSelect: any;
+	let sizeMdSelect: any;
+	let sizeLgSelect: any;
+	let sizeXlSelect: any;
 
 	onMount(() => {
 
@@ -18,6 +23,11 @@
 		if (defaultSelect) defaultSelect.options = options;
 		if (primarySelect) primarySelect.options = options;
 		if (customSelect) customSelect.options = options;
+		if (sizeXsSelect) sizeXsSelect.options = options;
+		if (sizeSmSelect) sizeSmSelect.options = options;
+		if (sizeMdSelect) sizeMdSelect.options = options;
+		if (sizeLgSelect) sizeLgSelect.options = options;
+		if (sizeXlSelect) sizeXlSelect.options = options;
 	});
 </script>
 
@@ -182,6 +192,101 @@
 						<li>Text colors</li>
 						<li>Border colors</li>
 						<li>Hover states</li>
+					</ul>
+				</div>
+			{/snippet}
+		</ShowcaseSection>
+
+		<ShowcaseSection
+			titleText="Input Sizes"
+			subtitleText="Control input dimensions with the input-size attribute"
+			demoColumnTitle="Live Demo"
+			controlsColumnTitle="Sizes"
+			descriptionColumnTitle="Details">
+
+			{#snippet demoContent()}
+				<div class="d-flex flex-column gap-3">
+					<div>
+						<label class="form-label small text-muted mb-1">Extra Small (xs) - 31px</label>
+						<web-multiselect
+							bind:this={sizeXsSelect}
+							input-size="xs"
+							value-member="value"
+							display-value-member="label"
+							multiple="false"
+							search-placeholder="Extra small..."
+						></web-multiselect>
+					</div>
+					<div>
+						<label class="form-label small text-muted mb-1">Small (sm) - 33px</label>
+						<web-multiselect
+							bind:this={sizeSmSelect}
+							input-size="sm"
+							value-member="value"
+							display-value-member="label"
+							multiple="false"
+							search-placeholder="Small..."
+						></web-multiselect>
+					</div>
+					<div>
+						<label class="form-label small text-muted mb-1">Medium (md) - 35px (default)</label>
+						<web-multiselect
+							bind:this={sizeMdSelect}
+							input-size="md"
+							value-member="value"
+							display-value-member="label"
+							multiple="false"
+							search-placeholder="Medium (default)..."
+						></web-multiselect>
+					</div>
+					<div>
+						<label class="form-label small text-muted mb-1">Large (lg) - 38px</label>
+						<web-multiselect
+							bind:this={sizeLgSelect}
+							input-size="lg"
+							value-member="value"
+							display-value-member="label"
+							multiple="false"
+							search-placeholder="Large..."
+						></web-multiselect>
+					</div>
+					<div>
+						<label class="form-label small text-muted mb-1">Extra Large (xl) - 41px</label>
+						<web-multiselect
+							bind:this={sizeXlSelect}
+							input-size="xl"
+							value-member="value"
+							display-value-member="label"
+							multiple="false"
+							search-placeholder="Extra large..."
+						></web-multiselect>
+					</div>
+				</div>
+			{/snippet}
+
+			{#snippet controlsContent()}
+				<div class="prose small">
+					<p>Use the <code>input-size</code> attribute:</p>
+					<ul class="small mb-2">
+						<li><code>xs</code> - 31px height</li>
+						<li><code>sm</code> - 33px height</li>
+						<li><code>md</code> - 35px (default)</li>
+						<li><code>lg</code> - 38px height</li>
+						<li><code>xl</code> - 41px height</li>
+					</ul>
+					<p class="mb-0">Pure Admin standard heights with --ms-rem scaling.</p>
+				</div>
+			{/snippet}
+
+			{#snippet descriptionContent()}
+				<div class="prose small">
+					<h5>Size CSS Variables</h5>
+					<p>Each size has customizable variables:</p>
+					<ul class="small">
+						<li><code>--ms-input-size-{'{size}'}-height</code></li>
+						<li><code>--ms-input-size-{'{size}'}-font</code></li>
+						<li><code>--ms-input-size-{'{size}'}-padding-v</code></li>
+						<li><code>--ms-input-size-{'{size}'}-padding-h</code></li>
 					</ul>
 				</div>
 			{/snippet}

@@ -369,6 +369,12 @@
 					</thead>
 					<tbody>
 						<tr>
+							<td><code>input-size</code></td>
+							<td>'xs' | 'sm' | 'md' | 'lg' | 'xl'</td>
+							<td>'md'</td>
+							<td>Input field size. Heights: xs=31px, sm=33px, md=35px, lg=38px, xl=41px (Pure Admin standard). See <a href="/examples/custom-styling">Custom Styling</a></td>
+						</tr>
+						<tr>
 							<td><code>dropdown-min-width</code></td>
 							<td>string (CSS value)</td>
 							<td>-</td>
