@@ -43,7 +43,7 @@
 
 	<div class="py-4">
 		<ShowcaseSection
-			titleText="Badges Mode (Default)"
+			titleText="DM01 Badges Mode (Default)"
 			subtitleText="Show selected items as removable badges"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -83,7 +83,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Count Mode + Badge"
+			titleText="DM02 Count Mode + Badge"
 			subtitleText="Count pill and badge (both options enabled)"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -128,7 +128,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Count Mode Only"
+			titleText="DM03 Count Mode Only"
 			subtitleText="Count pill without badge"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -169,7 +169,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Counter Feature"
+			titleText="DM04 Counter Feature"
 			subtitleText="Add [X] badge to any display mode"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -204,14 +204,14 @@
 				<div class="prose small">
 					<h5>Counter</h5>
 					<p><code>show-counter="true"</code></p>
-					<p>Works with any <code>pills-display-mode</code></p>
+					<p>Works with any <code>badges-display-mode</code></p>
 					<p><strong>Note:</strong> Cannot be used alone - must be combined with pills, count, or compact mode.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Compact Mode"
+			titleText="DM05 Compact Mode"
 			subtitleText="First item + count in a single removable pill"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -255,7 +255,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="None Mode (Minimal Display)"
+			titleText="DM06 None Mode (Minimal Display)"
 			subtitleText="No display in pills area - use with counter"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -300,7 +300,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Pills Position: Top"
+			titleText="DM07 Pills Position: Top"
 			subtitleText="Place pills above the search input"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -340,7 +340,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Pills Position: Left"
+			titleText="DM08 Pills Position: Left"
 			subtitleText="Place pills to the left of the input"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -380,7 +380,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Pills Threshold"
+			titleText="DM09 Pills Threshold"
 			subtitleText="Auto-switch to count mode after threshold"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"

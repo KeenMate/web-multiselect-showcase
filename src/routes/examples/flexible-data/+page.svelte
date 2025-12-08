@@ -54,7 +54,7 @@
 	<div class="py-4">
 		<!-- Custom Objects -->
 		<ShowcaseSection
-			titleText="Custom Object Properties"
+			titleText="FD01 Custom Object Properties"
 			subtitleText="Map custom object properties using member attributes"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Instructions"
@@ -97,7 +97,7 @@
 
 		<!-- Tuples -->
 		<ShowcaseSection
-			titleText="[key, value] Tuples"
+			titleText="FD02 [key, value] Tuples"
 			subtitleText="Auto-detected tuple arrays - no configuration needed"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Instructions"
@@ -139,7 +139,7 @@
 
 		<!-- Callbacks -->
 		<ShowcaseSection
-			titleText="Callback Functions"
+			titleText="FD03 Callback Functions"
 			subtitleText="Use callbacks for complex data extraction logic"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Instructions"

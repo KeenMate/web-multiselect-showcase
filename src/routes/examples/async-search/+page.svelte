@@ -110,7 +110,7 @@
 
 	<div class="py-4">
 		<ShowcaseSection
-			titleText="GitHub User Search"
+			titleText="AS01 GitHub User Search"
 			subtitleText="Real API integration with error handling and fallback"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -153,7 +153,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Product Search with Delay"
+			titleText="AS02 Product Search with Delay"
 			subtitleText="Simulated API call with 300ms delay"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -194,7 +194,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Country Lookup"
+			titleText="AS03 Country Lookup"
 			subtitleText="Search countries with flag emojis"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"

@@ -92,12 +92,12 @@
 	<style>
 		/* Custom tooltip styling example */
 		web-multiselect#styled-tooltips {
-			--ml-tooltip-bg: #667eea;
-			--ml-tooltip-color: white;
-			--ml-tooltip-padding: 0.75rem 1rem;
-			--ml-tooltip-border-radius: 8px;
-			--ml-tooltip-font-size: 0.9rem;
-			--ml-tooltip-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+			--ms-tooltip-background: #667eea;
+			--ms-tooltip-text-color: white;
+			--ms-tooltip-padding: 0.75rem 1rem;
+			--ms-tooltip-border-radius: 8px;
+			--ms-tooltip-font-size: 0.9rem;
+			--ms-tooltip-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 		}
 	</style>
 </svelte:head>
@@ -121,7 +121,7 @@
 		<h2 class="h4 mb-4">Partial Badges Mode</h2>
 
 		<ShowcaseSection
-			titleText="Partial Badges with Threshold"
+			titleText="AF01 Partial Badges with Threshold"
 			subtitleText="Show limited badges + '+X more' badge when threshold exceeded"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Instructions"
@@ -173,7 +173,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Compare: Partial vs Count Mode"
+			titleText="AF02 Compare: Partial vs Count Mode"
 			subtitleText="See the difference between partial and count modes"
 			demoColumnTitle="Partial Mode (badges-threshold-mode='partial')"
 			controlsColumnTitle="Count Mode (badges-threshold-mode='count')"
@@ -237,7 +237,7 @@
 		<h2 class="h4 mb-4 mt-5">Badge Tooltips</h2>
 
 		<ShowcaseSection
-			titleText="Basic Tooltips"
+			titleText="AF03 Basic Tooltips"
 			subtitleText="Default tooltips showing display value + subtitle"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Instructions"
@@ -287,7 +287,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Custom Tooltip Content"
+			titleText="AF04 Custom Tooltip Content"
 			subtitleText="Use getBadgeTooltipCallback for custom content"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Callback Code"
@@ -333,7 +333,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Styled Tooltips"
+			titleText="AF05 Styled Tooltips"
 			subtitleText="Customize appearance with CSS variables"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="CSS Variables"
@@ -374,14 +374,14 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 				<div class="prose small">
 					<h5>Available CSS Variables</h5>
 					<ul class="small">
-						<li><code>--ml-tooltip-bg</code></li>
-						<li><code>--ml-tooltip-color</code></li>
-						<li><code>--ml-tooltip-padding</code></li>
-						<li><code>--ml-tooltip-border-radius</code></li>
-						<li><code>--ml-tooltip-font-size</code></li>
-						<li><code>--ml-tooltip-shadow</code></li>
-						<li><code>--ml-tooltip-max-width</code></li>
-						<li><code>--ml-tooltip-z-index</code></li>
+						<li><code>--ms-tooltip-background</code></li>
+						<li><code>--ms-tooltip-text-color</code></li>
+						<li><code>--ms-tooltip-padding</code></li>
+						<li><code>--ms-tooltip-border-radius</code></li>
+						<li><code>--ms-tooltip-font-size</code></li>
+						<li><code>--ms-tooltip-shadow</code></li>
+						<li><code>--ms-tooltip-max-width</code></li>
+						<li><code>--ms-tooltip-z-index</code></li>
 					</ul>
 				</div>
 			{/snippet}
@@ -391,7 +391,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 		<h2 class="h4 mb-4 mt-5">Combined Features</h2>
 
 		<ShowcaseSection
-			titleText="Partial Badges + Tooltips"
+			titleText="AF06 Partial Badges + Tooltips"
 			subtitleText="Both features working together"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"

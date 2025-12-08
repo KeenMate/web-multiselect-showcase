@@ -175,24 +175,24 @@
 			// Custom CSS for priority styling
 			richVirtualSelect.customStylesCallback = () => `
 				.product-urgent {
-					--ml-badge-text-bg: #fee2e2;
-					--ml-badge-text-color: #dc2626;
-					--ml-badge-remove-bg: #dc2626;
+					--ms-badge-text-background: #fee2e2;
+					--ms-badge-text-color: #dc2626;
+					--ms-badge-remove-background: #dc2626;
 				}
 				.product-important {
-					--ml-badge-text-bg: #fef3c7;
-					--ml-badge-text-color: #d97706;
-					--ml-badge-remove-bg: #d97706;
+					--ms-badge-text-background: #fef3c7;
+					--ms-badge-text-color: #d97706;
+					--ms-badge-remove-background: #d97706;
 				}
 				.product-normal {
-					--ml-badge-text-bg: #dbeafe;
-					--ml-badge-text-color: #2563eb;
-					--ml-badge-remove-bg: #2563eb;
+					--ms-badge-text-background: #dbeafe;
+					--ms-badge-text-color: #2563eb;
+					--ms-badge-remove-background: #2563eb;
 				}
 				.product-low {
-					--ml-badge-text-bg: #d1fae5;
-					--ml-badge-text-color: #059669;
-					--ml-badge-remove-bg: #059669;
+					--ms-badge-text-background: #d1fae5;
+					--ms-badge-text-color: #059669;
+					--ms-badge-remove-background: #059669;
 				}
 			`;
 
@@ -231,7 +231,7 @@
 
 	<!-- Live Demo -->
 	<ShowcaseSection
-		titleText="15,000 Options with Virtual Scrolling"
+		titleText="VS01 15,000 Options with Virtual Scrolling"
 		subtitleText="Experience blazing-fast performance"
 		demoColumnTitle="Live Demo"
 		controlsColumnTitle="Configuration"
@@ -255,7 +255,8 @@
 					virtual-scroll-buffer="10"
 					pills-threshold="4"
 					pills-threshold-mode="count"
-					show-counter="true">
+					show-counter="true"
+					enable-badge-tooltips="true">
 				</web-multiselect>
 				<div class="form-text">
 					<strong>Try it:</strong> Type to search • Select 4+ items to see counter • Click badge to see popover with virtual scrolling
@@ -348,7 +349,7 @@ select.options = options;
 
 	<!-- Rich Rendering with Callbacks -->
 	<ShowcaseSection
-		titleText="Rich Rendering with Custom Callbacks"
+		titleText="VS02 Rich Rendering with Custom Callbacks"
 		subtitleText="Virtual scroll works with complex custom rendering"
 		demoColumnTitle="Live Demo"
 		controlsColumnTitle="Instructions"
@@ -360,13 +361,14 @@ select.options = options;
 				<web-multiselect
 					bind:this={richVirtualSelect}
 					placeholder="Select products..."
-					option-height="90"
+					option-height="120"
 					badge-height="65"
 					pills-threshold="3"
 					pills-threshold-mode="count"
 					show-counter="true"
 					enable-virtual-scroll="true"
-					virtual-scroll-threshold="100">
+					virtual-scroll-threshold="100"
+					enable-badge-tooltips="true">
 				</web-multiselect>
 				<div class="form-text">
 					<strong>Try it:</strong> Select 100+ items to see virtual scroll in the popover with custom rendering.
@@ -416,7 +418,7 @@ select.options = options;
 
 	<!-- How It Works -->
 	<ShowcaseSection
-		titleText="How Virtual Scrolling Works"
+		titleText="VS03 How Virtual Scrolling Works"
 		subtitleText="Efficient rendering technique"
 		demoColumnTitle="Traditional Rendering"
 		controlsColumnTitle="Virtual Scrolling"
@@ -481,7 +483,7 @@ select.options = options;
 
 	<!-- Code Examples -->
 	<ShowcaseSection
-		titleText="Implementation Examples"
+		titleText="VS04 Implementation Examples"
 		subtitleText="Different use cases">
 
 		{#snippet demoContent()}
@@ -549,7 +551,7 @@ select.searchCallback = async (term) => {
 
 	<!-- Rich Rendering Code Example -->
 	<ShowcaseSection
-		titleText="Rich Rendering with Callbacks - Code Example"
+		titleText="VS05 Rich Rendering with Callbacks - Code Example"
 		subtitleText="Complete implementation">
 
 		{#snippet demoContent()}
@@ -697,24 +699,24 @@ select.getSelectionBadgeClassCallback = (item) => {
 // Inject custom CSS variables for priority styling
 select.customStylesCallback = () => \`
   .product-urgent {
-    --ml-badge-text-bg: #fee2e2;
-    --ml-badge-text-color: #dc2626;
-    --ml-badge-remove-bg: #dc2626;
+    --ms-badge-text-background: #fee2e2;
+    --ms-badge-text-color: #dc2626;
+    --ms-badge-remove-background: #dc2626;
   }
   .product-important {
-    --ml-badge-text-bg: #fef3c7;
-    --ml-badge-text-color: #d97706;
-    --ml-badge-remove-bg: #d97706;
+    --ms-badge-text-background: #fef3c7;
+    --ms-badge-text-color: #d97706;
+    --ms-badge-remove-background: #d97706;
   }
   .product-normal {
-    --ml-badge-text-bg: #dbeafe;
-    --ml-badge-text-color: #2563eb;
-    --ml-badge-remove-bg: #2563eb;
+    --ms-badge-text-background: #dbeafe;
+    --ms-badge-text-color: #2563eb;
+    --ms-badge-remove-background: #2563eb;
   }
   .product-low {
-    --ml-badge-text-bg: #d1fae5;
-    --ml-badge-text-color: #059669;
-    --ml-badge-remove-bg: #059669;
+    --ms-badge-text-background: #d1fae5;
+    --ms-badge-text-color: #059669;
+    --ms-badge-remove-background: #059669;
   }
 \`;`}
 				languageType="javascript"

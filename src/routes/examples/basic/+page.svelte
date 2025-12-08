@@ -48,7 +48,7 @@
 	<div class="py-4">
 		<!-- Basic Multiselect -->
 		<ShowcaseSection
-			titleText="Basic Multiselect"
+			titleText="BU01 Basic Multiselect"
 			subtitleText="Select multiple items with icons, search, and optional checkboxes"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -91,7 +91,7 @@
 
 		<!-- Single Select -->
 		<ShowcaseSection
-			titleText="Single Select Mode"
+			titleText="BU02 Single Select Mode"
 			subtitleText="Limit selection to only one item"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -137,7 +137,7 @@
 
 		<!-- Grouped Options -->
 		<ShowcaseSection
-			titleText="Grouped Options"
+			titleText="BU03 Grouped Options"
 			subtitleText="Organize options into groups"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"

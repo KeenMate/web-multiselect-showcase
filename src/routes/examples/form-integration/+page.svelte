@@ -139,7 +139,7 @@
 		</div>
 
 		<ShowcaseSection
-			titleText="JSON Format (Default)"
+			titleText="FI01 JSON Format (Default)"
 			subtitleText="Hidden input with JSON array value"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Form Data"
@@ -195,7 +195,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="CSV Format"
+			titleText="FI02 CSV Format"
 			subtitleText="Hidden input with comma-separated values"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Form Data"
@@ -251,7 +251,7 @@ $array = explode(',', $techs);
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Array Format"
+			titleText="FI03 Array Format"
 			subtitleText="Multiple hidden inputs for standard array parsing"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Form Data"

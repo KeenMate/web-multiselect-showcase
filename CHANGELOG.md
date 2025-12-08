@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
+- **Updated @keenmate/web-multiselect** - Linked to local development version (`file:../web-multiselect`)
+  - Testing new default center alignment for options
+
+### Added
+- **Example Index System** - Added prefix codes to all 51 examples across 11 pages for quick reference
+  - Created `EXAMPLES.md` with complete lookup table and prefix reference
+  - Prefixes: BU (Basic Usage), GR (Groups), FD (Flexible Data), VF (Value Format), FI (Form Integration), AS (Async Search), VS (Virtual Scrolling), CS (Custom Styling), DM (Display Modes), RTL (RTL Support), AF (Advanced Features)
+  - Each `ShowcaseSection` title now includes its example code (e.g., "BU01 Basic Multiselect", "DM05 Compact Mode")
+
+### Changed
 - **Updated @keenmate/svelte-docs** from `1.0.0-rc08` to `1.0.0-rc09`
   - Migrated Plausible analytics from `app.html` to `analyticsScripts` config option
 

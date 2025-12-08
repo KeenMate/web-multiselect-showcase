@@ -69,7 +69,7 @@
 
 	<div class="py-4">
 		<ShowcaseSection
-			titleText="JSON Format"
+			titleText="VF01 JSON Format"
 			subtitleText="Serialize as JSON array - ideal for APIs and complex data"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Serialized Value"
@@ -123,7 +123,7 @@ const json = JSON.stringify(values);
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="CSV Format"
+			titleText="VF02 CSV Format"
 			subtitleText="Comma-separated values - simple and compact"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Serialized Value"
@@ -176,7 +176,7 @@ const csv = values.join(',');
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Array Format"
+			titleText="VF03 Array Format"
 			subtitleText="Native JavaScript array - most flexible"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Array Value"
@@ -236,7 +236,7 @@ values.forEach(lang => console.log(lang));`}</code></pre>
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Custom Format Callback"
+			titleText="VF04 Custom Format Callback"
 			subtitleText="Define your own serialization logic"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Custom Value"

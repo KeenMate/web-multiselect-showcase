@@ -117,7 +117,7 @@
 
 	<div class="py-4">
 		<ShowcaseSection
-			titleText="Basic RTL"
+			titleText="RTL01 Basic RTL"
 			subtitleText="Auto-detected from dir='rtl' attribute"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -161,7 +161,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Arabic Text Example"
+			titleText="RTL02 Arabic Text Example"
 			subtitleText="Real Arabic language sample"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -205,7 +205,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Hebrew Text Example"
+			titleText="RTL03 Hebrew Text Example"
 			subtitleText="Real Hebrew language sample"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -249,7 +249,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="RTL Pills Positions"
+			titleText="RTL04 RTL Pills Positions"
 			subtitleText="Logical position mirroring (left↔right)"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -331,7 +331,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="RTL Count Mode"
+			titleText="RTL05 RTL Count Mode"
 			subtitleText="Count badge on left side in RTL"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -376,7 +376,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="LTR vs RTL Comparison"
+			titleText="RTL06 LTR vs RTL Comparison"
 			subtitleText="Side-by-side comparison of LTR and RTL layouts"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Differences"
@@ -430,7 +430,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Nested RTL (Inherited)"
+			titleText="RTL07 Nested RTL (Inherited)"
 			subtitleText="Component inherits dir='rtl' from parent"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"

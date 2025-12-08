@@ -1,11 +1,11 @@
-# Svelte Treeview Showcase - Makefile
+# Web Multiselect Showcase - Makefile
 # Development and build commands for the showcase project
 
 # === Configuration ===
 # Docker image settings
-DOCKER_IMAGE_NAME = registry.km8.es/svelte-treeview-showcase
+DOCKER_IMAGE_NAME = registry.km8.es/web-multiselect-showcase
 DOCKER_TAG = production
-DOCKER_CONTAINER_NAME = svelte-treeview-showcase
+DOCKER_CONTAINER_NAME = web-multiselect-showcase
 DOCKER_PORT = 8080
 
 # Development settings
@@ -22,7 +22,7 @@ PACKAGE_LOCK = package-lock.json
 
 # Default target
 help: ## Show this help message
-	@echo "Svelte Treeview Showcase - Available Commands:"
+	@echo "Web Multiselect Showcase - Available Commands:"
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
@@ -30,15 +30,15 @@ help: ## Show this help message
 install: ## Install dependencies
 	npm install
 
-link-lib: ## Link the @keenmate/svelte-treeview library from ../svelte-treeview
-	cd ../svelte-treeview && npm link
-	npm link @keenmate/svelte-treeview
+link-lib: ## Link the @keenmate/web-multiselect library from ../web-multiselect
+	cd ../web-multiselect && npm link
+	npm link @keenmate/web-multiselect
 
-unlink-lib: ## Unlink the @keenmate/svelte-treeview library
-	npm unlink @keenmate/svelte-treeview
+unlink-lib: ## Unlink the @keenmate/web-multiselect library
+	npm unlink @keenmate/web-multiselect
 
-install-published: ## Install published version of @keenmate/svelte-treeview
-	npm install @keenmate/svelte-treeview@latest
+install-published: ## Install published version of @keenmate/web-multiselect
+	npm install @keenmate/web-multiselect@latest
 
 dev: ## Start development server
 	npm run dev
@@ -63,11 +63,11 @@ lint: ## Run linting (if configured)
 	@echo "Linting not configured yet"
 
 # Library development helpers
-build-lib: ## Build the linked svelte-treeview library
-	cd ../svelte-treeview && npm run package
+build-lib: ## Build the linked web-multiselect library
+	cd ../web-multiselect && npm run package
 
 rebuild-lib: ## Rebuild and relink the library
-	cd ../svelte-treeview && npm run package
+	cd ../web-multiselect && npm run package
 	$(MAKE) link-lib
 
 # Cleanup
@@ -176,11 +176,11 @@ docker-deploy: docker-build docker-run ## Build and run Docker container
 
 # Information
 status: ## Show project status
-	@echo "Svelte Treeview Showcase Status:"
+	@echo "Web Multiselect Showcase Status:"
 	@echo "Node version: $(shell node --version)"
 	@echo "NPM version: $(shell npm --version)"
 	@echo "Project directory: $(shell pwd)"
-	@echo "Library linked: $(shell npm list @keenmate/svelte-treeview 2>/dev/null | grep @keenmate/svelte-treeview || echo 'Not linked')"
+	@echo "Library linked: $(shell npm list @keenmate/web-multiselect 2>/dev/null | grep @keenmate/web-multiselect || echo 'Not linked')"
 	@echo "Dependencies installed: $(shell test -d $(NODE_MODULES) && echo "✓" || echo "✗")"
 	@echo "Build exists: $(shell test -d $(BUILD_DIR) && echo "✓" || echo "✗")"
 

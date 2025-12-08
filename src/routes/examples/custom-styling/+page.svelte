@@ -5,11 +5,10 @@
 	let defaultSelect: any;
 	let primarySelect: any;
 	let customSelect: any;
-	let sizeXsSelect: any;
-	let sizeSmSelect: any;
-	let sizeMdSelect: any;
-	let sizeLgSelect: any;
-	let sizeXlSelect: any;
+	let compactSelect: any;
+	let defaultSizeSelect: any;
+	let largeSelect: any;
+	let xlSelect: any;
 
 	onMount(() => {
 
@@ -23,58 +22,57 @@
 		if (defaultSelect) defaultSelect.options = options;
 		if (primarySelect) primarySelect.options = options;
 		if (customSelect) customSelect.options = options;
-		if (sizeXsSelect) sizeXsSelect.options = options;
-		if (sizeSmSelect) sizeSmSelect.options = options;
-		if (sizeMdSelect) sizeMdSelect.options = options;
-		if (sizeLgSelect) sizeLgSelect.options = options;
-		if (sizeXlSelect) sizeXlSelect.options = options;
+		if (compactSelect) compactSelect.options = options;
+		if (defaultSizeSelect) defaultSizeSelect.options = options;
+		if (largeSelect) largeSelect.options = options;
+		if (xlSelect) xlSelect.options = options;
 	});
 </script>
 
 <style>
 	/* Primary themed multiselect */
 	:global(web-multiselect.primary-theme) {
-		--ml-input-border-color: #0d6efd;
-		--ml-input-focus-border-color: #0d6efd;
-		--ml-input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-		--ml-option-bg-hover: #e7f1ff;
-		--ml-option-bg-focused: #cfe2ff;
-		--ml-option-bg-selected: #0d6efd;
-		--ml-option-bg-selected-hover: #0b5ed7;
-		--ml-option-title-color-selected: white;
-		--ml-option-outline-focused: 2px solid #0d6efd;
-		--ml-badge-bg: #0d6efd;
-		--ml-badge-color: white;
-		--ml-toggle-color: #0d6efd;
-		--ml-counter-bg: #0d6efd;
-		--ml-counter-color: white;
+		--ms-input-border-color: #0d6efd;
+		--ms-input-focus-border-color: #0d6efd;
+		--ms-input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+		--ms-option-bg-hover: #e7f1ff;
+		--ms-option-bg-focused: #cfe2ff;
+		--ms-option-bg-selected: #0d6efd;
+		--ms-option-bg-selected-hover: #0b5ed7;
+		--ms-option-title-color-selected: white;
+		--ms-option-outline-focused: 2px solid #0d6efd;
+		--ms-badge-bg: #0d6efd;
+		--ms-badge-color: white;
+		--ms-toggle-color: #0d6efd;
+		--ms-counter-bg: #0d6efd;
+		--ms-counter-color: white;
 	}
 
 	/* Custom dark theme */
 	:global(web-multiselect.custom-dark) {
-		--ml-input-bg: #2b2b2b;
-		--ml-input-text: #e0e0e0;
-		--ml-input-border-color: #444;
-		--ml-input-placeholder-color: #999;
-		--ml-input-focus-border-color: #6c5ce7;
-		--ml-dropdown-bg: #2b2b2b;
-		--ml-option-color: #e0e0e0;
-		--ml-dropdown-border-color: #444;
-		--ml-option-bg-hover: #3a3a3a;
-		--ml-option-bg-selected: #6c5ce7;
-		--ml-option-title-color: #e0e0e0;
-		--ml-option-title-color-selected: white;
-		--ml-badge-bg: #6c5ce7;
-		--ml-badge-color: white;
-		--ml-badge-bg-hover: #5f50d9;
-		--ml-toggle-color: #e0e0e0;
-		--ml-actions-bg: #2b2b2b;
-		--ml-action-btn-bg: #3a3a3a;
-		--ml-action-btn-color: #e0e0e0;
-		--ml-action-btn-border-color: #555;
-		--ml-action-btn-bg-hover: #4a4a4a;
-		--ml-action-btn-border-color-hover: #6c5ce7;
-		--ml-empty-color: #999;
+		--ms-input-bg: #2b2b2b;
+		--ms-input-text: #e0e0e0;
+		--ms-input-border-color: #444;
+		--ms-input-placeholder-color: #999;
+		--ms-input-focus-border-color: #6c5ce7;
+		--ms-dropdown-bg: #2b2b2b;
+		--ms-option-color: #e0e0e0;
+		--ms-dropdown-border-color: #444;
+		--ms-option-bg-hover: #3a3a3a;
+		--ms-option-bg-selected: #6c5ce7;
+		--ms-option-title-color: #e0e0e0;
+		--ms-option-title-color-selected: white;
+		--ms-badge-bg: #6c5ce7;
+		--ms-badge-color: white;
+		--ms-badge-bg-hover: #5f50d9;
+		--ms-toggle-color: #e0e0e0;
+		--ms-actions-bg: #2b2b2b;
+		--ms-action-btn-bg: #3a3a3a;
+		--ms-action-btn-color: #e0e0e0;
+		--ms-action-btn-border-color: #555;
+		--ms-action-btn-bg-hover: #4a4a4a;
+		--ms-action-btn-border-color-hover: #6c5ce7;
+		--ms-empty-color: #999;
 	}
 </style>
 
@@ -84,7 +82,7 @@
 
 	<div class="py-4">
 		<ShowcaseSection
-			titleText="Default Styling"
+			titleText="CS01 Default Styling"
 			subtitleText="Out-of-the-box appearance"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -119,7 +117,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Primary Theme"
+			titleText="CS02 Primary Theme"
 			subtitleText="Bootstrap primary color theme"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -148,16 +146,16 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>CSS Variables</h5>
-					<p><code>--ml-input-border-color</code></p>
-					<p><code>--ml-option-selected-bg</code></p>
-					<p><code>--ml-badge-bg</code></p>
+					<p><code>--ms-input-border-color</code></p>
+					<p><code>--ms-option-selected-bg</code></p>
+					<p><code>--ms-badge-bg</code></p>
 					<p>Customized to Bootstrap primary color.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Custom Dark Theme"
+			titleText="CS03 Custom Dark Theme"
 			subtitleText="Fully customized dark appearance"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -198,52 +196,40 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="Input Sizes"
-			subtitleText="Control input dimensions with the input-size attribute"
+			titleText="CS04 Sizing with --ms-rem"
+			subtitleText="Scale the entire component proportionally"
 			demoColumnTitle="Live Demo"
-			controlsColumnTitle="Sizes"
+			controlsColumnTitle="Scaling"
 			descriptionColumnTitle="Details">
 
 			{#snippet demoContent()}
 				<div class="d-flex flex-column gap-3">
 					<div>
-						<label class="form-label small text-muted mb-1">Extra Small (xs) - 31px</label>
+						<label class="form-label small text-muted mb-1">Compact (--ms-rem: 8px) - 80%</label>
 						<web-multiselect
-							bind:this={sizeXsSelect}
-							input-size="xs"
+							bind:this={compactSelect}
+							style="--ms-rem: 8px;"
 							value-member="value"
 							display-value-member="label"
 							multiple="false"
-							search-placeholder="Extra small..."
+							search-placeholder="Compact..."
 						></web-multiselect>
 					</div>
 					<div>
-						<label class="form-label small text-muted mb-1">Small (sm) - 33px</label>
+						<label class="form-label small text-muted mb-1">Default (--ms-rem: 10px) - 100%</label>
 						<web-multiselect
-							bind:this={sizeSmSelect}
-							input-size="sm"
+							bind:this={defaultSizeSelect}
 							value-member="value"
 							display-value-member="label"
 							multiple="false"
-							search-placeholder="Small..."
+							search-placeholder="Default..."
 						></web-multiselect>
 					</div>
 					<div>
-						<label class="form-label small text-muted mb-1">Medium (md) - 35px (default)</label>
+						<label class="form-label small text-muted mb-1">Large (--ms-rem: 12px) - 120%</label>
 						<web-multiselect
-							bind:this={sizeMdSelect}
-							input-size="md"
-							value-member="value"
-							display-value-member="label"
-							multiple="false"
-							search-placeholder="Medium (default)..."
-						></web-multiselect>
-					</div>
-					<div>
-						<label class="form-label small text-muted mb-1">Large (lg) - 38px</label>
-						<web-multiselect
-							bind:this={sizeLgSelect}
-							input-size="lg"
+							bind:this={largeSelect}
+							style="--ms-rem: 12px;"
 							value-member="value"
 							display-value-member="label"
 							multiple="false"
@@ -251,10 +237,10 @@
 						></web-multiselect>
 					</div>
 					<div>
-						<label class="form-label small text-muted mb-1">Extra Large (xl) - 41px</label>
+						<label class="form-label small text-muted mb-1">Extra Large (--ms-rem: 15px) - 150%</label>
 						<web-multiselect
-							bind:this={sizeXlSelect}
-							input-size="xl"
+							bind:this={xlSelect}
+							style="--ms-rem: 15px;"
 							value-member="value"
 							display-value-member="label"
 							multiple="false"
@@ -266,28 +252,23 @@
 
 			{#snippet controlsContent()}
 				<div class="prose small">
-					<p>Use the <code>input-size</code> attribute:</p>
+					<p>Use the <code>--ms-rem</code> CSS variable:</p>
 					<ul class="small mb-2">
-						<li><code>xs</code> - 31px height</li>
-						<li><code>sm</code> - 33px height</li>
-						<li><code>md</code> - 35px (default)</li>
-						<li><code>lg</code> - 38px height</li>
-						<li><code>xl</code> - 41px height</li>
+						<li><code>8px</code> - 80% (compact)</li>
+						<li><code>10px</code> - 100% (default)</li>
+						<li><code>12px</code> - 120% (large)</li>
+						<li><code>1rem</code> - Pure Admin integration</li>
 					</ul>
-					<p class="mb-0">Pure Admin standard heights with --ms-rem scaling.</p>
+					<p class="mb-0">All dimensions scale proportionally.</p>
 				</div>
 			{/snippet}
 
 			{#snippet descriptionContent()}
 				<div class="prose small">
-					<h5>Size CSS Variables</h5>
-					<p>Each size has customizable variables:</p>
-					<ul class="small">
-						<li><code>--ms-input-size-{'{size}'}-height</code></li>
-						<li><code>--ms-input-size-{'{size}'}-font</code></li>
-						<li><code>--ms-input-size-{'{size}'}-padding-v</code></li>
-						<li><code>--ms-input-size-{'{size}'}-padding-h</code></li>
-					</ul>
+					<h5>How It Works</h5>
+					<p>The <code>--ms-rem</code> variable is the base unit for all sizing calculations.</p>
+					<p>Example: <code>calc(1.4 * var(--ms-rem))</code> = 14px at default.</p>
+					<p class="mb-0"><strong>Note:</strong> Set on the element itself, not wrapper divs (Shadow DOM).</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
@@ -302,21 +283,21 @@
 					<CodeBlock
 						codeContent={`:root {
   /* Input Component */
-  --ml-input-bg: #fff;
-  --ml-input-color: #212529;
-  --ml-input-border-color: #dee2e6;
-  --ml-input-border-radius: 0.375rem;
-  --ml-input-padding: 0.5rem 0.75rem;
+  --ms-input-bg: #fff;
+  --ms-input-color: #212529;
+  --ms-input-border-color: #dee2e6;
+  --ms-input-border-radius: 0.375rem;
+  --ms-input-padding: 0.5rem 0.75rem;
 
   /* Focus State */
-  --ml-input-focus-border-color: #86b7fe;
-  --ml-input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  --ms-input-focus-border-color: #86b7fe;
+  --ms-input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 
   /* Dropdown */
-  --ml-dropdown-bg: #fff;
-  --ml-dropdown-border-color: #dee2e6;
-  --ml-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --ml-options-max-height: 20rem;
+  --ms-dropdown-bg: #fff;
+  --ms-dropdown-border-color: #dee2e6;
+  --ms-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --ms-options-max-height: 20rem;
 }`}
 						languageType="css"
 						titleText="Input & Dropdown"
@@ -327,21 +308,21 @@
 					<CodeBlock
 						codeContent={`:root {
   /* Options */
-  --ml-option-padding: 0.5rem 0.75rem;
-  --ml-option-hover-bg: #f8f9fa;
-  --ml-option-selected-bg: #0d6efd;
-  --ml-option-selected-color: #fff;
+  --ms-option-padding: 0.5rem 0.75rem;
+  --ms-option-hover-bg: #f8f9fa;
+  --ms-option-selected-bg: #0d6efd;
+  --ms-option-selected-color: #fff;
 
   /* Pills */
-  --ml-badge-bg: #e9ecef;
-  --ml-badge-color: #212529;
-  --ml-badge-border-radius: 0.25rem;
-  --ml-badge-padding: 0.25rem 0.5rem;
-  --ml-badge-remove-hover-bg: #dc3545;
+  --ms-badge-bg: #e9ecef;
+  --ms-badge-color: #212529;
+  --ms-badge-border-radius: 0.25rem;
+  --ms-badge-padding: 0.25rem 0.5rem;
+  --ms-badge-remove-hover-bg: #dc3545;
 
   /* Groups */
-  --ml-group-header-bg: #f8f9fa;
-  --ml-group-header-color: #6c757d;
+  --ms-group-header-bg: #f8f9fa;
+  --ms-group-header-color: #6c757d;
 }`}
 						languageType="css"
 						titleText="Options, Pills & Groups"
@@ -357,11 +338,11 @@
 				<div class="col-md-6">
 					<CodeBlock
 						codeContent={`.success-theme {
-  --ml-input-border-color: #198754;
-  --ml-input-focus-border-color: #198754;
-  --ml-option-selected-bg: #198754;
-  --ml-badge-bg: #198754;
-  --ml-badge-color: white;
+  --ms-input-border-color: #198754;
+  --ms-input-focus-border-color: #198754;
+  --ms-option-selected-bg: #198754;
+  --ms-badge-bg: #198754;
+  --ms-badge-color: white;
 }`}
 						languageType="css"
 						titleText="Success Theme"
@@ -370,11 +351,11 @@
 				<div class="col-md-6">
 					<CodeBlock
 						codeContent={`.minimal-theme {
-  --ml-input-border-color: transparent;
-  --ml-input-border-bottom: 2px solid #dee2e6;
-  --ml-input-border-radius: 0;
-  --ml-dropdown-border-radius: 0;
-  --ml-badge-border-radius: 0;
+  --ms-input-border-color: transparent;
+  --ms-input-border-bottom: 2px solid #dee2e6;
+  --ms-input-border-radius: 0;
+  --ms-dropdown-border-radius: 0;
+  --ms-badge-border-radius: 0;
 }`}
 						languageType="css"
 						titleText="Minimal Theme"
@@ -387,7 +368,7 @@
 		<div class="mt-5 p-4 bg-light border rounded">
 			<h3 class="h5 mb-3">🎨 Styling Tips</h3>
 			<ul class="mb-0">
-				<li><strong>CSS Variables:</strong> All variables use the <code>--ml-</code> prefix to avoid conflicts</li>
+				<li><strong>CSS Variables:</strong> All variables use the <code>--ms-</code> prefix to avoid conflicts</li>
 				<li><strong>Scope:</strong> Apply custom classes to the multiselect element for scoped styling</li>
 				<li><strong>Shadow DOM:</strong> Styles are applied inside Shadow DOM, ensuring encapsulation</li>
 				<li><strong>SCSS:</strong> Import and override SCSS variables for deeper customization</li>

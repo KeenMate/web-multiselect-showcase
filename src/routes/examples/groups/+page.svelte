@@ -103,7 +103,7 @@
 	<div class="py-4">
 		<!-- Section 1: Group Label Callback -->
 		<ShowcaseSection
-			titleText="Custom Group Labels"
+			titleText="GR01 Custom Group Labels"
 			subtitleText="Use renderGroupLabelContentCallback to customize how group headers are displayed"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -165,7 +165,7 @@ multiselect.renderGroupLabelContentCallback = (groupName) => {
 
 		<!-- Section 2: Group Styling -->
 		<ShowcaseSection
-			titleText="Group Styling with CSS Variables"
+			titleText="GR02 Group Styling with CSS Variables"
 			subtitleText="Customize group appearance using CSS custom properties"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -239,7 +239,7 @@ multiselect.renderGroupLabelContentCallback = (groupName) => {
 
 		<!-- Section 3: Advanced Customization -->
 		<ShowcaseSection
-			titleText="Advanced: Callback + Styling Combined"
+			titleText="GR03 Advanced: Callback + Styling Combined"
 			subtitleText="Combine renderGroupLabelContentCallback with CSS variables for full customization"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
