@@ -8,8 +8,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- **Updated @keenmate/web-multiselect** - Linked to local development version (`file:../web-multiselect`)
-  - Testing new default center alignment for options
+- **Updated @keenmate/web-multiselect** to `^1.6.0`
+  - Includes SCSS to CSS migration, new features (shouldKeepSearchOnClose, border radius theme integration, input size variants)
+
+- **Removed all SCSS documentation** - Main package migrated from SCSS to pure CSS in v1.6.0
+  - `api/styling` page: Replaced "SCSS Approach (Recommended)" with CSS-only examples
+  - `api/styling` page: Replaced "SCSS Color Palette" section with "Core Color Variables" (CSS custom properties)
+  - `api/styling` page: Replaced "SCSS Integration" section with "Scaling System" (`--ms-rem` documentation)
+  - `api/styling` page: Updated best practices - removed SCSS source tip, added scaling tip
+  - Homepage: Changed "125+ CSS/SCSS variables" to "125+ CSS variables" (2 places)
+  - Getting Started: Changed "125+ CSS/SCSS variables" to "125+ CSS variables"
+  - Custom Styling: Replaced SCSS tip with `--ms-rem` scaling tip
+
+### Added
+- **Scaling System documentation** - New section in Styling API explaining `--ms-rem` for proportional scaling
+- **Input Size Variants documentation** - Added xs, sm, md, lg, xl size variant information
+- **Border Radius Theme Integration** - Documented `--ms-border-radius-sm/md/lg` variables
 
 ### Added
 - **Example Index System** - Added prefix codes to all 51 examples across 11 pages for quick reference
