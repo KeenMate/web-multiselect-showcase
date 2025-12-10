@@ -371,7 +371,7 @@
 				<li><strong>CSS Variables:</strong> All variables use the <code>--ms-</code> prefix to avoid conflicts</li>
 				<li><strong>Scope:</strong> Apply custom classes to the multiselect element for scoped styling</li>
 				<li><strong>Shadow DOM:</strong> Styles are applied inside Shadow DOM, ensuring encapsulation</li>
-				<li><strong>SCSS:</strong> Import and override SCSS variables for deeper customization</li>
+				<li><strong>Scaling:</strong> Use <code>--ms-rem</code> to proportionally scale all component sizes</li>
 				<li><strong>Complete List:</strong> View all variables in the <a href="/api/styling">Styling API Reference</a></li>
 			</ul>
 		</div>

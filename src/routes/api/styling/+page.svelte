@@ -24,7 +24,7 @@
 
 			<div class="row g-4 mb-4">
 				<div class="col-md-6">
-					<h3 class="h5">CSS Approach</h3>
+					<h3 class="h5">Per-Instance Styling</h3>
 					<CodeBlock
 						codeContent={`/* Apply to specific instance */
 .my-select {
@@ -33,131 +33,113 @@
   --ms-badge-color: white;
 }
 
-/* Apply globally */
-:root {
-  --ms-input-border-radius: 0.5rem;
-  --ms-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-}`}
+/* Or directly on the element */
+<web-multiselect style="--ms-accent-color: #10b981;">
+</web-multiselect>`}
 						languageType="css"
 					/>
 				</div>
 
 				<div class="col-md-6">
-					<h3 class="h5">SCSS Approach (Recommended)</h3>
+					<h3 class="h5">Global Styling</h3>
 					<CodeBlock
-						codeContent={`// Modern @use syntax (recommended)
-@use '@keenmate/web-multiselect' with (
-  $ms-color-accent-base: #0d6efd,
-  $ms-color-accent-dark: #0a58ca,
-  $ms-color-neutral-light: #dee2e6
-);
+						codeContent={`/* Apply globally via :root */
+:root {
+  --ms-input-border-radius: 0.5rem;
+  --ms-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --ms-accent-color: #3b82f6;
+}
 
-// Legacy @import (deprecated in Dart Sass)
-@import '@keenmate/web-multiselect';
-
-.my-select {
-  --ms-input-border-color: #0d6efd;
+/* Or scope to a container */
+.my-app {
+  --ms-input-bg: #1e293b;
+  --ms-input-color: #f1f5f9;
 }`}
-						languageType="scss"
+						languageType="css"
 					/>
 				</div>
 			</div>
 		</section>
 
-		<!-- SCSS Color Palette -->
+		<!-- Core Color Variables -->
 		<section class="mb-5">
-			<h2 class="mb-4">SCSS Color Palette</h2>
+			<h2 class="mb-4">Core Color Variables</h2>
 			<p>
-				The component uses a semantic three-tier variable system: <strong>base primitives</strong> → <strong>semantic color scales</strong> → <strong>component variables</strong>. This allows you to customize the entire color scheme by overriding just the semantic colors.
+				The component uses CSS custom properties for all styling. Override these variables to customize the entire color scheme.
 			</p>
 
-			<h3 class="h5 mt-4 mb-3">Accent Colors</h3>
-			<p>Primary/accent colors for interactive elements, selected states, and highlights:</p>
+			<h3 class="h5 mt-4 mb-3">Primary Colors</h3>
+			<p>Main colors used throughout the component:</p>
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<thead class="table-light">
 						<tr>
-							<th>SCSS Variable</th>
+							<th>CSS Variable</th>
 							<th>Default</th>
 							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>$ms-color-accent-lightest</code></td>
-							<td><code>#eff6ff</code></td>
-							<td>Lightest accent shade - badge backgrounds</td>
-						</tr>
-						<tr>
-							<td><code>$ms-color-accent-lighter</code></td>
-							<td><code>#e0f2fe</code></td>
-							<td>Lighter accent shade - hover states</td>
-						</tr>
-						<tr>
-							<td><code>$ms-color-accent-base</code></td>
+							<td><code>--ms-accent-color</code></td>
 							<td><code>#3b82f6</code></td>
-							<td>Base accent color - primary actions</td>
+							<td>Primary accent color for selections, focus states</td>
 						</tr>
 						<tr>
-							<td><code>$ms-color-accent-dark</code></td>
-							<td><code>#2563eb</code></td>
-							<td>Dark accent shade - hover/active states</td>
+							<td><code>--ms-text-color</code></td>
+							<td><code>#111827</code></td>
+							<td>Primary text color</td>
 						</tr>
 						<tr>
-							<td><code>$ms-color-accent-darker</code></td>
-							<td><code>#1d4ed8</code></td>
-							<td>Darkest accent shade - pressed states</td>
+							<td><code>--ms-text-color-2</code></td>
+							<td><code>#353b47</code></td>
+							<td>Secondary text color</td>
+						</tr>
+						<tr>
+							<td><code>--ms-text-on-accent</code></td>
+							<td><code>#ffffff</code></td>
+							<td>Text color on accent backgrounds</td>
+						</tr>
+						<tr>
+							<td><code>--ms-border-color</code></td>
+							<td><code>#d1d5db</code></td>
+							<td>Default border color</td>
+						</tr>
+						<tr>
+							<td><code>--ms-background</code></td>
+							<td><code>#ffffff</code></td>
+							<td>Default background color</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 
-			<h3 class="h5 mt-4 mb-3">Neutral Colors</h3>
-			<p>Grayscale colors for borders, backgrounds, and text:</p>
+			<h3 class="h5 mt-4 mb-3">Border Radius (Theme Integration)</h3>
+			<p>Border radius variables with theme-designer integration:</p>
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<thead class="table-light">
 						<tr>
-							<th>SCSS Variable</th>
+							<th>CSS Variable</th>
 							<th>Default</th>
 							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>$ms-color-white</code></td>
-							<td><code>#ffffff</code></td>
-							<td>Pure white - backgrounds</td>
+							<td><code>--ms-border-radius-sm</code></td>
+							<td><code>4px</code></td>
+							<td>Small radius - checkboxes, badges, counters</td>
 						</tr>
 						<tr>
-							<td><code>$ms-color-neutral-lightest</code></td>
-							<td><code>#f9fafb</code></td>
-							<td>Lightest neutral - hover backgrounds</td>
+							<td><code>--ms-border-radius-md</code></td>
+							<td><code>6px</code></td>
+							<td>Medium radius - inputs, buttons (default)</td>
 						</tr>
 						<tr>
-							<td><code>$ms-color-neutral-lighter</code></td>
-							<td><code>#f3f4f6</code></td>
-							<td>Lighter neutral - subtle backgrounds</td>
-						</tr>
-						<tr>
-							<td><code>$ms-color-neutral-light</code></td>
-							<td><code>#e5e7eb</code></td>
-							<td>Light neutral - borders, dividers</td>
-						</tr>
-						<tr>
-							<td><code>$ms-color-neutral-base</code></td>
-							<td><code>#d1d5db</code></td>
-							<td>Base neutral - inactive elements</td>
-						</tr>
-						<tr>
-							<td><code>$ms-color-neutral-dark</code></td>
-							<td><code>#6b7280</code></td>
-							<td>Dark neutral - secondary text, placeholders</td>
-						</tr>
-						<tr>
-							<td><code>$ms-color-neutral-darkest</code></td>
-							<td><code>#111827</code></td>
-							<td>Darkest neutral - primary text</td>
+							<td><code>--ms-border-radius-lg</code></td>
+							<td><code>8px</code></td>
+							<td>Large radius - dropdowns, popovers, hints</td>
 						</tr>
 					</tbody>
 				</table>
@@ -166,22 +148,22 @@
 			<div class="mt-4 p-3 bg-light border rounded">
 				<h4 class="h6 mb-2">💡 Customization Example</h4>
 				<CodeBlock
-					codeContent={`// Customize the entire color scheme
-@use '@keenmate/web-multiselect' with (
-  // Accent colors - use your brand color
-  $ms-color-accent-lightest: #f0f9ff,
-  $ms-color-accent-lighter: #e0f2fe,
-  $ms-color-accent-base: #0ea5e9,      // Your brand blue
-  $ms-color-accent-dark: #0284c7,
-  $ms-color-accent-darker: #0369a1,
+					codeContent={`/* Customize the entire color scheme */
+.my-branded-select {
+  /* Accent colors - use your brand color */
+  --ms-accent-color: #0ea5e9;
 
-  // Neutral colors - adjust for dark mode
-  $ms-color-neutral-lightest: #1e293b,
-  $ms-color-neutral-light: #334155,
-  $ms-color-neutral-dark: #94a3b8,
-  $ms-color-neutral-darkest: #f1f5f9
-);`}
-					languageType="scss"
+  /* Text colors */
+  --ms-text-color: #1e293b;
+  --ms-text-on-accent: #ffffff;
+
+  /* For dark mode */
+  --ms-background: #1e293b;
+  --ms-border-color: #334155;
+  --ms-input-bg: #0f172a;
+  --ms-dropdown-bg: #0f172a;
+}`}
+					languageType="css"
 				/>
 			</div>
 		</section>
@@ -1001,40 +983,38 @@
 			</div>
 		</section>
 
-		<!-- SCSS Integration -->
+		<!-- Scaling System -->
 		<section class="mb-5">
-			<h2 class="mb-4">SCSS Integration</h2>
-			<p>For advanced customization, import the SCSS source and override semantic color variables. Use the modern <code>@use</code> syntax (recommended) instead of deprecated <code>@import</code>:</p>
+			<h2 class="mb-4">Scaling System</h2>
+			<p>The component uses <code>--ms-rem</code> for proportional scaling. Change this value to scale all sizes:</p>
 
 			<CodeBlock
-				codeContent={`// Modern @use syntax - Recommended
-@use '@keenmate/web-multiselect' with (
-  // Override semantic colors
-  $ms-color-accent-base: #0d6efd,
-  $ms-color-accent-dark: #0a58ca,
-  $ms-color-accent-darker: #084298,
-  $ms-color-neutral-light: #dee2e6,
-  $ms-color-neutral-dark: #6c757d,
+				codeContent={`/* Default (100%) */
+web-multiselect {
+  --ms-rem: 10px;
+}
 
-  // Or override component-specific variables
-  $ms-spacing-md: 1rem,
-  $ms-border-radius: 0.5rem
-);
+/* Compact (80%) */
+web-multiselect.compact {
+  --ms-rem: 8px;
+}
 
-// Legacy @import - Deprecated (will be removed in Dart Sass 3.0)
-@import '@keenmate/web-multiselect';
+/* Large (120%) */
+web-multiselect.large {
+  --ms-rem: 12px;
+}
 
-// Override after import
-.my-custom-select {
-  --ms-input-border-color: #0d6efd;
-  --ms-badge-bg: #e9ecef;
+/* Input size variants */
+web-multiselect {
+  --ms-input-height: var(--ms-input-size-md-height); /* 35px default */
+  /* Available: xs (31px), sm (33px), md (35px), lg (38px), xl (41px) */
 }`}
-				languageType="scss"
-				titleText="SCSS Configuration"
+				languageType="css"
+				titleText="Scaling Configuration"
 			/>
 
-			<div class="mt-3 p-3 bg-warning bg-opacity-10 border border-warning rounded">
-				<strong>⚠️ Note:</strong> The <code>@import</code> syntax is deprecated in Dart Sass and will be removed in version 3.0. Use <code>@use</code> for future-proof code.
+			<div class="mt-3 p-3 bg-info bg-opacity-10 border border-info rounded">
+				<strong>💡 Tip:</strong> For theme-designer integration, the component supports <code>--base-*</code> CSS variables for fonts, border radius, and input sizes.
 			</div>
 		</section>
 
@@ -1045,7 +1025,7 @@
 				<li><strong>CSS Variables:</strong> All variables use <code>--ms-</code> prefix (multiselect) to prevent naming conflicts</li>
 				<li><strong>Shadow DOM:</strong> Variables are inherited into Shadow DOM - set on the component or ancestor</li>
 				<li><strong>Cascading:</strong> More specific selectors override global :root declarations</li>
-				<li><strong>SCSS Source:</strong> For build-time customization, import SCSS and override variables before compilation</li>
+				<li><strong>Scaling:</strong> Use <code>--ms-rem</code> to proportionally scale all component sizes</li>
 				<li><strong>Responsive:</strong> Use CSS media queries to adjust variables for different screen sizes</li>
 				<li><strong>Accessibility:</strong> Maintain sufficient color contrast ratios (WCAG AA: 4.5:1 for normal text)</li>
 				<li><strong>Performance:</strong> CSS variables have negligible performance impact compared to dynamic styles</li>

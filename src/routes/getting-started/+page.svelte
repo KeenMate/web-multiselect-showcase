@@ -287,7 +287,7 @@ export class MyComponent {
 						<div class="card-body">
 							<h3 class="h5 card-title">🎨 Styling Guide</h3>
 							<p class="card-text">
-								Customize the appearance with 125+ CSS/SCSS variables and semantic color scales (accent/neutral).
+								Customize the appearance with 125+ CSS variables and semantic color scales (accent/neutral).
 							</p>
 							<a href="/api/styling" class="btn btn-primary">
 								Styling →

@@ -69,7 +69,7 @@
 				<FeatureCard
 					iconEmoji="🎨"
 					titleText="Rich Content"
-					descriptionText="Support for icons, subtitles, groups, and custom styling with 125+ CSS/SCSS variables and semantic color scales"
+					descriptionText="Support for icons, subtitles, groups, and custom styling with 125+ CSS variables and semantic color scales"
 					variantType="danger"
 				/>
 			</div>
@@ -142,7 +142,7 @@ import '@keenmate/web-multiselect/dist/style.css';`}
 					</p>
 					<h4>Highly Customizable</h4>
 					<p>
-						125+ CSS/SCSS variables with semantic color system (accent/neutral scales) for complete theming control. Override colors, spacing, borders, shadows, and more.
+						125+ CSS variables with semantic color system (accent/neutral scales) for complete theming control. Override colors, spacing, borders, shadows, and more.
 					</p>
 				</div>
 			{/snippet}
