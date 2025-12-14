@@ -8,8 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- **Updated @keenmate/web-multiselect** to `^1.6.0`
-  - Includes SCSS to CSS migration, new features (shouldKeepSearchOnClose, border radius theme integration, input size variants)
+- **Updated @keenmate/web-multiselect** to `^1.6.1`
+  - v1.6.1: Complete theming variable cascade fix (`--base-*` variables now properly cascade)
+  - v1.6.1: Accent color theming fixes (checkboxes, badges, counters, focus rings use `--ms-accent-color`)
+  - v1.6.1: Badge, checkbox, scrollbar theming improvements
+  - v1.6.1: New accent color light variants (`--ms-accent-color-light`, `--ms-accent-color-light-hover`)
+  - v1.6.0: SCSS to CSS migration, new features (shouldKeepSearchOnClose, border radius theme integration, input size variants)
+  - **BREAKING**: Removed `-bg` alias variables - use `-background` instead:
+    - `--ms-input-bg` → `--ms-input-background`
+    - `--ms-dropdown-bg` → `--ms-dropdown-background`
+    - `--ms-actions-bg` → `--ms-actions-background`
+    - `--ms-hint-bg` → `--ms-hint-background`
+    - `--ms-tooltip-bg` → `--ms-tooltip-background`
+    - `--ms-selected-popover-bg` → `--ms-selected-popover-background`
+
+- **Updated styling documentation** to use new `-background` variable names
 
 - **Removed all SCSS documentation** - Main package migrated from SCSS to pure CSS in v1.6.0
   - `api/styling` page: Replaced "SCSS Approach (Recommended)" with CSS-only examples
