@@ -52,7 +52,7 @@
 
 /* Or scope to a container */
 .my-app {
-  --ms-input-background: #1e293b;
+  --ms-input-bg: #1e293b;
   --ms-input-color: #f1f5f9;
 }`}
 						languageType="css"
@@ -96,7 +96,7 @@
 							<td>Secondary text color</td>
 						</tr>
 						<tr>
-							<td><code>--ms-text-on-accent</code></td>
+							<td><code>--ms-text-color-on-accent</code></td>
 							<td><code>#ffffff</code></td>
 							<td>Text color on accent backgrounds</td>
 						</tr>
@@ -155,13 +155,13 @@
 
   /* Text colors */
   --ms-text-color: #1e293b;
-  --ms-text-on-accent: #ffffff;
+  --ms-text-color-on-accent: #ffffff;
 
   /* For dark mode */
   --ms-background: #1e293b;
   --ms-border-color: #334155;
-  --ms-input-background: #0f172a;
-  --ms-dropdown-background: #0f172a;
+  --ms-input-bg: #0f172a;
+  --ms-dropdown-bg: #0f172a;
 }`}
 					languageType="css"
 				/>
@@ -184,7 +184,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>--ms-input-background</code></td>
+							<td><code>--ms-input-bg</code></td>
 							<td><code>#fff</code></td>
 							<td>Background color</td>
 						</tr>
@@ -294,7 +294,7 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>--ms-dropdown-background</code></td>
+							<td><code>--ms-dropdown-bg</code></td>
 							<td><code>#fff</code></td>
 							<td>Background color</td>
 						</tr>
@@ -644,7 +644,7 @@
 							<td>Container padding</td>
 						</tr>
 						<tr>
-							<td><code>--ms-actions-background</code></td>
+							<td><code>--ms-actions-bg</code></td>
 							<td><code>#fff</code></td>
 							<td>Background color</td>
 						</tr>
@@ -922,12 +922,12 @@
 					<h3 class="h5 mb-3">Dark Theme</h3>
 					<CodeBlock
 						codeContent={`.dark-theme {
-  --ms-input-background: #2b2b2b;
+  --ms-input-bg: #2b2b2b;
   --ms-input-color: #e0e0e0;
   --ms-input-border-color: #444;
   --ms-input-focus-border-color: #666;
   --ms-input-placeholder-color: #888;
-  --ms-dropdown-background: #2b2b2b;
+  --ms-dropdown-bg: #2b2b2b;
   --ms-dropdown-border-color: #444;
   --ms-option-color: #e0e0e0;
   --ms-option-hover-bg: #3a3a3a;

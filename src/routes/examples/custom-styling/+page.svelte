@@ -50,12 +50,12 @@
 
 	/* Custom dark theme */
 	:global(web-multiselect.custom-dark) {
-		--ms-input-background: #2b2b2b;
+		--ms-input-bg: #2b2b2b;
 		--ms-input-text: #e0e0e0;
 		--ms-input-border-color: #444;
 		--ms-input-placeholder-color: #999;
 		--ms-input-focus-border-color: #6c5ce7;
-		--ms-dropdown-background: #2b2b2b;
+		--ms-dropdown-bg: #2b2b2b;
 		--ms-option-color: #e0e0e0;
 		--ms-dropdown-border-color: #444;
 		--ms-option-bg-hover: #3a3a3a;
@@ -66,7 +66,7 @@
 		--ms-badge-color: white;
 		--ms-badge-bg-hover: #5f50d9;
 		--ms-toggle-color: #e0e0e0;
-		--ms-actions-background: #2b2b2b;
+		--ms-actions-bg: #2b2b2b;
 		--ms-action-btn-bg: #3a3a3a;
 		--ms-action-btn-color: #e0e0e0;
 		--ms-action-btn-border-color: #555;
@@ -283,7 +283,7 @@
 					<CodeBlock
 						codeContent={`:root {
   /* Input Component */
-  --ms-input-background: #fff;
+  --ms-input-bg: #fff;
   --ms-input-color: #212529;
   --ms-input-border-color: #dee2e6;
   --ms-input-border-radius: 0.375rem;
@@ -294,7 +294,7 @@
   --ms-input-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 
   /* Dropdown */
-  --ms-dropdown-background: #fff;
+  --ms-dropdown-bg: #fff;
   --ms-dropdown-border-color: #dee2e6;
   --ms-dropdown-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --ms-options-max-height: 20rem;

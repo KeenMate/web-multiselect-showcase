@@ -175,24 +175,24 @@
 			// Custom CSS for priority styling
 			richVirtualSelect.customStylesCallback = () => `
 				.product-urgent {
-					--ms-badge-text-background: #fee2e2;
+					--ms-badge-text-bg: #fee2e2;
 					--ms-badge-text-color: #dc2626;
-					--ms-badge-remove-background: #dc2626;
+					--ms-badge-remove-bg: #dc2626;
 				}
 				.product-important {
-					--ms-badge-text-background: #fef3c7;
+					--ms-badge-text-bg: #fef3c7;
 					--ms-badge-text-color: #d97706;
-					--ms-badge-remove-background: #d97706;
+					--ms-badge-remove-bg: #d97706;
 				}
 				.product-normal {
-					--ms-badge-text-background: #dbeafe;
+					--ms-badge-text-bg: #dbeafe;
 					--ms-badge-text-color: #2563eb;
-					--ms-badge-remove-background: #2563eb;
+					--ms-badge-remove-bg: #2563eb;
 				}
 				.product-low {
-					--ms-badge-text-background: #d1fae5;
+					--ms-badge-text-bg: #d1fae5;
 					--ms-badge-text-color: #059669;
-					--ms-badge-remove-background: #059669;
+					--ms-badge-remove-bg: #059669;
 				}
 			`;
 
@@ -699,24 +699,24 @@ select.getSelectionBadgeClassCallback = (item) => {
 // Inject custom CSS variables for priority styling
 select.customStylesCallback = () => \`
   .product-urgent {
-    --ms-badge-text-background: #fee2e2;
+    --ms-badge-text-bg: #fee2e2;
     --ms-badge-text-color: #dc2626;
-    --ms-badge-remove-background: #dc2626;
+    --ms-badge-remove-bg: #dc2626;
   }
   .product-important {
-    --ms-badge-text-background: #fef3c7;
+    --ms-badge-text-bg: #fef3c7;
     --ms-badge-text-color: #d97706;
-    --ms-badge-remove-background: #d97706;
+    --ms-badge-remove-bg: #d97706;
   }
   .product-normal {
-    --ms-badge-text-background: #dbeafe;
+    --ms-badge-text-bg: #dbeafe;
     --ms-badge-text-color: #2563eb;
-    --ms-badge-remove-background: #2563eb;
+    --ms-badge-remove-bg: #2563eb;
   }
   .product-low {
-    --ms-badge-text-background: #d1fae5;
+    --ms-badge-text-bg: #d1fae5;
     --ms-badge-text-color: #059669;
-    --ms-badge-remove-background: #059669;
+    --ms-badge-remove-bg: #059669;
   }
 \`;`}
 				languageType="javascript"

@@ -92,7 +92,7 @@
 	<style>
 		/* Custom tooltip styling example */
 		web-multiselect#styled-tooltips {
-			--ms-tooltip-background: #667eea;
+			--ms-tooltip-bg: #667eea;
 			--ms-tooltip-text-color: white;
 			--ms-tooltip-padding: 0.75rem 1rem;
 			--ms-tooltip-border-radius: 8px;
@@ -374,7 +374,7 @@ $&#123;user.role&#125; - $&#123;user.department&#125;`;
 				<div class="prose small">
 					<h5>Available CSS Variables</h5>
 					<ul class="small">
-						<li><code>--ms-tooltip-background</code></li>
+						<li><code>--ms-tooltip-bg</code></li>
 						<li><code>--ms-tooltip-text-color</code></li>
 						<li><code>--ms-tooltip-padding</code></li>
 						<li><code>--ms-tooltip-border-radius</code></li>
