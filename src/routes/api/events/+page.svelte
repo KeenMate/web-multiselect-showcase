@@ -76,7 +76,7 @@
 			<div class="mb-4">
 				<h4 class="h6">Select Event</h4>
 				<CodeBlock
-					codeContent={`const select = document.querySelector('multi-select');
+					codeContent={`const select = document.querySelector('web-multiselect');
 
 select.addEventListener('select', (event) => {
   console.log('Option selected:', event.detail.option);
@@ -151,7 +151,7 @@ select.addEventListener('select', (event) => {
 			<h3 class="h5 mb-3">Callback Examples</h3>
 
 			<CodeBlock
-				codeContent={`const select = document.querySelector('multi-select');
+				codeContent={`const select = document.querySelector('web-multiselect');
 
 // Set callbacks
 select.selectCallback = (option) => {
@@ -210,7 +210,7 @@ select.changeCallback = (selectedOptions) => {
 
 			<CodeBlock
 				codeContent={`// Both can be used together
-const select = document.querySelector('multi-select');
+const select = document.querySelector('web-multiselect');
 
 // Event listener (standard DOM approach)
 select.addEventListener('change', (event) => {

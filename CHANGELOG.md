@@ -18,23 +18,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - v1.6.1: Complete theming variable cascade fix (`--base-*` variables now properly cascade)
   - v1.6.0: SCSS to CSS migration, new features
 
-- **Updated styling documentation** to use new `-bg` variable names
+- **Restructured navigation** - Moved all pages from `/examples/*` to `/features/*` to match web-daterangepicker-showcase structure
+  - Removed "Examples" navigation section
+  - All example pages now under "Features" section: Basic Usage, Groups, Flexible Data, Value Format, Form Integration, Async Search, Virtual Scrolling, Display Modes, RTL Support, Advanced Features, Custom Styling
+  - Custom Styling page restructured with live demos (CS01-CS05 sections)
+  - Deleted old `api/styling` page (merged into Custom Styling)
+  - Updated all internal links to use `/features/*` routes
 
-- **Removed all SCSS documentation** - Main package migrated from SCSS to pure CSS in v1.6.0
-  - `api/styling` page: Replaced "SCSS Approach (Recommended)" with CSS-only examples
-  - `api/styling` page: Replaced "SCSS Color Palette" section with "Core Color Variables" (CSS custom properties)
-  - `api/styling` page: Replaced "SCSS Integration" section with "Scaling System" (`--ms-rem` documentation)
-  - `api/styling` page: Updated best practices - removed SCSS source tip, added scaling tip
-  - Homepage: Changed "125+ CSS/SCSS variables" to "125+ CSS variables" (2 places)
-  - Getting Started: Changed "125+ CSS/SCSS variables" to "125+ CSS variables"
-  - Custom Styling: Replaced SCSS tip with `--ms-rem` scaling tip
-
-### Added
-- **Scaling System documentation** - New section in Styling API explaining `--ms-rem` for proportional scaling
-- **Input Size Variants documentation** - Added xs, sm, md, lg, xl size variant information
-- **Border Radius Theme Integration** - Documented `--ms-border-radius-sm/md/lg` variables
+- **Updated API Reference documentation** to match current component API
+  - `/api/component`: Added missing callbacks (getBadgeDisplayCallback, getBadgeClassCallback, renderGroupLabelContentCallback, beforeSearchCallback, customStylesCallback), new Rendering Callbacks section, Tooltip Callbacks section, Action Buttons section, updated version example to 1.8.0
+  - `/api/properties`: Fixed attribute names (`pills-*` → `badges-*`), removed non-existent attributes (allow-select-all, allow-clear-all), added missing attributes (dropdown-max-width, keep-options-on-search, should-keep-search-on-close, search-mode, actions-layout, remove-button-tooltip-text), added Virtual Scrolling section
+  - `/api/events`: Fixed component selector in examples (`multi-select` → `web-multiselect`)
 
 ### Added
+- **Compile-time version badge** - Version now displayed in navbar, extracted from package-lock.json at build time via Vite's `define` feature
+  - Handles both normal npm dependencies and `file:` links for local development
+  - Badge moved into navbar on mount for consistent positioning
+
 - **Example Index System** - Added prefix codes to all 51 examples across 11 pages for quick reference
   - Created `EXAMPLES.md` with complete lookup table and prefix reference
   - Prefixes: BU (Basic Usage), GR (Groups), FD (Flexible Data), VF (Value Format), FI (Form Integration), AS (Async Search), VS (Virtual Scrolling), CS (Custom Styling), DM (Display Modes), RTL (RTL Support), AF (Advanced Features)

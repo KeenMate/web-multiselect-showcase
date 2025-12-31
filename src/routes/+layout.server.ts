@@ -26,20 +26,21 @@ const config: PartialDocsConfig = {
 			{ label: 'Home', href: '/', icon: '🏠' },
 			{ label: 'Getting Started', href: '/getting-started', icon: '🚀' },
 			{
-				label: 'Examples',
-				icon: '🎨',
+				label: 'Features',
+				href: '/features/basic',
+				icon: '✨',
 				children: [
-					{ label: 'Basic', href: '/examples/basic' },
-					{ label: 'Groups', href: '/examples/groups' },
-					{ label: 'Flexible Data', href: '/examples/flexible-data' },
-					{ label: 'Value Format', href: '/examples/value-format' },
-					{ label: 'Form Integration', href: '/examples/form-integration' },
-					{ label: 'Async Search', href: '/examples/async-search' },
-					{ label: 'Virtual Scrolling', href: '/examples/virtual-scrolling' },
-					{ label: 'Custom Styling', href: '/examples/custom-styling' },
-					{ label: 'Display Modes', href: '/examples/display-modes' },
-					{ label: 'RTL Support', href: '/examples/rtl' },
-					{ label: 'Advanced Features', href: '/examples/advanced-features' }
+					{ label: 'Basic Usage', href: '/features/basic' },
+					{ label: 'Groups', href: '/features/groups' },
+					{ label: 'Flexible Data', href: '/features/flexible-data' },
+					{ label: 'Value Format', href: '/features/value-format' },
+					{ label: 'Form Integration', href: '/features/form-integration' },
+					{ label: 'Async Search', href: '/features/async-search' },
+					{ label: 'Virtual Scrolling', href: '/features/virtual-scrolling' },
+					{ label: 'Display Modes', href: '/features/display-modes' },
+					{ label: 'RTL Support', href: '/features/rtl' },
+					{ label: 'Advanced Features', href: '/features/advanced-features' },
+					{ label: 'Custom Styling', href: '/features/custom-styling' }
 				]
 			},
 			{
@@ -49,8 +50,7 @@ const config: PartialDocsConfig = {
 				children: [
 					{ label: 'Component API', href: '/api/component' },
 					{ label: 'Properties', href: '/api/properties' },
-					{ label: 'Events', href: '/api/events' },
-					{ label: 'Styling', href: '/api/styling' }
+					{ label: 'Events', href: '/api/events' }
 				]
 			}
 		]

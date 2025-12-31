@@ -263,7 +263,7 @@ export class MyComponent {
 							<p class="card-text">
 								Explore comprehensive examples showcasing all features and use cases.
 							</p>
-							<a href="/examples/basic" class="btn btn-primary">
+							<a href="/features/basic" class="btn btn-primary">
 								View Examples →
 							</a>
 						</div>
@@ -289,8 +289,8 @@ export class MyComponent {
 							<p class="card-text">
 								Customize the appearance with 125+ CSS variables and semantic color scales (accent/neutral).
 							</p>
-							<a href="/api/styling" class="btn btn-primary">
-								Styling →
+							<a href="/features/custom-styling" class="btn btn-primary">
+								Custom Styling →
 							</a>
 						</div>
 					</div>

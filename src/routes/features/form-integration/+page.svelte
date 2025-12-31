@@ -318,7 +318,7 @@ $array = explode(',', $techs);
 
 		<div class="mt-3 p-4 bg-info bg-opacity-10 border border-info rounded">
 			<h3 class="h5 mb-3">🔗 Related</h3>
-			<p class="mb-2">For SPA usage and value serialization without forms, see <a href="/examples/value-format">Value Formatting</a>.</p>
+			<p class="mb-2">For SPA usage and value serialization without forms, see <a href="/features/value-format">Value Formatting</a>.</p>
 			<p class="mb-0">The same formats (json/csv/array/custom) can be used outside of form contexts.</p>
 		</div>
 	</div>

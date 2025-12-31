@@ -90,7 +90,7 @@
 							<td><code>value-format</code></td>
 							<td>'json' | 'csv' | 'array'</td>
 							<td>'json'</td>
-							<td>Format for serializing selected values. See <a href="/examples/value-format">Value Format examples</a></td>
+							<td>Format for serializing selected values. See <a href="/features/value-format">Value Format examples</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -120,7 +120,7 @@
 							<td><code>name</code></td>
 							<td>string</td>
 							<td>-</td>
-							<td>HTML form field name for hidden input(s). See <a href="/examples/form-integration">Form Integration examples</a></td>
+							<td>HTML form field name for hidden input(s). See <a href="/features/form-integration">Form Integration examples</a></td>
 						</tr>
 					</tbody>
 				</table>
@@ -165,18 +165,6 @@
 							<td>Enable grouping of options</td>
 						</tr>
 						<tr>
-							<td><code>allow-select-all</code></td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Show 'Select All' button</td>
-						</tr>
-						<tr>
-							<td><code>allow-clear-all</code></td>
-							<td>boolean</td>
-							<td>true</td>
-							<td>Show 'Clear All' button</td>
-						</tr>
-						<tr>
 							<td><code>show-checkboxes</code></td>
 							<td>boolean</td>
 							<td>true</td>
@@ -186,7 +174,7 @@
 							<td><code>sticky-actions</code></td>
 							<td>boolean</td>
 							<td>true</td>
-							<td>Keep Select All/Clear All buttons fixed at top</td>
+							<td>Keep action buttons fixed at top of dropdown</td>
 						</tr>
 						<tr>
 							<td><code>close-on-select</code></td>
@@ -213,10 +201,22 @@
 							<td>Show counter next to toggle icon</td>
 						</tr>
 						<tr>
-							<td><code>enable-pill-tooltips</code></td>
+							<td><code>keep-options-on-search</code></td>
 							<td>boolean</td>
 							<td>false</td>
-							<td>Enable tooltips on selected item pills. See <a href="/examples/advanced-features">Advanced Features</a></td>
+							<td>Keep all options visible during search (used with search-mode='navigate')</td>
+						</tr>
+						<tr>
+							<td><code>should-keep-search-on-close</code></td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Keep search text when closing dropdown</td>
+						</tr>
+						<tr>
+							<td><code>enable-badge-tooltips</code></td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Enable tooltips on selected item badges. See <a href="/features/advanced-features">Advanced Features</a></td>
 						</tr>
 						<tr>
 							<td><code>show-debug-info</code></td>
@@ -273,7 +273,7 @@
 				</table>
 			</div>
 			<p class="small text-muted mt-2">
-				Note: For count text formatting with i18n/pluralization, use the <code>getCountBadgeCallback</code> property (JavaScript callback: <code>(count: number, moreCount?: number) => string</code>). When <code>moreCount</code> is provided, it's for the "+X more" badge in partial mode.
+				Note: For count text formatting with i18n/pluralization, use the <code>getCounterCallback</code> property (JavaScript callback: <code>(count: number, moreCount?: number) => string</code>). When <code>moreCount</code> is provided, it's for the "+X more" badge in partial mode.
 			</p>
 		</section>
 
@@ -294,58 +294,64 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>pills-display-mode</code></td>
-							<td>'pills' | 'count' | 'compact'</td>
-							<td>'pills'</td>
-							<td>How to display selected items in the pills area</td>
+							<td><code>badges-display-mode</code></td>
+							<td>'badges' | 'count' | 'compact' | 'partial' | 'none'</td>
+							<td>'badges'</td>
+							<td>How to display selected items in the badges area</td>
 						</tr>
 						<tr>
-							<td><code>pills-position</code></td>
+							<td><code>badges-position</code></td>
 							<td>'top' | 'bottom' | 'left' | 'right'</td>
 							<td>'bottom'</td>
-							<td>Where to place pills relative to input</td>
+							<td>Where to place badges relative to input</td>
 						</tr>
 						<tr>
-							<td><code>pills-threshold</code></td>
+							<td><code>badges-threshold</code></td>
 							<td>number</td>
 							<td>null</td>
 							<td>Trigger threshold mode after N selections</td>
 						</tr>
 						<tr>
-							<td><code>pills-threshold-mode</code></td>
+							<td><code>badges-threshold-mode</code></td>
 							<td>'count' | 'partial'</td>
 							<td>'count'</td>
-							<td>Behavior when threshold exceeded: 'count' shows counter, 'partial' shows limited pills + more badge. See <a href="/examples/advanced-features">Advanced Features</a></td>
+							<td>Behavior when threshold exceeded: 'count' shows counter, 'partial' shows limited badges + more indicator. See <a href="/features/advanced-features">Advanced Features</a></td>
 						</tr>
 						<tr>
-							<td><code>pills-max-visible</code></td>
+							<td><code>badges-max-visible</code></td>
 							<td>number</td>
 							<td>3</td>
-							<td>Maximum pills to show in partial mode (used with pills-threshold-mode='partial')</td>
+							<td>Maximum badges to show in partial mode (used with badges-threshold-mode='partial')</td>
 						</tr>
 						<tr>
-							<td><code>pill-tooltip-placement</code></td>
+							<td><code>badge-tooltip-placement</code></td>
 							<td>'top' | 'bottom' | 'left' | 'right'</td>
 							<td>'top'</td>
-							<td>Tooltip placement relative to pill (requires enable-pill-tooltips="true")</td>
+							<td>Tooltip placement relative to badge (requires enable-badge-tooltips="true")</td>
 						</tr>
 						<tr>
-							<td><code>pill-tooltip-delay</code></td>
-							<td>number</td>
-							<td>300</td>
-							<td>Delay in milliseconds before showing tooltip (requires enable-pill-tooltips="true")</td>
-						</tr>
-						<tr>
-							<td><code>pill-tooltip-offset</code></td>
-							<td>number</td>
-							<td>8</td>
-							<td>Distance in pixels between pill and tooltip (requires enable-pill-tooltips="true")</td>
+							<td><code>remove-button-tooltip-text</code></td>
+							<td>string</td>
+							<td>'Remove'</td>
+							<td>Tooltip text for badge remove button</td>
 						</tr>
 						<tr>
 							<td><code>search-input-mode</code></td>
 							<td>'normal' | 'readonly' | 'hidden'</td>
 							<td>'normal'</td>
 							<td>Search input display mode</td>
+						</tr>
+						<tr>
+							<td><code>search-mode</code></td>
+							<td>'filter' | 'navigate'</td>
+							<td>'filter'</td>
+							<td>Search behavior: 'filter' hides non-matching, 'navigate' keeps all visible and jumps to matches</td>
+						</tr>
+						<tr>
+							<td><code>actions-layout</code></td>
+							<td>'nowrap' | 'wrap'</td>
+							<td>'nowrap'</td>
+							<td>Action buttons layout: 'nowrap' single row, 'wrap' allows multiple rows</td>
 						</tr>
 					</tbody>
 				</table>
@@ -369,22 +375,22 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td><code>input-size</code></td>
-							<td>'xs' | 'sm' | 'md' | 'lg' | 'xl'</td>
-							<td>'md'</td>
-							<td>Input field size. Heights: xs=31px, sm=33px, md=35px, lg=38px, xl=41px (Pure Admin standard). See <a href="/examples/custom-styling">Custom Styling</a></td>
-						</tr>
-						<tr>
 							<td><code>dropdown-min-width</code></td>
 							<td>string (CSS value)</td>
 							<td>-</td>
 							<td>Minimum width for dropdown (e.g., '20rem', '300px')</td>
 						</tr>
 						<tr>
+							<td><code>dropdown-max-width</code></td>
+							<td>string (CSS value)</td>
+							<td>-</td>
+							<td>Maximum width for dropdown (e.g., '30rem', '500px')</td>
+						</tr>
+						<tr>
 							<td><code>max-height</code></td>
 							<td>string (CSS value)</td>
 							<td>'20rem'</td>
-							<td>Maximum height for dropdown</td>
+							<td>Maximum height for dropdown options list</td>
 						</tr>
 						<tr>
 							<td><code>min-search-length</code></td>
@@ -395,6 +401,63 @@
 					</tbody>
 				</table>
 			</div>
+			<p class="small text-muted mt-2">
+				Note: For input sizing, use CSS classes (<code>ms__input--xs</code>, <code>--sm</code>, <code>--md</code>, <code>--lg</code>, <code>--xl</code>) or the <code>--ms-rem</code> CSS variable. See <a href="/features/custom-styling">Custom Styling</a>.
+			</p>
+		</section>
+
+		<!-- Virtual Scrolling -->
+		<section class="mb-5">
+			<h2 class="mb-4">Virtual Scrolling</h2>
+			<p class="lead">Optimize performance for large datasets:</p>
+
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Attribute</th>
+							<th>Type</th>
+							<th>Default</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>enable-virtual-scroll</code></td>
+							<td>boolean</td>
+							<td>false</td>
+							<td>Enable virtual scrolling for better performance with large lists</td>
+						</tr>
+						<tr>
+							<td><code>virtual-scroll-threshold</code></td>
+							<td>number</td>
+							<td>100</td>
+							<td>Number of items that triggers automatic virtual scrolling</td>
+						</tr>
+						<tr>
+							<td><code>option-height</code></td>
+							<td>number</td>
+							<td>40</td>
+							<td>Fixed height (px) of each option for virtual scroll calculations</td>
+						</tr>
+						<tr>
+							<td><code>badge-height</code></td>
+							<td>number</td>
+							<td>28</td>
+							<td>Fixed height (px) of each badge for virtual scroll in popover</td>
+						</tr>
+						<tr>
+							<td><code>virtual-scroll-buffer</code></td>
+							<td>number</td>
+							<td>5</td>
+							<td>Number of extra items to render above/below visible area</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="small text-muted mt-2">
+				Virtual scrolling only renders visible items, dramatically improving performance for lists with thousands of options. See <a href="/features/virtual-scrolling">Virtual Scrolling</a>.
+			</p>
 		</section>
 
 		<!-- Initial Values -->

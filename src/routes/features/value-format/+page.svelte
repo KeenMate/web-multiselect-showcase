@@ -298,7 +298,7 @@ const formatted = select.getValueFormatCallback(
 
 		<div class="mt-3 p-4 bg-info bg-opacity-10 border border-info rounded">
 			<h3 class="h5 mb-3">🔗 Related</h3>
-			<p class="mb-2">For HTML form submission with these formats, see <a href="/examples/form-integration">Form Integration</a>.</p>
+			<p class="mb-2">For HTML form submission with these formats, see <a href="/features/form-integration">Form Integration</a>.</p>
 			<p class="mb-0">The <code>value-format</code> attribute controls which format is used for hidden form inputs.</p>
 		</div>
 	</div>

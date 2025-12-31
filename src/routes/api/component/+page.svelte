@@ -153,6 +153,16 @@ select.destroy(); // Cleanup when removing from DOM`}
 							<td>Extract display text from item</td>
 						</tr>
 						<tr>
+							<td><code>getBadgeDisplayCallback</code></td>
+							<td><code>(item: T) =&gt; string</code></td>
+							<td>Extract custom badge display text (defaults to display value)</td>
+						</tr>
+						<tr>
+							<td><code>getBadgeClassCallback</code></td>
+							<td><code>(item: T) =&gt; string | string[]</code></td>
+							<td>Get CSS classes for individual badges</td>
+						</tr>
+						<tr>
 							<td><code>getSearchValueCallback</code></td>
 							<td><code>(item: T) =&gt; string</code></td>
 							<td>Extract searchable text from item</td>
@@ -173,14 +183,24 @@ select.destroy(); // Cleanup when removing from DOM`}
 							<td>Extract group name from item</td>
 						</tr>
 						<tr>
+							<td><code>renderGroupLabelContentCallback</code></td>
+							<td><code>(groupName: string) =&gt; string | HTMLElement</code></td>
+							<td>Custom rendering for group labels</td>
+						</tr>
+						<tr>
 							<td><code>getDisabledCallback</code></td>
 							<td><code>(item: T) =&gt; boolean</code></td>
 							<td>Determine if item is disabled</td>
 						</tr>
 						<tr>
-							<td><code>getFormValueCallback</code></td>
+							<td><code>getValueFormatCallback</code></td>
 							<td><code>(values: (string | number)[]) =&gt; string</code></td>
 							<td>Custom form value formatting</td>
+						</tr>
+						<tr>
+							<td><code>beforeSearchCallback</code></td>
+							<td><code>(searchTerm: string) =&gt; string | null</code></td>
+							<td>Transform search term before searching (return null to cancel)</td>
 						</tr>
 						<tr>
 							<td><code>searchCallback</code></td>
@@ -207,6 +227,11 @@ select.destroy(); // Cleanup when removing from DOM`}
 							<td><code>(selectedOptions: T[]) =&gt; void</code></td>
 							<td>Called when selection changes</td>
 						</tr>
+						<tr>
+							<td><code>customStylesCallback</code></td>
+							<td><code>() =&gt; string</code></td>
+							<td>Inject custom CSS into Shadow DOM</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -229,6 +254,152 @@ select.changeCallback = (selectedItems) => {
 };`}
 				languageType="javascript"
 				titleText="Callbacks Example"
+			/>
+		</section>
+
+		<!-- Rendering Callbacks -->
+		<section class="mb-5">
+			<h2 class="mb-4">Rendering Callbacks</h2>
+			<p>Customize how options, badges, and selected items are rendered:</p>
+
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Property</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>renderOptionContentCallback</code></td>
+							<td><code>(item: T, context: OptionContentRenderContext) =&gt; string | HTMLElement</code></td>
+							<td>Custom rendering for dropdown options</td>
+						</tr>
+						<tr>
+							<td><code>renderBadgeContentCallback</code></td>
+							<td><code>(item: T, context: BadgeContentRenderContext) =&gt; string | HTMLElement</code></td>
+							<td>Custom rendering for selected item badges</td>
+						</tr>
+						<tr>
+							<td><code>renderSelectedItemContentCallback</code></td>
+							<td><code>(item: T) =&gt; string | HTMLElement</code></td>
+							<td>Custom rendering for items in "more" popover</td>
+						</tr>
+						<tr>
+							<td><code>getSelectedItemClassCallback</code></td>
+							<td><code>(item: T) =&gt; string | string[]</code></td>
+							<td>Get CSS classes for selected items in popover</td>
+						</tr>
+						<tr>
+							<td><code>getCounterCallback</code></td>
+							<td><code>(count: number, moreCount?: number) =&gt; string</code></td>
+							<td>Custom counter text formatting</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<CodeBlock
+				codeContent={`const select = document.querySelector('web-multiselect');
+
+// Custom option rendering with context
+select.renderOptionContentCallback = (item, context) => {
+  const div = document.createElement('div');
+  div.innerHTML = \`
+    <strong>\${item.name}</strong>
+    \${context.isSelected ? '✓' : ''}
+  \`;
+  return div;
+};
+
+// Custom badge rendering
+select.renderBadgeContentCallback = (item, context) => {
+  return \`<span class="custom-badge">\${item.name}</span>\`;
+};
+
+// Custom counter text
+select.getCounterCallback = (count, moreCount) => {
+  return moreCount ? \`\${count} (+\${moreCount} more)\` : \`\${count} selected\`;
+};`}
+				languageType="javascript"
+				titleText="Rendering Example"
+			/>
+		</section>
+
+		<!-- Tooltip Callbacks -->
+		<section class="mb-5">
+			<h2 class="mb-4">Tooltip Callbacks</h2>
+			<p>Customize badge and remove button tooltips:</p>
+
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Property</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>getBadgeTooltipCallback</code></td>
+							<td><code>(item: T) =&gt; string | HTMLElement</code></td>
+							<td>Custom tooltip content for badges</td>
+						</tr>
+						<tr>
+							<td><code>getRemoveButtonTooltipCallback</code></td>
+							<td><code>(item: T) =&gt; string</code></td>
+							<td>Custom tooltip for remove button</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<!-- Action Buttons -->
+		<section class="mb-5">
+			<h2 class="mb-4">Action Buttons</h2>
+			<p>Configure action buttons in the dropdown:</p>
+
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead class="table-light">
+						<tr>
+							<th>Property</th>
+							<th>Type</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><code>actionButtons</code></td>
+							<td><code>ActionButton&lt;T&gt;[]</code></td>
+							<td>Array of action button configurations</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<CodeBlock
+				codeContent={`const select = document.querySelector('web-multiselect');
+
+select.actionButtons = [
+  {
+    id: 'selectAll',
+    text: 'Select All',
+    onClick: (ctx) => ctx.selectAll()
+  },
+  {
+    id: 'clear',
+    text: 'Clear',
+    onClick: (ctx) => ctx.clearSelection(),
+    visible: (ctx) => ctx.selectedCount > 0
+  }
+];`}
+				languageType="javascript"
+				titleText="Action Buttons Example"
 			/>
 		</section>
 
@@ -362,7 +533,7 @@ if (select) {
 				<CodeBlock
 					codeContent={`// Get the version string
 const version = window.keenmate.multiselect.version();
-console.log('MultiSelect Version:', version); // "1.0.0-rc02"
+console.log('MultiSelect Version:', version); // "1.8.0"
 
 // Access config object
 const config = window.keenmate.multiselect.config;

@@ -19,7 +19,7 @@
 				<a href="/getting-started" class="btn btn-primary btn-lg">
 					🚀 Get Started
 				</a>
-				<a href="/examples/basic" class="btn btn-outline-primary btn-lg">
+				<a href="/features/basic" class="btn btn-outline-primary btn-lg">
 					🎨 View Examples
 				</a>
 				<a href="https://github.com/keenmate/web-multiselect" target="_blank" class="btn btn-outline-dark btn-lg">

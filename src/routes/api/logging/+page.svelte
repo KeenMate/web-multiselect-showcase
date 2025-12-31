@@ -566,7 +566,7 @@ import {
 			<ul>
 				<li><a href="/api/component">Component API</a> - Complete component API reference</li>
 				<li><a href="/api/events">Events</a> - Component event system</li>
-				<li><a href="/examples/advanced-features">Advanced Features</a> - Advanced usage examples</li>
+				<li><a href="/features/advanced-features">Advanced Features</a> - Advanced usage examples</li>
 			</ul>
 		</section>
 	</div>
