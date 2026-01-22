@@ -25,6 +25,7 @@ const config: PartialDocsConfig = {
 		main: [
 			{ label: 'Home', href: '/', icon: '🏠' },
 			{ label: 'Getting Started', href: '/getting-started', icon: '🚀' },
+			{ label: 'Security', href: '/api/security', icon: '🔒' },
 			{
 				label: 'Features',
 				href: '/features/basic',
