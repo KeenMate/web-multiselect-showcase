@@ -8,7 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- **Updated @keenmate/web-multiselect** to `^1.8.0`
+- **Updated @keenmate/web-multiselect** to `^1.8.5`
+  - v1.8.5: RTL inline badge margin fix, new `--ms-inline-align` CSS variable for vertical alignment
   - v1.8.0: **BREAKING** - CSS variable naming consolidation (`background` → `bg` for shorter names)
     - All `--ms-*-background*` variables renamed to `--ms-*-bg*` (35+ variables)
     - All `--base-*-background*` variables renamed to `--base-*-bg*` (8 variables)
