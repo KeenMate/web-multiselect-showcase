@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+- **Cleared `npm audit` to 0 vulnerabilities** by bumping direct deps and tightening the `overrides` block
+  - `@sveltejs/kit` `^2.58.0` → `^2.61.0` (GHSA-hgv7-v322-mmgr: `query.batch` cross-talk)
+  - `svelte` `^5.55.5` → `^5.55.9` (4 SSR-XSS / ReDoS advisories <= 5.55.6)
+  - `overrides.devalue` `^5.7.1` → `^5.8.1` (GHSA-77vg-94rm-hx3p: DoS via sparse array deserialization)
+  - Added `overrides.mermaid: ^11.15.0` (4 advisories in 11.x ≤ 11.14.0, transitive via `@keenmate/svelte-docs`)
+- **Updated `@keenmate/svelte-docs`** range from `^1.0.0-rc09` to `^1.0.0-rc11` (was already resolving to rc11 via pre-release semver matching; pinning explicitly for clarity)
+
 ### Changed
 - **Updated @keenmate/web-multiselect** to `^1.8.5`
   - v1.8.5: RTL inline badge margin fix, new `--ms-inline-align` CSS variable for vertical alignment
