@@ -2,11 +2,6 @@
 	import { DocLayout, ShowcaseSection, CodeBlock } from '@keenmate/svelte-docs';
 	import { onMount } from 'svelte';
 
-	let xsSelect: any;
-	let smSelect: any;
-	let mdSelect: any;
-	let lgSelect: any;
-	let xlSelect: any;
 	let scaleXsSelect: any;
 	let scaleSmSelect: any;
 	let scaleMdSelect: any;
@@ -28,13 +23,6 @@
 			{ value: 'go', label: 'Go', icon: '🐹' },
 			{ value: 'rs', label: 'Rust', icon: '🦀' }
 		];
-
-		// Input size demos
-		if (xsSelect) xsSelect.options = options;
-		if (smSelect) smSelect.options = options;
-		if (mdSelect) mdSelect.options = options;
-		if (lgSelect) lgSelect.options = options;
-		if (xlSelect) xlSelect.options = options;
 
 		// Scale demos
 		if (scaleXsSelect) scaleXsSelect.options = options;
@@ -120,149 +108,26 @@
 				The multiselect provides flexible sizing via CSS variables and complete theming control via CSS custom properties.
 			</p>
 			<p>
-				<strong>Sizing Systems:</strong>
+				<strong>Sizing & theming approaches:</strong>
 			</p>
 			<ul>
-				<li><code>input-size</code> attribute - Controls input field size (xs, sm, md, lg, xl)</li>
-				<li><code>--ms-rem</code> CSS variable - Scales the entire component proportionally</li>
+				<li><code>--ms-rem</code> CSS variable - Scales the entire component proportionally (default: 10px)</li>
 				<li>Individual CSS variables - Fine-grained control over spacing, fonts, colors, etc.</li>
+				<li>Component-scoped themes - Apply a class with overrides for a single instance</li>
 			</ul>
-			<div class="alert alert-warning">
-				<strong>v1.8.0 Breaking Change:</strong> CSS variable naming consolidation:
+			<div class="alert alert-info">
+				<strong>New in v1.10.0:</strong>
 				<ul class="mb-0 mt-2">
-					<li>All <code>--ms-*-background*</code> variables renamed to <code>--ms-*-bg*</code></li>
-					<li>All <code>--base-*-background*</code> variables renamed to <code>--base-*-bg*</code></li>
-					<li><code>--ms-text-on-accent</code> renamed to <code>--ms-text-color-on-accent</code></li>
+					<li>See <a href="https://github.com/keenmate/web-multiselect/blob/main/THEMING.md" target="_blank" rel="noopener"><code>THEMING.md</code></a> for the complete state-by-state theming reference (every <code>.ms__*</code> class, every <code>--ms-*</code> variable, every interactive state).</li>
+					<li>The remove (X) buttons on badges, the count display, and the selected-items popover now render as SVG via <code>mask-image</code> + <code>currentColor</code>, so their color flows through the existing <code>--ms-badge-remove-color</code>, <code>--ms-count-clear-color</code>, and <code>--ms-selected-popover-close-color</code> variables.</li>
+					<li>Three new icon-size variables let you tune glyph dimensions independently: <code>--ms-badge-remove-icon-size</code>, <code>--ms-count-clear-icon-size</code>, <code>--ms-selected-popover-close-icon-size</code>.</li>
 				</ul>
 			</div>
 		</section>
 
-		<!-- Input Size -->
-		<ShowcaseSection
-			titleText="CS01 Input Size"
-			subtitleText="Control input field size with the input-size attribute"
-			col1Title="Live Demo"
-			col2Title="Code Examples"
-			col3Title="Details">
-
-			{#snippet demoContent()}
-				<div class="mb-4">
-					<label class="form-label fw-bold">Extra Small Input (xs)</label>
-					<web-multiselect
-						bind:this={xsSelect}
-						input-size="xs"
-						value-member="value"
-						display-value-member="label"
-						icon-member="icon"
-						multiple="false"
-						search-placeholder="Select..."></web-multiselect>
-					<small class="text-muted">Very compact input</small>
-				</div>
-
-				<div class="mb-4">
-					<label class="form-label fw-bold">Small Input (sm)</label>
-					<web-multiselect
-						bind:this={smSelect}
-						input-size="sm"
-						value-member="value"
-						display-value-member="label"
-						icon-member="icon"
-						multiple="false"
-						search-placeholder="Select..."></web-multiselect>
-					<small class="text-muted">Compact input</small>
-				</div>
-
-				<div class="mb-4">
-					<label class="form-label fw-bold">Medium Input (md - default)</label>
-					<web-multiselect
-						bind:this={mdSelect}
-						input-size="md"
-						value-member="value"
-						display-value-member="label"
-						icon-member="icon"
-						multiple="false"
-						search-placeholder="Select..."></web-multiselect>
-					<small class="text-muted">Normal input (default)</small>
-				</div>
-
-				<div class="mb-4">
-					<label class="form-label fw-bold">Large Input (lg)</label>
-					<web-multiselect
-						bind:this={lgSelect}
-						input-size="lg"
-						value-member="value"
-						display-value-member="label"
-						icon-member="icon"
-						multiple="false"
-						search-placeholder="Select..."></web-multiselect>
-					<small class="text-muted">Spacious input</small>
-				</div>
-
-				<div>
-					<label class="form-label fw-bold">Extra Large Input (xl)</label>
-					<web-multiselect
-						bind:this={xlSelect}
-						input-size="xl"
-						value-member="value"
-						display-value-member="label"
-						icon-member="icon"
-						multiple="false"
-						search-placeholder="Select..."></web-multiselect>
-					<small class="text-muted">Touch-friendly input</small>
-				</div>
-			{/snippet}
-
-			{#snippet controlsContent()}
-				<CodeBlock
-					codeContent={`<!-- Input size variants -->
-<web-multiselect input-size="xs"></web-multiselect>
-<web-multiselect input-size="sm"></web-multiselect>
-<web-multiselect input-size="md"></web-multiselect>
-<web-multiselect input-size="lg"></web-multiselect>
-<web-multiselect input-size="xl"></web-multiselect>
-
-<!-- Coordinated input + dropdown sizing -->
-<web-multiselect
-  input-size="lg"
-  style="--ms-rem: 12px;">
-</web-multiselect>
-
-<!-- Large input with compact dropdown -->
-<web-multiselect
-  input-size="xl"
-  style="--ms-rem: 8px;">
-</web-multiselect>`}
-					languageType="html"
-					titleText="HTML"
-				/>
-			{/snippet}
-
-			{#snippet descriptionContent()}
-				<div class="prose">
-					<h5>input-size Attribute</h5>
-					<p>The <code>input-size</code> attribute controls the input field dimensions independently from dropdown sizing.</p>
-
-					<h5>Available Sizes</h5>
-					<ul>
-						<li><code>xs</code> - Very compact</li>
-						<li><code>sm</code> - Compact</li>
-						<li><code>md</code> - Default</li>
-						<li><code>lg</code> - Spacious</li>
-						<li><code>xl</code> - Touch-friendly</li>
-					</ul>
-
-					<h5>Use Cases</h5>
-					<ul>
-						<li><strong>Coordinated sizing</strong> - Combine with <code>--ms-rem</code> for consistent UI</li>
-						<li><strong>Mixed sizing</strong> - Large touch-friendly input with compact dropdown</li>
-					</ul>
-				</div>
-			{/snippet}
-		</ShowcaseSection>
-
 		<!-- Component Scaling with --ms-rem -->
 		<ShowcaseSection
-			titleText="CS02 Component Scaling with --ms-rem"
+			titleText="CS01 Component Scaling with --ms-rem"
 			subtitleText="Scale the entire component by setting the --ms-rem CSS variable"
 			col1Title="Live Demo"
 			col2Title="Code Examples"
@@ -388,7 +253,7 @@ web-multiselect.scale-xl { --ms-rem: 15px; }`}
 
 		<!-- Fine-Grained Control -->
 		<ShowcaseSection
-			titleText="CS03 Fine-Grained Control"
+			titleText="CS02 Fine-Grained Control"
 			subtitleText="Override individual CSS variables for precise control"
 			col1Title="Live Demo"
 			col2Title="Code Examples"
@@ -508,7 +373,7 @@ web-multiselect.custom-readable {
 
 		<!-- CSS Custom Properties (Theming) -->
 		<ShowcaseSection
-			titleText="CS04 CSS Custom Properties (Theming)"
+			titleText="CS03 CSS Custom Properties (Theming)"
 			subtitleText="Customize colors, borders, and more with CSS variables"
 			col1Title="Live Demo"
 			col2Title="Code Examples"
@@ -632,7 +497,7 @@ select.style.setProperty('--ms-accent-color', '#10b981');`}
 
 		<!-- CSS Variables Reference -->
 		<ShowcaseSection
-			titleText="CS05 CSS Variables Reference"
+			titleText="CS04 CSS Variables Reference"
 			subtitleText="125+ CSS custom properties for complete customization"
 			col1Title="Variable Categories"
 			col2Title="Example Variables"
@@ -789,10 +654,6 @@ web-multiselect {
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td><code>input-size</code> attribute</td>
-								<td>Input field size (xs, sm, md, lg, xl)</td>
-							</tr>
 							<tr>
 								<td><code>--ms-rem</code> CSS variable</td>
 								<td>Scale entire component (default: 10px)</td>

@@ -75,7 +75,7 @@
 			{#snippet descriptionContent()}
 				<div class="prose small">
 					<h5>Badges Mode</h5>
-					<p><code>display-mode="pills"</code></p>
+					<p><code>badges-display-mode="badges"</code></p>
 					<p>Default mode showing removable badges for each selected item.</p>
 					<p>Best for visual representation.</p>
 				</div>
@@ -154,7 +154,7 @@
 				<div class="prose small">
 					<p>Only the count pill is shown in the input area.</p>
 					<p>Click the count text to see selected items in a popover.</p>
-					<p>Use <code>getCountBadgeCallback</code> for i18n/pluralization.</p>
+					<p>Use <code>getCounterCallback</code> for i18n/pluralization.</p>
 				</div>
 			{/snippet}
 
@@ -249,7 +249,7 @@
 					<p><code>badges-display-mode="compact"</code></p>
 					<p>Shows: <code>JavaScript (+2 more)</code></p>
 					<p>Good balance between detail and space.</p>
-					<p>Uses <code>getBadgeDisplayCallback</code> for first item and <code>getCountBadgeCallback</code> for count text.</p>
+					<p>Uses <code>getBadgeDisplayCallback</code> for first item and <code>getCounterCallback</code> for count text.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>
@@ -300,7 +300,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="DM07 Pills Position: Top"
+			titleText="DM07 Badges Position: Top"
 			subtitleText="Place pills above the search input"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -340,7 +340,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="DM08 Pills Position: Left"
+			titleText="DM08 Badges Position: Left"
 			subtitleText="Place pills to the left of the input"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -380,7 +380,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="DM09 Pills Threshold"
+			titleText="DM09 Badges Threshold"
 			subtitleText="Auto-switch to count mode after threshold"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -466,7 +466,7 @@
 			</div>
 			<p class="small text-muted mb-4">💡 <strong>Tip:</strong> Use this callback to show different text in pills vs dropdown (e.g., "John Doe" in pill, full details in dropdown)</p>
 
-			<h3 class="h5 mb-3">getCountBadgeCallback(count, moreCount?)</h3>
+			<h3 class="h5 mb-3">getCounterCallback(count, moreCount?)</h3>
 			<p class="small">Controls count text display. Signature: <code>(count: number, moreCount?: number) =&gt; string</code></p>
 			<div class="table-responsive mb-4">
 				<table class="table table-sm table-bordered">
@@ -513,7 +513,7 @@
 				</table>
 			</div>
 			<p class="small text-muted mb-4">💡 <strong>Tip:</strong> Check if <code>moreCount</code> is defined to handle both use cases:</p>
-			<pre class="bg-light p-3 rounded"><code>{`getCountBadgeCallback: (count, moreCount) => {
+			<pre class="bg-light p-3 rounded"><code>{`getCounterCallback: (count, moreCount) => {
   if (moreCount !== undefined) {
     return \`+\${moreCount} more\`; // Partial/Compact mode
   }
@@ -547,17 +547,17 @@
 						<tr>
 							<td><code>partial</code></td>
 							<td>First N pills + "+X more" badge</td>
-							<td><code>getBadgeDisplayCallback</code> (visible items), <code>getCountBadgeCallback</code> (badge)</td>
+							<td><code>getBadgeDisplayCallback</code> (visible items), <code>getCounterCallback</code> (badge)</td>
 						</tr>
 						<tr>
 							<td><code>compact</code></td>
 							<td>Single pill: "FirstItem (+X more)"</td>
-							<td><code>getBadgeDisplayCallback</code> (1st item), <code>getCountBadgeCallback</code> (count)</td>
+							<td><code>getBadgeDisplayCallback</code> (1st item), <code>getCounterCallback</code> (count)</td>
 						</tr>
 						<tr>
 							<td><code>count</code></td>
 							<td>"X selected" text + clear button</td>
-							<td><code>getCountBadgeCallback</code> (text)</td>
+							<td><code>getCounterCallback</code> (text)</td>
 						</tr>
 						<tr>
 							<td><code>none</code></td>
@@ -607,7 +607,7 @@
 							<td>Auto-switch to count after N selections</td>
 						</tr>
 						<tr>
-							<td><code>getCountBadgeCallback</code></td>
+							<td><code>getCounterCallback</code></td>
 							<td>(count: number, moreCount?: number) => string</td>
 							<td><code>(count, more?) => more ? `+$&#123;more&#125; more` : `$&#123;count&#125; selected`</code></td>
 							<td>Callback for count pill text (i18n/pluralization). Used for both count mode and partial mode "+X more" badge.</td>

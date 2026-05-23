@@ -89,7 +89,7 @@
 			countRTL.options = techOptions;
 			countRTL.setSelected(['js', 'ts', 'python', 'java']);
 			// Custom RTL count callback (Arabic style)
-			countRTL.getCountBadgeCallback = (count: number) => {
+			countRTL.getCounterCallback = (count: number) => {
 				return `${count} محدد`; // "selected" in Arabic
 			};
 		}
@@ -249,7 +249,7 @@
 		</ShowcaseSection>
 
 		<ShowcaseSection
-			titleText="RTL04 RTL Pills Positions"
+			titleText="RTL04 RTL Badges Positions"
 			subtitleText="Logical position mirroring (left↔right)"
 			demoColumnTitle="Live Demo"
 			controlsColumnTitle="Try It"
@@ -264,7 +264,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-position="top"
+						badges-position="top"
 						search-placeholder="...بحث"
 					></web-multiselect>
 				</div>
@@ -277,7 +277,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-position="bottom"
+						badges-position="bottom"
 						search-placeholder="...בחיפוש"
 					></web-multiselect>
 				</div>
@@ -290,7 +290,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-position="left"
+						badges-position="left"
 						search-placeholder="...بحث"
 					></web-multiselect>
 				</div>
@@ -303,7 +303,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-position="right"
+						badges-position="right"
 						search-placeholder="...בחיפוש"
 					></web-multiselect>
 				</div>
@@ -345,7 +345,7 @@
 						value-member="value"
 						display-value-member="label"
 						icon-member="icon"
-						pills-display-mode="count"
+						badges-display-mode="count"
 						show-counter="true"
 						search-placeholder="...بحث"
 					></web-multiselect>
@@ -370,7 +370,7 @@
 				<div class="prose small">
 					<h5>Count Display RTL</h5>
 					<p>Badge and count text properly positioned for RTL.</p>
-					<p>Use <code>getCountBadgeCallback</code> for RTL text.</p>
+					<p>Use <code>getCounterCallback</code> for RTL text.</p>
 				</div>
 			{/snippet}
 		</ShowcaseSection>

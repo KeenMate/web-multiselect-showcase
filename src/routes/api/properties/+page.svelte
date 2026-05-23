@@ -462,8 +462,8 @@
 
 		<!-- Initial Values -->
 		<section class="mb-5">
-			<h2 class="mb-4">Initial Values</h2>
-			<p class="lead">Set default selected values:</p>
+			<h2 class="mb-4">Declarative Data & Initial Values</h2>
+			<p class="lead">Provide options and default selections declaratively (useful for server-rendered pages or environments where you can't run JS to assign properties):</p>
 
 			<div class="table-responsive">
 				<table class="table table-bordered">
@@ -477,10 +477,16 @@
 					</thead>
 					<tbody>
 						<tr>
+							<td><code>data-options</code></td>
+							<td>string (JSON array)</td>
+							<td>-</td>
+							<td>Options as a JSON array (e.g., <code>{`'[{"value":1,"label":"One"}]'`}</code>). The JS <code>.options</code> property takes precedence if both are set. Reconciles with <code>initial-values</code> at init and on later option changes. <em>Added in v1.10.0.</em></td>
+						</tr>
+						<tr>
 							<td><code>initial-values</code></td>
 							<td>string (JSON array)</td>
 							<td>-</td>
-							<td>Initial selected values as JSON array (e.g., '[1,2,3]')</td>
+							<td>Initial selected values as a JSON array (e.g., <code>'[1,2,3]'</code>). Re-resolved whenever the options change, so it works even if options arrive after init.</td>
 						</tr>
 					</tbody>
 				</table>
@@ -492,7 +498,7 @@
 			<h3 class="h5 mb-3">💡 Usage Tips</h3>
 			<ul class="mb-0">
 				<li><strong>Boolean Attributes:</strong> Set to "false" to disable (e.g., <code>multiple="false"</code>)</li>
-				<li><strong>Kebab-case:</strong> All attributes use kebab-case in HTML (e.g., <code>pills-display-mode</code>)</li>
+				<li><strong>Kebab-case:</strong> All attributes use kebab-case in HTML (e.g., <code>badges-display-mode</code>)</li>
 				<li><strong>Member vs Callback:</strong> Use member attributes for simple property mapping, callbacks for complex logic</li>
 				<li><strong>Initial Values:</strong> Must be valid JSON array when using <code>initial-values</code> attribute</li>
 				<li><strong>CSS Values:</strong> Sizing attributes accept any valid CSS unit (px, rem, em, %, etc.)</li>

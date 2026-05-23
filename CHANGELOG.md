@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **Eliminated drift between showcase and `@keenmate/web-multiselect` v1.10.0 API**
+  - `pills-*` attributes renamed to `badges-*` (the rename landed in library v1.8.0 but several pages still used the old names) — covers `pills-position`, `pills-threshold`, `pills-threshold-mode`, `pills-display-mode` in `features/rtl`, `features/virtual-scrolling`, `features/display-modes`, and `api/properties` (the tip example)
+  - Callback renames (library v1.6.0): `getCountBadgeCallback` → `getCounterCallback`; `renderSelectionBadgeContentCallback` → `renderSelectedItemContentCallback`; `getSelectionBadgeClassCallback` → `getSelectedItemClassCallback`. Affected `features/rtl`, `features/display-modes`, `features/virtual-scrolling`
+  - Homepage form snippet: `form-value-format` → `value-format` (correct attribute name) and removed non-existent `allow-select-all` / `allow-clear-all` attributes; also fixed the JS selector from `document.querySelector('multi-select')` to `'web-multiselect'`
+  - Virtual-scrolling demo: removed non-existent `show-select-all="true"` attribute; fixed `placeholder` → `search-placeholder`
+  - Section title labels: `DM07/DM08 Pills Position` → `Badges Position`, `DM09 Pills Threshold` → `Badges Threshold`, `RTL04 RTL Pills Positions` → `RTL Badges Positions`
+
+### Changed
+- **Removed `CS01 Input Size` section** from `features/custom-styling` — the `input-size` attribute was removed in library v1.5.0 and replaced by `--ms-rem` scaling. Renumbered remaining sections: `CS02 → CS01` (`--ms-rem` scaling), `CS03 → CS02` (fine-grained control), `CS04 → CS03` (theming), `CS05 → CS04` (variables reference). Page overview and "Quick Reference" table updated to match
+- **Replaced the v1.8.0 breaking-change alert** in custom-styling with a v1.10.0 "What's new" block pointing to `THEMING.md`, the SVG X icon mask approach, and the three new `--ms-*-icon-size` variables
+- **`EXAMPLES.md`**: All `/examples/*` quick-lookup links updated to the actual `/features/*` route paths; CS-prefix table updated to reflect the renumbered sections
+- **`api/properties` page**: "Initial Values" section renamed to "Declarative Data & Initial Values" and now documents the new `data-options` attribute added in library v1.10.0 alongside `initial-values`
+
 ### Security
 - **Cleared `npm audit` to 0 vulnerabilities** by bumping direct deps and tightening the `overrides` block
   - `@sveltejs/kit` `^2.58.0` → `^2.61.0` (GHSA-hgv7-v322-mmgr: `query.batch` cross-talk)

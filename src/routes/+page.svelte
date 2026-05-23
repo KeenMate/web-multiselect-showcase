@@ -180,18 +180,16 @@ import '@keenmate/web-multiselect/dist/style.css';`}
 <form>
   <web-multiselect
     name="technologies"
-    form-value-format="json"
+    value-format="json"
     value-member="id"
     display-value-member="name"
     search-placeholder="Search..."
-    allow-select-all="true"
-    allow-clear-all="true"
   ></web-multiselect>
   <button type="submit">Submit</button>
 </form>
 
 <script>
-  const select = document.querySelector('multi-select');
+  const select = document.querySelector('web-multiselect');
   select.searchCallback = async (term) => {
     const res = await fetch(\`/api/search?q=\${term}\`);
     return await res.json();

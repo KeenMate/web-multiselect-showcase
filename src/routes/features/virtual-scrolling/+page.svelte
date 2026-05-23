@@ -146,7 +146,7 @@
 			};
 
 			// Rich rendering for selected items popover
-			richVirtualSelect.renderSelectionBadgeContentCallback = (item: any) => {
+			richVirtualSelect.renderSelectedItemContentCallback = (item: any) => {
 				const priorityIcons: any = { urgent: '🚨', important: '⚠️', normal: '📋', low: '📝' };
 				const stars = '★'.repeat(Math.floor(item.rating));
 				const emptyStars = '☆'.repeat(5 - Math.floor(item.rating));
@@ -168,7 +168,7 @@
 			};
 
 			// Priority-based CSS classes
-			richVirtualSelect.getSelectionBadgeClassCallback = (item: any) => {
+			richVirtualSelect.getSelectedItemClassCallback = (item: any) => {
 				return `product-${item.priority}`;
 			};
 
@@ -242,9 +242,8 @@
 				<label class="form-label">Search 15,000 options (filter mode)</label>
 				<web-multiselect
 					bind:this={virtualScrollSelect}
-					placeholder="Search 15,000 options..."
+					search-placeholder="Search 15,000 options..."
 					search-mode="filter"
-					show-select-all="true"
 					max-height="400px"
 					value-member="value"
 					display-value-member="label"
@@ -253,8 +252,8 @@
 					option-height="50"
 					badge-height="36"
 					virtual-scroll-buffer="10"
-					pills-threshold="4"
-					pills-threshold-mode="count"
+					badges-threshold="4"
+					badges-threshold-mode="count"
 					show-counter="true"
 					enable-badge-tooltips="true">
 				</web-multiselect>
@@ -274,8 +273,8 @@
   virtual-scroll-buffer="10"
   search-mode="filter"
   max-height="400px"
-  pills-threshold="4"
-  pills-threshold-mode="count"
+  badges-threshold="4"
+  badges-threshold-mode="count"
   show-counter="true">
 </web-multiselect>
 
@@ -329,8 +328,8 @@ select.options = options;
 
 				<h5>Popover Virtual Scroll (Selected Items)</h5>
 				<ul>
-					<li><code>pills-threshold="4"</code>: Shows counter at 4+ selections</li>
-					<li><code>pills-threshold-mode="count"</code>: Uses count mode (required)</li>
+					<li><code>badges-threshold="4"</code>: Shows counter at 4+ selections</li>
+					<li><code>badges-threshold-mode="count"</code>: Uses count mode (required)</li>
 					<li><code>show-counter="true"</code>: Enables clickable badge</li>
 					<li><code>badge-height="36"</code>: Height per pill in px (default: 36)</li>
 					<li>Popover activates virtual scroll automatically at 100+ selections</li>
@@ -363,8 +362,8 @@ select.options = options;
 					placeholder="Select products..."
 					option-height="120"
 					badge-height="65"
-					pills-threshold="3"
-					pills-threshold-mode="count"
+					badges-threshold="3"
+					badges-threshold-mode="count"
 					show-counter="true"
 					enable-virtual-scroll="true"
 					virtual-scroll-threshold="100"
@@ -401,15 +400,15 @@ select.options = options;
 				<h5>Key Callbacks Used</h5>
 				<p><code>renderOptionContentCallback</code> - Custom HTML for dropdown options</p>
 				<p><code>renderBadgeContentCallback</code> - Simple text for main badges</p>
-				<p><code>renderSelectionBadgeContentCallback</code> - Rich HTML for popover badges</p>
-				<p><code>getSelectionBadgeClassCallback</code> - CSS classes for priority styling</p>
+				<p><code>renderSelectedItemContentCallback</code> - Rich HTML for popover badges</p>
+				<p><code>getSelectedItemClassCallback</code> - CSS classes for priority styling</p>
 				<p><code>customStylesCallback</code> - Inject custom CSS variables</p>
 
 				<h5 class="mt-3">Configuration</h5>
 				<ul class="small">
 					<li><code>option-height="90"</code> - Taller options for rich content with description</li>
 					<li><code>badge-height="65"</code> - Taller badges in popover for multi-line content</li>
-					<li><code>pills-threshold="3"</code> - Show counter at 3+ items</li>
+					<li><code>badges-threshold="3"</code> - Show counter at 3+ items</li>
 					<li><code>virtual-scroll-threshold="100"</code> - Virtual scroll at 100+ items</li>
 				</ul>
 			</div>
@@ -562,8 +561,8 @@ select.searchCallback = async (term) => {
   placeholder="Select products..."
   option-height="90"
   badge-height="65"
-  pills-threshold="3"
-  pills-threshold-mode="count"
+  badges-threshold="3"
+  badges-threshold-mode="count"
   show-counter="true"
   enable-virtual-scroll="true"
   virtual-scroll-threshold="100">
@@ -658,7 +657,7 @@ select.renderBadgeContentCallback = (item) => {
 			<h4 class="mb-3">Popover Rendering & Styling</h4>
 			<CodeBlock
 				codeContent={`// Rich rendering for popover badges with description
-select.renderSelectionBadgeContentCallback = (item) => {
+select.renderSelectedItemContentCallback = (item) => {
   const icons = { urgent: '🚨', important: '⚠️', normal: '📋', low: '📝' };
   const stars = '★'.repeat(Math.floor(item.rating));
   const emptyStars = '☆'.repeat(5 - Math.floor(item.rating));
@@ -692,7 +691,7 @@ select.renderSelectionBadgeContentCallback = (item) => {
 };
 
 // Dynamic CSS classes based on priority
-select.getSelectionBadgeClassCallback = (item) => {
+select.getSelectedItemClassCallback = (item) => {
   return \`product-\${item.priority}\`;
 };
 
