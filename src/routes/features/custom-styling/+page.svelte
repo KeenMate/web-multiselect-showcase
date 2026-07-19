@@ -116,6 +116,14 @@
 				<li>Component-scoped themes - Apply a class with overrides for a single instance</li>
 			</ul>
 			<div class="alert alert-info">
+				<strong>New in v1.11.0:</strong>
+				<ul class="mb-0 mt-2">
+					<li><strong>Automatic OS-aware dark mode.</strong> Every <code>--base-*</code> color default now resolves through the CSS <code>light-dark()</code> function. When your page (or any ancestor) declares <code>color-scheme: dark</code>, the multiselect adopts readable dark defaults on its own — no need to enumerate the ~15 variable overrides shown in the custom dark theme below. Explicit <code>--ms-*</code> overrides still win when you want a bespoke palette.</li>
+					<li><strong>Sturdier dropdown positioning.</strong> The dropdown no longer drifts sideways when an option is wider than the input, and it stays anchored inside layouts whose ancestors use <code>container-type</code> / <code>contain</code> (common in app shells). A one-time <code>console.warn</code> now names the culprit element if a containing-block property still forces drift, with an actionable fix.</li>
+					<li><strong><code>--base-*</code> theming taxonomy realigned.</strong> If you theme via the shared <code>--base-*</code> hooks, <code>--base-primary-bg</code> → <code>--base-hover-bg</code> and <code>--base-primary-bg-hover</code> → <code>--base-active-bg</code>. The <code>--ms-*</code> variables used throughout this page are unaffected.</li>
+				</ul>
+			</div>
+			<div class="alert alert-info">
 				<strong>New in v1.10.0:</strong>
 				<ul class="mb-0 mt-2">
 					<li>See <a href="https://github.com/keenmate/web-multiselect/blob/main/THEMING.md" target="_blank" rel="noopener"><code>THEMING.md</code></a> for the complete state-by-state theming reference (every <code>.ms__*</code> class, every <code>--ms-*</code> variable, every interactive state).</li>
@@ -413,6 +421,7 @@ web-multiselect.custom-readable {
 						icon-member="icon"
 						search-placeholder="Dark theme..."></web-multiselect>
 					<small class="text-muted">Fully customized dark appearance</small>
+					<small class="text-muted d-block mt-1">Since v1.11.0, a page-level <code>color-scheme: dark</code> gives you readable dark defaults automatically — reach for a full override like this only when you want a bespoke palette.</small>
 				</div>
 			{/snippet}
 

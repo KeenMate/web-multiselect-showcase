@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Updated `@keenmate/web-multiselect` to `^1.11.0`** (from `^1.10.0`). The navbar version badge auto-derives from the installed package, so it now reads `v1.11.0`.
+  - **Automatic OS-aware dark mode** — the library's `--base-*` color defaults now resolve via CSS `light-dark()`. A page-level `color-scheme: dark` yields readable dark defaults with zero `--ms-*` overrides. Documented in `features/custom-styling` via a new "New in v1.11.0" callout and a note on the custom dark-theme demo (manual full overrides are now opt-in, not required for basic dark support).
+  - **Dropdown positioning hardened** (library-internal, no showcase code change) — fixes sideways drift when an option is wider than the input, and mis-anchoring when an ancestor uses `container-type` / `contain`; a one-time `console.warn` now names the culprit element when a containing-block property still forces drift.
+  - **`--base-*` theming taxonomy realigned** in the library (`--base-primary-bg` → `--base-hover-bg`, `--base-primary-bg-hover` → `--base-active-bg`). The showcase does not override these hooks (it themes via `--ms-*`), so no page changes were required; the migration note is surfaced in `features/custom-styling` for consumers who do.
+
 ### Fixed
 - **Eliminated drift between showcase and `@keenmate/web-multiselect` v1.10.0 API**
   - `pills-*` attributes renamed to `badges-*` (the rename landed in library v1.8.0 but several pages still used the old names) — covers `pills-position`, `pills-threshold`, `pills-threshold-mode`, `pills-display-mode` in `features/rtl`, `features/virtual-scrolling`, `features/display-modes`, and `api/properties` (the tip example)
